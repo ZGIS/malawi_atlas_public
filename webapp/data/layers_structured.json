@@ -1,0 +1,366 @@
+{
+  "MalawiAtlasLayers": {
+    "thematicGroups": {
+      "MALAWI_HAZARD": "Malawi Hazard Map expert based",
+      "LINTHIPE_LINGADZI": "Linthipe/Lingadzi Study",
+      "SALIMA_DISASTER": "Salima Disaster Risk Reduction",
+      "SALIMA_VULERNABILITY": "Salima Vulnerability to floods",
+      "SALIMA_RESILIENCE": "Salima Resilience to food insecurity"
+    },
+    "parentGroups": [{
+        "parentGroupName": "Malawi Hazard Map",
+        "groups": [{
+            "groupName": "National Hazards - Expert based",
+            "layers": [{
+                "title": "Droughts",
+                "dataqtip": "",
+                "name": "malawi_hazard_prone_areas_droughts",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 60
+              },
+              {
+                "title": "Landslides",
+                "dataqtip": "",
+                "name": "malawi_hazard_prone_areas_landslides",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Wildfires",
+                "dataqtip": "",
+                "name": "malawi_hazard_prone_areas_wildfires",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Floods",
+                "dataqtip": "",
+                "name": "malawi_hazard_prone_areas_floods",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Earthquakes",
+                "dataqtip": "",
+                "name": "malawi_hazard_prone_areas_earthquakes",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Administrative Data",
+            "layers": [{
+                "title": "International borders",
+                "dataqtip": "",
+                "name": "mwnatborderline_wgs84",
+                "thematicGroup": "MALAWI_HAZARD",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "District boundaries",
+                "dataqtip": "",
+                "name": "districts_mw_wgs84",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Traditional authorities",
+                "dataqtip": "",
+                "name": "ta_data",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Major urban centres (OSM)",
+                "dataqtip": "",
+                "name": "malawi_location_subset_wgs84",
+                "visible": false,
+                "opacity": 100
+              }
+            ]
+          }
+
+        ]
+      },
+      {
+        "parentGroupName": "Linthipe/Lingadzi Study",
+        "groups": [{
+            "groupName": "Land Use/Land Cover analysis",
+            "layers": [{
+                "title": "Change NDVI 1990/2009",
+                "dataqtip": "Normalized Difference Vegetation Index",
+                "name": "malawi_ndvi_change_wgs84",
+                "visible": false,
+                "opacity": 60
+              },
+              {
+                "title": "Change forest 1990/2009",
+                "dataqtip": "",
+                "name": "malawi_forest_change_1990_2009_wgs84",
+                "visible": false,
+                "opacity": 60
+              },
+              {
+                "title": "Land Use/Land Cover 2009",
+                "dataqtip": "",
+                "name": "malawi_lulc_2009_wgs84",
+                "visible": false,
+                "opacity": 60
+              },
+              {
+                "title": "Land Use/Land Cover 1990",
+                "dataqtip": "",
+                "name": "malawi_lulc_1990_wgs84",
+                "thematicGroup": "LINTHIPE_LINGADZI",
+                "visible": true,
+                "opacity": 60
+              }
+            ]
+          },
+          {
+            "groupName": "Flood scenario-model outputs",
+            "layers": [{
+                "title": "Lingadzi - Flood Affected Areas 03/2006",
+                "dataqtip": "",
+                "name": "ldgz_fl_mask_wgs84",
+                "visible": false,
+                "opacity": 60
+              },
+              {
+                "title": "Linthipe - Flood Affected Areas 03/2006",
+                "dataqtip": "",
+                "name": "lint_fl_mask_wgs84",
+                "visible": false,
+                "opacity": 60
+              }
+            ]
+          },
+          {
+            "groupName": "Catchment boundaries",
+            "layers": [{
+                "title": "Lingadzi catchment",
+                "dataqtip": "",
+                "name": "ezg_lingadzi_wgs84",
+                "thematicGroup": "LINTHIPE_LINGADZI",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Linthipe catchment",
+                "dataqtip": "",
+                "name": "ezg_linthipe_wgs84",
+                "thematicGroup": "LINTHIPE_LINGADZI",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Salima Studies",
+        "groups": [{
+            "groupName": "Hazard Scenarios",
+            "layers": [{
+                "title": "Maganga GVH hazards - PGIS exercise",
+                "dataqtip": "",
+                "name": "flood_zones_wgs84",
+                "visible": false,
+                "opacity": 50
+              },
+              {
+                "title": "Kasache GVH hazards - PGIS exercise",
+                "dataqtip": "",
+                "name": "kasachehazard",
+                "visible": false,
+                "opacity": 50
+              }
+            ]
+          },
+          {
+            "groupName": "Vulnerability to floods",
+            "layers": [{
+                "title": "District level",
+                "dataqtip": "",
+                "name": "vara_vu_flood_district_wgs84",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "visible": true,
+                "opacity": 60
+              }, {
+                "parentGroup": "Salima Studies",
+                "group": "Vulnerability to floods",
+                "title": "Piecharts",
+                "dataqtip": "",
+                "name": "vara_vu_flood_district_chart",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "parentGroup": "Salima Studies",
+                "group": "Vulnerability to floods",
+                "title": "GVH level",
+                "dataqtip": "",
+                "name": "vara_vu_flood_gvh_wgs84",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Resilience to food insecurity",
+            "layers": [{
+              "title": "District level",
+              "dataqtip": "",
+              "name": "vara_ra_food_district_wgs84",
+              "thematicGroup": "SALIMA_RESILIENCE",
+              "visible": true,
+              "opacity": 60
+            }]
+          },
+          {
+            "groupName": "Hazard Scenarios",
+            "layers": [{
+                "title": "Floods (DODMA)",
+                "dataqtip": "",
+                "name": "hazards_districts_salima_dodma",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "COOPI (PGIS 2013)",
+                "dataqtip": "",
+                "name": "hazard_zones",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Floods (Irrigation & Water Development)",
+                "dataqtip": "",
+                "name": "hazards_districts_salima_irrigation_and_water_development",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Floods (Forestry Department)",
+                "dataqtip": "",
+                "name": "hazards_districts_salima_forestry_department",
+                "visible": false,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Resilience to food insecurity",
+            "layers": [{
+                "title": "Piecharts",
+                "dataqtip": "",
+                "name": "vara_ra_food_district_chart",
+                "thematicGroup": "SALIMA_RESILIENCE",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "GVH level",
+                "dataqtip": "",
+                "name": "vara_ra_food_gvh_wgs84",
+                "thematicGroup": "SALIMA_RESILIENCE",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Villages",
+            "layers": [{
+                "title": "Village population 2010",
+                "dataqtip": "",
+                "name": "village_pop",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Village infrastructures",
+                "dataqtip": "",
+                "name": "village_infrastructures",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Villages (Traditional authorities)",
+                "dataqtip": "",
+                "name": "village_vh_house",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Disaster Risk Reduction",
+            "layers": [{
+                "title": "Civil Protection Committees",
+                "dataqtip": "",
+                "name": "capacity_building_salima",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "River Gauge levels",
+                "dataqtip": "",
+                "name": "ews_rivergauge",
+                "visible": false,
+                "opacity": 100
+              },
+              {
+                "title": "Early warning systems",
+                "dataqtip": "",
+                "name": "ews_salima_wgs84",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "DRR infrastructures",
+                "dataqtip": "",
+                "name": "infrastructures_salima",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              }
+            ]
+          },
+          {
+            "groupName": "Health",
+            "layers": [{
+                "title": "Health Facilities",
+                "dataqtip": "",
+                "name": "health_salima",
+                "thematicGroup": "SALIMA_DISASTER",
+                "visible": true,
+                "opacity": 100
+              },
+              {
+                "title": "Village Clinic Stockouts",
+                "dataqtip": "days of stockouts in the last 6 months",
+                "name": "drugstock",
+                "visible": false,
+                "opacity": 100
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

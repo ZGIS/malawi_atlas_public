@@ -1,0 +1,39 @@
+parent-group;group;idx;subidx;title;data-qtip;name;visible;opacity
+Malawi Hazard Map;National Hazards - Expert based;1;1;Droughts;;malawi_hazard_prone_areas_droughts;true;60
+Malawi Hazard Map;National Hazards - Expert based;1;1;Landslides;;malawi_hazard_prone_areas_landslides;true;100
+Malawi Hazard Map;National Hazards - Expert based;1;1;Wildfires;;malawi_hazard_prone_areas_wildfires;true;100
+Malawi Hazard Map;National Hazards - Expert based;1;1;Floods;;malawi_hazard_prone_areas_floods;true;100
+Malawi Hazard Map;National Hazards - Expert based;1;1;Earthquakes;;malawi_hazard_prone_areas_earthquakes;true;100
+Malawi Hazard Map;Administrative Data;1;1;International borders;;mwnatborderline_wgs84;true;100
+Malawi Hazard Map;Administrative Data;1;1;District boundaries;;districts_mw_wgs84;false;100
+Malawi Hazard Map;Administrative Data;1;1;Traditional authorities;;ta_data;false;100
+Malawi Hazard Map;Administrative Data;1;1;Major urban centres (OSM);;malawi_location_subset_wgs84;false;100
+Linthipe/Lingadzi Study;Land Use/Land Cover analysis;2;1;Change NDVI 1990/2009;Normalized Difference Vegetation Index;malawi_ndvi_change_wgs84;false;60
+Linthipe/Lingadzi Study;Land Use/Land Cover analysis;2;1;Change forest 1990/2009;;malawi_forest_change_1990_2009_wgs84;false;60
+Linthipe/Lingadzi Study;Land Use/Land Cover analysis;2;1;Land Use/Land Cover 2009;;malawi_lulc_2009_wgs84;false;60
+Linthipe/Lingadzi Study;Land Use/Land Cover analysis;2;1;Land Use/Land Cover 1990;;malawi_lulc_1990_wgs84;true;60
+Linthipe/Lingadzi Study;Flood scenario-model outputs;2;1;Lingadzi - Flood Affected Areas 03/2006;;ldgz_fl_mask_wgs84;false;60
+Linthipe/Lingadzi Study;Flood scenario-model outputs;2;1;Linthipe - Flood Affected Areas 03/2006;;lint_fl_mask_wgs84;false;60
+Linthipe/Lingadzi Study;Catchment boundaries;2;1;Lingadzi catchment;;ezg_lingadzi_wgs84;true;100
+Linthipe/Lingadzi Study;Catchment boundaries;2;1;Linthipe catchment;;ezg_linthipe_wgs84;true;100
+Salima Studies;Hazard Scenarios;3;1;Maganga GVH hazards - PGIS exercise;;flood_zones_wgs84;false;50
+Salima Studies;Hazard Scenarios;3;1;Kasache GVH hazards - PGIS exercise;;kasachehazard;false;50
+Salima Studies;Vulnerability to floods;3;2;District level;;vara_vu_flood_district_wgs84;true;60
+Salima Studies;Resilience to food insecurity;3;3;District level;;vara_ra_food_district_wgs84;true;60
+Salima Studies;Hazard Scenarios;3;1;Floods (DODMA);;hazards_districts_salima_dodma;false;100
+Salima Studies;Hazard Scenarios;3;1;COOPI (PGIS 2013);;hazard_zones;true;100
+Salima Studies;Hazard Scenarios;3;1;Floods (Irrigation & Water Development);;hazards_districts_salima_irrigation_and_water_development;false;100
+Salima Studies;Hazard Scenarios;3;1;Floods (Forestry Department);;hazards_districts_salima_forestry_department;false;100
+Salima Studies;Vulnerability to floods;3;2;Piecharts;;vara_vu_flood_district_chart;true;100
+Salima Studies;Vulnerability to floods;3;2;GVH level;;vara_vu_flood_gvh_wgs84;true;100
+Salima Studies;Resilience to food insecurity;3;3;Piecharts;;vara_ra_food_district_chart;true;100
+Salima Studies;Resilience to food insecurity;3;3;GVH level;;vara_ra_food_gvh_wgs84;true;100
+Salima Studies;Villages;3;1;Village population 2010;;village_pop;false;100
+Salima Studies;Villages;3;1;Village infrastructures;;village_infrastructures;false;100
+Salima Studies;Disaster Risk Reduction;3;1;Civil Protection Committees;;capacity_building_salima;true;100
+Salima Studies;Disaster Risk Reduction;3;1;River Gauge levels;;ews_rivergauge;false;100
+Salima Studies;Disaster Risk Reduction;3;1;Early warning systems;;ews_salima_wgs84;true;100
+Salima Studies;Disaster Risk Reduction;3;1;DRR infrastructures;;infrastructures_salima;true;100
+Salima Studies;Health;3;1;Health Facilities;;health_salima;true;100
+Salima Studies;Health;3;1;Village Clinic Stockouts;days of stockouts in the last 6 months;drugstock;false;100
+Salima Studies;Villages;3;1;Villages (Traditional authorities);;village_vh_house;true;100

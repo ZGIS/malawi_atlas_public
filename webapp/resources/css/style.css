@@ -1,0 +1,21 @@
+.ol-scale-line {
+  position: absolute;
+  top: 10px;
+  bottom: auto;
+  left: 40px;
+}
+
+#satellite-button {
+  right: 10px;
+  top: 10px;
+}
+
+#label-button {
+  right: 10px;
+  top: 40px;
+}
+
+#app-main-1009_header-title-textEl {
+    font-size: 22px;
+    font-weight: bold;
+}
