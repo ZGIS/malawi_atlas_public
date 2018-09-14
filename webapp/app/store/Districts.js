@@ -6,7 +6,7 @@ Ext.define('MalawiAtlas.store.Districts', {
 
   proxy: {
     type: 'ajax',
-    url: 'http://isi.zgis.at/geoserver/malawi/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=malawi:malawi_district&outputFormat=application%2Fjson',
+    url: 'http://isi.zgis.at/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=malawi:malawi_district&outputFormat=application%2Fjson',
 
     reader: {
       type: 'json',

@@ -5,12 +5,6 @@ Ext.define('MalawiAtlas.view.layer.Legend', {
   extend: 'Ext.panel.Panel',
   xtype: 'ma-legend',
 
-  requires: [
-    'MalawiAtlas.controller.layer.LegendController',
-  ],
-
-  controller: 'main-legend',
-  scrollable: 'y',
   items: [],
   initComponent: function() {
     var me = this;
@@ -59,7 +53,6 @@ Ext.define('MalawiAtlas.view.layer.Legend', {
     me.callParent();
   },
 
-  // TODO:  move to controller
   addLegendItems: function(layer) {
     var me = this;
 

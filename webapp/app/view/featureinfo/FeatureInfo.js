@@ -12,6 +12,10 @@ Ext.define('MalawiAtlas.view.featureinfo.FeatureInfo', {
   height: 500,
   scrollable: 'vertical',
 
+  defaults: {
+    padding: 10
+  },
+  
   hidden: true,
 
   // panel shall not be destroyed on close

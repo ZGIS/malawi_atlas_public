@@ -1,21 +1,77 @@
 .ol-scale-line {
+  background-color: rgba(118, 157, 189, 0.7);
+  bottom: 10px;
+  left: 10px;
   position: absolute;
-  top: 10px;
+  top: auto;
+}
+
+.ol-control button {
+  background-color: rgba(118, 157, 189, 0.7) !important;
+}
+
+.ol-control button:hover {
+  background-color: rgba(118, 157, 189, 0.4) !important;
+}
+
+#basemap-button {
+  left: 50px;
+  top: 15px;
+}
+
+.gx-popup {
+  position: absolute;
+  background-color: transparent;
+  padding: 0 0 15px 0;
+  bottom: 0;
+  left: -50px;
+  background-image: url(../../resources/images/anchor.png);
+  background-repeat: no-repeat;
+  background-position: 34px 100%;
+}
+
+.gx-popup p {
+  padding: 5px 5px 0 5px;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 3px solid white;
+  margin: 0;
+  text-align: center;
+}
+
+.ol-overviewmap {
+  bottom: 15px;
+  right: auto;
+  left: 30px;
+}
+
+.ol-overviewmap, .ol-overviewmap.ol-uncollapsible {
+  top: 15px;
+  left: auto;
+  right: 10px;
   bottom: auto;
-  left: 40px;
 }
 
-#satellite-button {
-  right: 10px;
-  top: 10px;
+.ol-overviewmap:not(.ol-collapsed) {
+  border: 1px solid black;
 }
 
-#label-button {
-  right: 10px;
-  top: 40px;
+.ol-overviewmap .ol-overviewmap-map {
+  border: none;
+  width: 300px;
 }
 
-#app-main-1009_header-title-textEl {
-    font-size: 22px;
-    font-weight: bold;
+.ol-overviewmap .ol-overviewmap-box {
+  border: 2px solid red;
+}
+
+.ol-overviewmap:not(.ol-collapsed) button {
+  bottom: auto;
+  left: auto;
+  right: 1px;
+  top: 1px;
+}
+
+.ma-zoom-malawi {
+  background-image: url(../images/country.png) !important;
 }

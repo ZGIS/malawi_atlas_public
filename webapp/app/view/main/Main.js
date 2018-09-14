@@ -16,96 +16,208 @@ Ext.define('MalawiAtlas.view.main.Main', {
 
   layout: 'border',
 
-  defaults: {
-    bodyPadding: 5
-  },
+  items: [{
+      region: 'north',
+      frame: false,
+      tbar: {
+        defaults: {
+          scale: 'medium'
+        },
+        items: [{
+            xtype: 'image',
+            src: 'resources/images/heading.png',
+            // resize image
+            width: 787 / 4,
+            height: 100 / 4,
+            listeners: {
+              el: {
+                click: function() {
+                  location.reload();
+                }
+              }
+            }
+          },
+          '->',
+          {
+            xtype: 'ma-thematic-group-combobox',
+          },
+          {
+            xtype: 'button',
+            text: 'Measure',
+            requires: [
+              'MalawiAtlas.controller.map.MeasureButtonController'
+            ],
+            controller: 'measureButton',
+            iconCls: 'x-fa fa-arrows-h',
+            menu: new Ext.menu.Menu({
+              items: [{
+                  iconCls: 'x-fa fa-square-o',
+                  text: 'Area',
+                  measureType: 'Polygon',
+                  listeners: {
+                    click: 'onMeasureClick'
+                  }
+                },
+                {
+                  iconCls: 'x-fa fa-arrows-h',
+                  text: 'Distance',
+                  measureType: 'LineString',
+                  listeners: {
+                    click: 'onMeasureClick'
+                  }
+                }
+              ]
+            })
+          },
+          {
+            xtype: 'button',
+            text: 'Print',
+            iconCls: 'x-fa fa-print',
+            menu: new Ext.menu.Menu({
+              items: [{
+                xtype: 'ma-print-form'
+              }]
+            })
+          },
+          {
+            xtype: 'button',
+            text: 'Zoom',
+            iconCls: 'x-fa fa-search',
+            menu: new Ext.menu.Menu({
+              referenceHolder: true,
+              viewModel: true,
+              items: [{
+                  text: 'Malawi',
+                  iconCls: 'ma-zoom-malawi',
+                  listeners: {
+                    click: function() {
+                      MalawiAtlas.util.Map.zoomToExtent([3650738, -1945482, 4053741, -1032934]);
+                    }
+                  }
+                },
+                '-', {
+                  xtype: 'combobox',
+                  id: 'district_id',
+                  reference: 'districts',
+                  emptyText: 'District',
+                  displayField: 'districtName',
+                  publishes: 'value',
+                  valueField: 'districtName',
+                  store: {
+                    type: 'districts'
+                  },
+                  minChars: 0,
+                  queryMode: 'remote',
+                  typeAhead: true,
+                  listeners: {
+                    'select': 'comboZoomToExtent'
+                  },
+                  indent: false
+                },
+                {
+                  xtype: 'combobox',
+                  id: 'ta_id',
+                  reference: 'traditionalauthorities',
+                  emptyText: 'Traditional Authorities',
+                  displayField: 'taName',
+                  forceSelection: true,
+                  bind: {
+                    filters: {
+                      property: 'districtName',
+                      value: '{districts.value}'
+                    }
+                  },
+                  store: {
+                    type: 'traditionalauthorities'
+                  },
+                  minChars: 0,
+                  queryMode: 'remote',
+                  typeAhead: true,
+                  listeners: {
+                    'select': 'comboZoomToExtent'
+                  },
+                  indent: false
+                }
+              ]
+            })
+          }, {
+            text: 'Reports',
+            iconCls: 'x-fa fa-file',
+            menu: {
+              items: [{
+                  text: 'Resilience Assessment to food insecurity - Salima',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/Report_RA_Salima_20140327.pdf', '_blank'
+                      );
+                    }
+                  }
+                },
+                {
+                  text: 'Vulnerability Assessment to floods - Salima',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/Report_VA_Salima_20140327.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            xtype: 'button',
+            iconCls: 'x-fa fa-question-circle',
+            menu: new Ext.menu.Menu({
+              items: [
 
-  header: {
-    height: 50,
-
-    title: "Malawi Atlas",
-
-    defaults: {
-      margin: '0 10 0 0'
+                {
+                  text: 'Source Code',
+                  iconCls: 'x-fa fa-code',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'https://github.com/zgis/malawi_atlas_public', '_blank'
+                      );
+                    }
+                  }
+                }
+              ]
+            })
+          },
+          {
+            xtype: 'image',
+            src: 'resources/images/logo_malawi_government.png',
+            width: 40,
+            height: 40
+          }
+        ]
+      },
     },
 
-    items: [{
-        xtype: 'button',
-        text: 'Source Code',
-        scale: 'small',
-        iconCls: 'x-fa fa-github',
-        handler: function() {
-          window.open(
-            'https://github.com/zgis/malawi_atlas_public', '_blank'
-          );
-        }
-      },
-      {
-        xtype: 'image',
-        src: 'resources/images/logo_gi4drr.jpg',
-        width: 180,
-        height: 40
-      },
-      {
-        xtype: 'image',
-        src: 'resources/images/logo_malawi_government.png',
-        width: 40,
-        height: 40
-      }
-    ]
-  },
-
-  items: [{
-      id: 'middle-column',
+    // map
+    {
       region: 'center',
       xtype: 'panel',
-      layout: {
-        type: 'vbox',
-        pack: 'start',
-        align: 'stretch'
-      },
-
-      defaults: {
-        frame: false
-      },
+      layout: 'absolute',
+      frame: true,
+      flex: 1,
       items: [{
-          xtype: 'toolbar',
-          items: [{
-              xtype: 'ma-map-measuretool',
-              collapsible: false,
-              margin: '0 0 10 0',
-            },
-            '-',
-            {
-              xtype: 'button',
-              text: 'Print',
-              scale: 'small',
-              iconCls: 'x-fa fa-print',
-              handler: 'onPrintButton'
-            }
-          ]
-        },
-        {
-          itemId: 'map-container',
-          id: 'map-panel',
-          layout: 'absolute',
-          flex: 1,
-
-          items: [{
-            xtype: 'ma-mappanel',
-            anchor: '100% 100%'
-          }, {
-            xtype: 'ma-satellite-button'
-          }]
-        }
-      ]
+        xtype: 'ma-mappanel',
+        anchor: '100% 100%'
+      }, {
+        xtype: 'ma-basemap-button'
+      }]
     },
 
-    // side-bar
+    // left side-bar
     {
       xtype: 'panel',
       region: 'west',
-      collapsible: false,
       width: 400,
       layout: {
         type: 'vbox',
@@ -113,34 +225,25 @@ Ext.define('MalawiAtlas.view.main.Main', {
         align: 'stretch'
       },
       scrollable: 'y',
-      defaults: {
-        frame: true,
-        bodyPadding: 10,
-        margin: '0 0 10 0 '
-      },
       items: [{
-          xtype: 'ma-map-zoom-to-exent',
-        }, {
-          xtype: 'ma-thematicgrouppanel'
-        }, {
-          xtype: 'ma-layertree',
-        },
-        {
-          xtype: 'ma-feature-info-panel',
-        }
-      ]
+        title: 'Layers',
+
+        xtype: 'ma-layertree',
+        bodyBorder: false
+      }, {
+        xtype: 'ma-feature-info-panel'
+      }]
     },
 
-
-    // legend images
+    // legend
     {
-      xtype: 'ma-legend',
       region: 'east',
       title: 'Legend',
-      collapsible: false,
-      collapsed: false,
       width: 180,
-      frame: true
+      scrollable: 'y',
+      items: [{
+        xtype: 'ma-legend'
+      }]
     }
   ]
 });

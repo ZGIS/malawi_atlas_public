@@ -1,40 +1,23 @@
 /**
- * Button for zooming the map to its maximum (initial) extent.
- *
- * @author C. Mayer, meggsimum
- */
+* @author C. Mayer, meggsimum, Jakob Miksch
+*/
 Ext.define('MalawiAtlas.view.map.MeasureAreaButton', {
   extend: "Ext.button.Button",
-  xtype: 'ma-map-measurearea-button',
+  xtype: 'ma-map-measure-area-button',
   requires: [
     'MalawiAtlas.controller.map.MeasureButtonController'
   ],
 
-  /** */
   controller: 'measureButton',
 
-  /** */
   iconCls: 'x-fa fa-square-o',
 
-  /** */
   text: 'Area',
 
-  /** */
-  pressed: false,
-
-  /** */
-  toggleGroup: 'MEASURE',
-
-  /**
-   * [measureType description]
-   * @type {String}
-   */
   measureType: 'Polygon',
 
-  /**
-   * Listeners bound to our view controller
-   */
   listeners: {
-    toggle: 'onToggle'
+    click: 'onMeasureClick'
   }
+
 });

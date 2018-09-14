@@ -17,24 +17,58 @@ olMap.getLayers().forEach(function(layer) {
   if (layer.get('basemap') == true) baselayers.push(layer);
 });
 
-olMap.addControl(
-  new ol.control.OverviewMap({
-    layers: baselayers,
-    // TODO: if not collapse, map is empty
-    //collapsed: false
-  }));
+olMap.addControl(new ol.control.ScaleLine({
+  minWidth: 120
+}));
 
-olMap.addControl(new ol.control.ScaleLine());
+olMap.addControl(new ol.control.OverviewMap({
+  layers: [
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
+  ]
+}));
 
+var measurePopup = Ext.create('GeoExt.component.Popup', {
+  map: olMap,
+  width: 140
+});
+
+var measureVectorSource = new ol.source.Vector();
+var measureLayer = new ol.layer.Vector({
+  displayInLayerTree: false,
+  measurementLayer: true,
+  source: measureVectorSource,
+  style: new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'rgba(255, 20, 20, 0.2)'
+    }),
+    stroke: new ol.style.Stroke({
+      color: '#ff0033',
+      width: 2,
+      lineDash: [10, 10]
+    }),
+    image: new ol.style.Circle({
+      radius: 7,
+      fill: new ol.style.Fill({
+        color: '#ff0033'
+      })
+    })
+  })
+});
+
+olMap.addLayer(measureLayer);
+measureLayer.setVisible(true);
 
 Ext.define('MalawiAtlas.util.Map', {
 
   singleton: true,
   map: olMap,
 
-  /**
-   * Zooms to extent
-   */
+  measurePopup: measurePopup,
+
+  measureVectorSource: measureVectorSource,
+
   zoomToExtent: function(extent) {
     me = this;
 
@@ -43,14 +77,13 @@ Ext.define('MalawiAtlas.util.Map', {
       duration: 2000,
       nearest: true
     });
-
   },
 
   /**
    * Returns the OpenLayers map object
    */
-  getMap: function() {
-    me = this;
+  getOlMap: function() {
+    var me = this;
     return me.map;
   }
 });

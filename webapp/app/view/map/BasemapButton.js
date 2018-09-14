@@ -2,19 +2,17 @@
 Ext.define('MalawiAtlas.view.map.BasemapButton', {
   extend: 'Ext.button.Button',
 
-  xtype: 'ma-satellite-button',
+  xtype: 'ma-basemap-button',
 
-  itemId: 'satellite-button',
+  id: 'basemap-button',
 
-  id: 'satellite-button',
+  iconCls: 'x-fa fa-globe',
 
   text: "Satellite",
-  // height: 50,
+
   width: 100,
   scale: 'small',
 
   handler: 'onBasemapBtn'
-
-  //TODO: add listener
 
 });

@@ -12,7 +12,6 @@ Ext.define("MalawiAtlas.view.printing.PrintForm", {
 
   controller: 'ma-print-form',
 
-  width: 400,
   height: 200,
   layout: 'fit',
   plain: true,
@@ -34,23 +33,21 @@ Ext.define("MalawiAtlas.view.printing.PrintForm", {
     border: false,
 
     items: [{
-      fieldLabel: 'Map Title',
+      emptyText: 'Map Title',
       name: 'title'
     }, {
       xtype: 'textarea',
-      fieldLabel: 'Comment',
+      emptyText: 'Comment',
       name: 'comment',
       flex: 1
     }]
   }],
   buttons: [{
-      text: 'Cancel',
-      handler: function() {
-        this.up('window').close();
-      }
+      iconCls: 'x-fa fa-refresh',
+      handler: 'resetValues'
     },
     {
-      text: 'Print',
+      iconCls: 'x-fa fa-print',
       handler: 'onPrintSubmit'
     }
   ]

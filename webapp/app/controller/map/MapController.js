@@ -5,10 +5,11 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
 
   infoPanel: null,
 
+  swipeControl: null,
+
   onMapSingleClick: function(evt) {
 
     var me = this;
-
 
     // find top most layer of layerIdSet
     var featureInfoLayer = null;
@@ -64,10 +65,10 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
           })
         })]
       });
-      MalawiAtlas.util.Map.map.addLayer(me.selectionLayer);
+      MalawiAtlas.util.Map.getOlMap().addLayer(me.selectionLayer);
     }
 
-    var view = MalawiAtlas.util.Map.map.getView();
+    var view = MalawiAtlas.util.Map.getOlMap().getView();
     var wmsSource = featureInfoLayer.getSource();
     var url = wmsSource.getGetFeatureInfoUrl(
       coordinate, view.getResolution(), 'EPSG:3857', {
@@ -128,7 +129,13 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
               case 'salima_vulnerability_to_floods_index_2014':
                 me.chartVulnerabilityFloods(properties);
                 break;
+              case 'salima_vulnerability_to_floods_index_2014_chart':
+                me.chartVulnerabilityFloods(properties);
+                break;
               case 'salima_resilience_to_food_insecurity_index_2014':
+                me.chartResilienceFood(properties);
+                break;
+              case 'salima_resilience_to_food_insecurity_index_2014_chart':
                 me.chartResilienceFood(properties);
                 break;
               case 'malawi_population_household_density_2008':
@@ -174,7 +181,6 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
 
     var propertyGrid = Ext.create('Ext.grid.property.Grid', {
       width: 300,
-      renderTo: Ext.getBody(),
       source: properties
     });
     me.infoPanel.insert(0, propertyGrid);
@@ -413,6 +419,55 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
       source: properties
     });
     me.infoPanel.insert(1, propertyGrid);
-  }
+  },
 
+  initLayerSwipeControl: function() {
+    var me = this;
+
+    // get landcover layers
+    var lc1990 = null;
+    var lc2009 = null;
+    MalawiAtlas.util.Layer.getFlatLayerList().forEach(function(layer) {
+      var lid = layer.get('lid');
+      if (lid === 'linthipe_lingadzi_land_use_land_cover_1990') {
+        lc1990 = layer;
+      }
+      if (lid === 'linthipe_lingadzi_land_use_land_cover_2009') {
+        lc2009 = layer;
+      }
+    });
+
+    me.swipeControl = new ol.control.Swipe();
+    // left
+    me.swipeControl.addLayer(lc1990);
+    // right
+    me.swipeControl.addLayer(lc2009, true);
+
+    // add listener to both layers
+    lc1990.on('change:visible', function(evt) {
+      me.toggleSwipe(lc1990, lc2009);
+    });
+    lc2009.on('change:visible', function(evt) {
+      me.toggleSwipe(lc1990, lc2009);
+    });
+  },
+
+  // swipe needs to be activated after map is created
+  afterRender: function() {
+    var me = this;
+    me.initLayerSwipeControl();
+  },
+
+  // activated swipe if both layers are visible
+  toggleSwipe: function(lc1990, lc2009) {
+    var me = this;
+
+    if (lc1990.getVisible() && lc2009.getVisible()) {
+      // both layers are visible
+      MalawiAtlas.util.Map.getOlMap().addControl(me.swipeControl);
+
+    } else {
+      MalawiAtlas.util.Map.getOlMap().removeControl(me.swipeControl);
+    }
+  }
 });

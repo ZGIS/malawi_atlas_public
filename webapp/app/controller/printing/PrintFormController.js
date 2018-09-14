@@ -2,18 +2,28 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.ma-print-form',
 
+  resetValues: function (btn) {
+    var me = this;
+    var form = me.getView().getForm();
+    form.setValues({
+      title: null,
+      comment: null
+    });
+  },
+
   /**
    * Takes the user input and the parameters from the map,
    * builds a JSON and sends it to the print module of GeoServer
    */
   onPrintSubmit: function(btn) {
+    var me = this;
 
     // TODO: handle case of too many layers
     // if the user selects too many layers
     // the map creation crashes
 
     // access values of form
-    var form = this.getView().getForm();
+    var form = me.getView().getForm();
     var values = form.getValues();
 
     // values may be null,
@@ -23,7 +33,7 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
     var comment = values.comment;
 
     // extent of current map view
-    var olView = MalawiAtlas.util.Map.getMap().getView();
+    var olView = MalawiAtlas.util.Map.getOlMap().getView();
     var olExtent = olView.calculateExtent();
 
     // all layers
@@ -74,7 +84,7 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
         {
           "type": "WMS",
           "layers": layerIDs,
-          "baseURL": "http://isi.zgis.at/geoserver/malawi/wms?",
+          "baseURL": "http://isi.zgis.at/geoserver/malawi_atlas/wms?",
           "format": "image/png"
         }
       ],
@@ -104,7 +114,7 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
       pdf_url, '_blank'
     );
 
-    // TODO: close window
-
+    // reset values
+    me.resetValues();
   }
 });

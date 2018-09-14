@@ -7,7 +7,7 @@ Ext.define('MalawiAtlas.controller.main.Main', {
    */
   onBasemapBtn: function(button, e) {
 
-    var olMap = MalawiAtlas.util.Map.getMap();
+    var olMap = MalawiAtlas.util.Map.getOlMap();
 
     var topo;
     var satellite;
@@ -18,11 +18,13 @@ Ext.define('MalawiAtlas.controller.main.Main', {
 
     if (topo.getVisible()) {
       button.setText("Topo");
+      button.setIconCls('x-fa fa-map-o');
       topo.setVisible(false);
       satellite.setVisible(true);
 
     } else {
       button.setText("Satellite");
+      button.setIconCls('x-fa fa-globe');
       topo.setVisible(true);
       satellite.setVisible(false);
     }
@@ -38,27 +40,17 @@ Ext.define('MalawiAtlas.controller.main.Main', {
     var format = new ol.format.GeoJSON({
       featureProjection: 'EPSG:3857'
     });
+
     var geoJsonGeom = format.readGeometry(geometry);
-
     MalawiAtlas.util.Map.zoomToExtent(geoJsonGeom);
-  },
 
-
-
-
-  /**
-   * Opens a window with the print settings
-   */
-  onPrintButton: function(button, e) {
-
-    // create and open a window with a form inside
-    Ext.create('Ext.window.Window', {
-      title: 'Print Settings',
-      closable: true,
-      items: [{
-        xtype: 'ma-print-form'
-      }],
-      x: 235
-    }).show();
+    // delete combobox selection when map is dragged
+    MalawiAtlas.util.Map.getOlMap().on('pointerdrag',
+      function(evt) {
+        Ext.getCmp('ta_id').setValue(null);
+        Ext.getCmp('district_id').setValue(null);
+      }
+    );
   }
+  
 });

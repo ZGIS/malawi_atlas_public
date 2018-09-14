@@ -1,7 +1,6 @@
 Ext.define('MalawiAtlas.view.map.ZoomToExtent', {
   extend: 'Ext.panel.Panel',
   xtype: 'ma-map-zoom-to-exent',
-  title: 'Zoomt to Extent',
 
   requires: [
     'MalawiAtlas.controller.main.Main',
@@ -11,11 +10,12 @@ Ext.define('MalawiAtlas.view.map.ZoomToExtent', {
 
   referenceHolder: true,
   viewModel: true,
-  collapsible: true,
+  layout: 'hbox',
   items: [{
       xtype: 'combobox',
+      id: 'district_id',
       reference: 'districts',
-      fieldLabel: 'District',
+      emptyText: 'District',
       displayField: 'districtName',
       publishes: 'value',
       valueField: 'districtName',
@@ -31,8 +31,9 @@ Ext.define('MalawiAtlas.view.map.ZoomToExtent', {
     },
     {
       xtype: 'combobox',
+      id: 'ta_id',
       reference: 'traditionalauthorities',
-      fieldLabel: 'Traditional Authorities:',
+      emptyText: 'Traditional Authorities',
       displayField: 'taName',
       forceSelection: true,
       bind: {

@@ -1,31 +1,12 @@
 /**
  * View controller for the measure buttons
  *
- * @author C. Mayer, meggsimum
+ * @author C. Mayer, meggsimum, Jakob Miksch
  */
 Ext.define('MalawiAtlas.controller.map.MeasureButtonController', {
   extend: 'Ext.app.ViewController',
 
   alias: 'controller.measureButton',
-
-
-  /**
-   * Linestring or Polygon
-   * @cfg {String}
-   */
-  measureType: null,
-
-  /**
-   * [measureTypePrefix description]
-   * @type {String}
-   */
-  measureTypePrefix: '',
-
-  /**
-   * OL interaction to draw measure sketches
-   * @property {ol.interaction.Draw}
-   */
-  drawInteraction: null,
 
   /**
    * WGS 84 sphere definition to calculate correct distances and areas
@@ -34,80 +15,16 @@ Ext.define('MalawiAtlas.controller.map.MeasureButtonController', {
    */
   wgs84Sphere: new ol.Sphere(6378137),
 
-  /**
-   * Handles the toggling of th measure tools. Disables / enables the
-   * corresponding measure tools.
-   *
-   * @param {'MalawiAtlas.view.map.MeasureAreaButton' |
-   *    'MalawiAtlas.view.map.MeasureDistanceButton'} btn
-   *          The pressed/unpressed button
-   * @param {Boolean} pressed State if button is pressed or unpressed
-   *
-   * @private
-   */
-  onToggle: function(btn, pressed) {
+  onMeasureClick: function(button, e) {
     var me = this;
-    var measBtnGroup = me.getMeasureTool();
 
-    // activate / deactivate the correct measure tool
-    if (pressed === true) {
-      me.measureType = btn.measureType;
-      // get the correct diplay value for result window
-      me.measureTypePrefix =
-        (me.measureType === 'LineString' ? 'Distance: ' : 'Area: ');
-      me.startMeasureInteraction();
-    } else {
-      me.stopMeasureInteraction();
-      // in case we deactivate all measure tools we have to hide the layer
-      // and the result window as well
-      if (!measBtnGroup.hasOnePressedButton()) {
-        measBtnGroup.vectorLayer.setVisible(false);
-        measBtnGroup.resultWin.hide();
-      }
-    }
-  },
+    var measurePopup = MalawiAtlas.util.Map.measurePopup;
+    var measureVectorSource = MalawiAtlas.util.Map.measureVectorSource;
 
-  /**
-   * Returns the measure toolbox.
-   *
-   * @return {'MalawiAtlas.view.map.MeasureTool'} the measure tool button group
-   */
-  getMeasureTool: function() {
-    var me = this;
-    return me.getView().up();
-  },
-
-  /**
-   * Stop / disable measure interaction
-   */
-  stopMeasureInteraction: function() {
-    var me = this;
-    var measBtnGroup = me.getMeasureTool();
-    // cleanup result window
-    measBtnGroup.resultWin.setHtml('');
-    // cleanup old features
-    measBtnGroup.vectorSource.clear();
-    // remove draw tool
-    measBtnGroup.olMap.removeInteraction(me.drawInteraction);
-  },
-
-  /**
-   * Start / enable measure interaction
-   */
-  startMeasureInteraction: function() {
-    var me = this;
-    var sketch;
-    var measBtnGroup = me.getMeasureTool();
-
-    // show the layer and the result window as well
-    measBtnGroup.resultWin.show();
-    measBtnGroup.vectorLayer.setVisible(true);
-
-    // var type = (typeSelect.value == 'area' ? 'Polygon' : 'LineString');
-    var type = me.measureType;
     var draw = new ol.interaction.Draw({
-      source: measBtnGroup.vectorSource,
-      type: type,
+      source: measureVectorSource,
+      type: button.measureType,
+      stopClick: true, // prevents doubleclick event while drawing
       style: new ol.style.Style({
         fill: new ol.style.Fill({
           color: 'rgba(255, 255, 255, 0.2)'
@@ -128,109 +45,100 @@ Ext.define('MalawiAtlas.controller.map.MeasureButtonController', {
         })
       })
     });
-    measBtnGroup.olMap.addInteraction(draw);
+    MalawiAtlas.util.Map.getOlMap().addInteraction(draw);
 
-    var geomChngListener;
+    var geomOnChangeListener;
+
     draw.on('drawstart', function(evt) {
-
       // cleanup old features
-      measBtnGroup.vectorSource.clear();
+      measureVectorSource.clear();
 
-      // set sketch
-      sketch = evt.feature;
+      geomOnChangeListener = evt.feature.getGeometry().on('change', function(evt) {
 
-      /** @type {ol.Coordinate|undefined} */
-      var tooltipCoord = evt.coordinate;
-
-      geomChngListener = sketch.getGeometry().on('change', function(evt) {
         var geom = evt.target;
-        var output;
+        var popupContent;
+        var tooltipCoord;
+
+        // get popup info
         if (geom instanceof ol.geom.Polygon) {
-          output = me.formatArea(geom);
+          popupContent = me.formatArea(geom);
           tooltipCoord = geom.getInteriorPoint().getCoordinates();
+
         } else if (geom instanceof ol.geom.LineString) {
-          output = me.formatLength(geom);
+          popupContent = me.formatDistance(geom);
           tooltipCoord = geom.getLastCoordinate();
         }
-        // save last measure
-        me.lastOutput = output;
-        // show the current result in result window
-        measBtnGroup.resultWin.setHtml(
-          me.measureTypePrefix + me.lastOutput
-        );
+
+        // necessary to use <p>, otherwise content is not styled with CSS
+        measurePopup.setHtml('<p>' + popupContent + '</p>');
+
+        // activate popup
+        measurePopup.position(tooltipCoord);
+        measurePopup.show();
       });
     }, this);
 
     draw.on('drawend',
       function() {
-        // show the final result in result window
-        measBtnGroup.resultWin.setHtml(
-          me.measureTypePrefix + me.lastOutput
-        );
-        // unset sketch
-        sketch = null;
-        // unbind the event for geometry change
-        // (display measure on mouse move)
-        ol.Observable.unByKey(geomChngListener);
-      }, this);
 
-    me.drawInteraction = draw;
+        MalawiAtlas.util.Map.getOlMap().removeInteraction(draw);
+
+        ol.Observable.unByKey(geomOnChangeListener);
+
+        MalawiAtlas.util.Map.getOlMap().once('singleclick', function() {
+
+          measurePopup.hide();
+          measureVectorSource.clear();
+
+        });
+
+      }, this);
   },
 
-  /**
-   * Formatting the length of a line geometry as readbale text.
-   *
-   * @param {ol.geom.LineString} line The line geometry to get length for
-   * @return {String}             The prettyfied length of the given line
-   */
-  formatLength: function(line) {
+  getDistanceInMeter: function(line) {
     var me = this;
-    var output;
-    var length = 0;
-    var measBtnGroup = me.getMeasureTool();
-    var olMap = measBtnGroup.olMap;
+
+    var length_m = 0;
     var coordinates = line.getCoordinates();
-    var sourceProj = olMap.getView().getProjection();
+    var sourceProj = MalawiAtlas.util.Map.getOlMap().getView().getProjection();
     for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
       var c1 = ol.proj.transform(coordinates[i], sourceProj, 'EPSG:4326');
-      var c2 =
-        ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');
-      length += me.wgs84Sphere.haversineDistance(c1, c2);
+      var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');
+      length_m += me.wgs84Sphere.haversineDistance(c1, c2);
     }
 
-    if (length > 100) {
-      output = (Math.round(length / 1000 * 100) / 100) +
-        ' ' + 'km';
-    } else {
-      output = (Math.round(length * 100) / 100) +
-        ' ' + 'm';
-    }
-    return output;
+    return length_m;
   },
 
-  /**
-   * Formatting the area of a polygon geometry as readable text.
-   *
-   * @param  {ol.geom.Polygon} polygon The line geometry to get length for
-   * @return {String}          The prettyfied length of the given polygon
-   */
-  formatArea: function(polygon) {
+  formatDistance: function(geom) {
     var me = this;
-    var output;
-    var measBtnGroup = me.getMeasureTool();
-    var olMap = measBtnGroup.olMap;
-    var sourceProj = olMap.getView().getProjection();
+    var distance_m = me.getDistanceInMeter(geom);
+
+    var distance_km = distance_m / 1000;
+    distance_km = Math.round(distance_km * 10) / 10;
+
+    return distance_km + ' km';
+  },
+
+  getAreaInSquareMeter: function(polygon) {
+    var me = this;
+
+    var sourceProj = MalawiAtlas.util.Map.getOlMap().getView().getProjection();
     var geom = polygon.clone().transform(sourceProj, 'EPSG:4326');
     var coordinates = geom.getLinearRing(0).getCoordinates();
-    area = Math.abs(me.wgs84Sphere.geodesicArea(coordinates));
 
-    if (area > 10000) {
-      output = (Math.round(area / 1000000 * 100) / 100) +
-        ' ' + 'km<sup>2</sup>';
-    } else {
-      output = (Math.round(area * 100) / 100) +
-        ' ' + 'm<sup>2</sup>';
-    }
-    return output;
+    return Math.abs(me.wgs84Sphere.geodesicArea(coordinates));
+  },
+
+  formatArea: function(geom) {
+    var me = this;
+
+    var area_km2 = me.getAreaInSquareMeter(geom) / 1000000;
+    area_km2 = Math.round(area_km2 * 10) / 10;
+
+    var area_hectar = area_km2 * 100;
+    area_hectar = Math.round(area_hectar * 10) / 10;
+
+    return area_km2 + ' km<sup>2</sup>' + '<br>' + area_hectar + ' ha';
   }
 });
