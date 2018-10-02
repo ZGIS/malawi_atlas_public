@@ -2,9 +2,10 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.malawilayertree',
 
+  requires: ['Ext.slider.Single'],
 
   /**
-   * when node is a group, icon is disabled
+   * If node is a group, then icon is disabled
    */
   isGroup: function(view, rowIdx, colIdx, item, record) {
     return record.data.isLayerGroup;
@@ -12,7 +13,7 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
 
 
   /**
-   * when node is a group or raster, icon is disabled
+   * If node is a group or raster, then icon is disabled
    */
   isRasterLayerOrGroup: function(view, rowIdx, colIdx, item, record) {
     var isRaster = record.data.get('raster_properties');
@@ -69,7 +70,7 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
    * @return {object} layerProperties the extracted properties
    * */
   extractLayerProperties: function(layerData) {
-    var layerProperties = {}
+    var layerProperties = {};
     var year = layerData.get('year');
     if (year) {
       layerProperties["Year"] = year;
@@ -103,5 +104,43 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
     }
 
     return layerProperties;
+  },
+
+  /**
+   * Shows a silder that changes the opacity of the layer
+   * Also makes layer visible in case it was invisible before
+   */
+  showOpacitySlider: function(view, rowIndex, colIndex, item, e, record, row) {
+    var contextMenu = new Ext.menu.Menu({
+      items: [
+        new Ext.slider.Single({
+          width: 180,
+          increment: 10,
+          minValue: 0,
+          maxValue: 100,
+          listeners: {
+            changecomplete: function(slider, newValue, thumb, eOpts) {
+              var layer = record.data;
+              layer.setOpacity(newValue / 100);
+            },
+            beforerender: function(slider, eOpts) {
+              var layer = record.data;
+              layer.setVisible(true);
+
+              var opacity = layer.getOpacity();
+              var sliderValue;
+              // opacity is undefined if it is not set initially
+              if (opacity) {
+                sliderValue = opacity * 100;
+              } else {
+                sliderValue = 100;
+              }
+              slider.setValue(sliderValue);
+            }
+          }
+        })
+      ]
+    });
+    contextMenu.showAt(e.getXY());
   }
 });

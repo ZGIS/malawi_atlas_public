@@ -173,8 +173,11 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
 
   },
 
+  /**
+   * Show attribute Table of selected feature.
+   * If point, then also show coordinates.
+   */
   simpleFeatureInfo: function(properties, featureInfoLayer) {
-
     var me = this;
 
     me.infoPanel.height = 300;
@@ -183,8 +186,28 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
       width: 300,
       source: properties
     });
-    me.infoPanel.insert(0, propertyGrid);
 
+    // transform to WGS84
+    var geometry = properties.geometry;
+
+    // only show coordinates if feature is point
+    if (geometry instanceof ol.geom.Point) {
+
+      var coordinate = geometry.getCoordinates();
+      // transform to LatLong
+      coordinate = ol.proj.toLonLat(coordinate);
+      // round digits
+      coordinate = ol.coordinate.toStringXY(coordinate, 2);
+
+      me.infoPanel.insert(0, {
+        xtype: 'displayfield',
+        value: "Coordinate: " + coordinate,
+      });
+      me.infoPanel.insert(1, propertyGrid);
+
+    } else {
+      me.infoPanel.insert(0, propertyGrid);
+    }
   },
 
   // TODO: 'chartResilienceFood' and 'chartVulnerabilityFloods'
@@ -347,7 +370,6 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
     });
 
     me.infoPanel.insert(1, chart);
-
   },
 
   districtDensity: function(properties, featureInfoLayer) {

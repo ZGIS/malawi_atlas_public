@@ -14,6 +14,13 @@ Ext.define('MalawiAtlas.view.layer.LayerTree', {
   flex: 1,
   border: false,
 
+  // Reorder layers
+  viewConfig: {
+    plugins: {
+      ptype: 'treeviewdragdrop'
+    }
+  },
+
   columns: [{
     xtype: 'treecolumn',
     dataIndex: 'text',
@@ -38,6 +45,15 @@ Ext.define('MalawiAtlas.view.layer.LayerTree', {
     width: 25,
     isDisabled: 'isRasterLayerOrGroup',
     handler: 'openDownloadWindow'
+  }, {
+    // slider button
+    xtype: 'actioncolumn',
+    glyph: 'xf06e@FontAwesome',
+    menudisabled: true,
+    sortable: false,
+    width: 25,
+    isDisabled: 'isGroup',
+    handler: 'showOpacitySlider'
   }],
 
   initComponent: function() {
