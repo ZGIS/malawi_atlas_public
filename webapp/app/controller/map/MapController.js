@@ -477,7 +477,7 @@ Ext.define('MalawiAtlas.controller.map.MapController', {
   // swipe needs to be activated after map is created
   afterRender: function() {
     var me = this;
-    me.initLayerSwipeControl();
+    // me.initLayerSwipeControl();
   },
 
   // activated swipe if both layers are visible

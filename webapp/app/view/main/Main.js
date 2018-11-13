@@ -27,8 +27,8 @@ Ext.define('MalawiAtlas.view.main.Main', {
             xtype: 'image',
             src: 'resources/images/heading.png',
             // resize image
-            width: 787 / 4,
-            height: 100 / 4,
+            width: 483 / 2,
+            height: 82 / 2,
             listeners: {
               el: {
                 click: function() {
@@ -191,9 +191,33 @@ Ext.define('MalawiAtlas.view.main.Main', {
           },
           {
             xtype: 'image',
+            src: 'resources/images/logo_eu.png',
+            width: 1.4 * 3345 / 81.65,
+            height: 1.4 *  3266 / 81.65
+          },
+          {
+            xtype: 'image',
             src: 'resources/images/logo_malawi_government.png',
             width: 40,
             height: 40
+          },
+          {
+            xtype: 'image',
+            src: 'resources/images/logo_coopi.jpeg',
+            width: 1320 / 13.55,
+            height: 542 / 13.55
+          },
+          {
+            xtype: 'image',
+            src: 'resources/images/logo_concern_worldwide.gif',
+            width: 0.8 * 434 / 3.675,
+            height: 0.8 * 147 / 3.675
+          },
+          {
+            xtype: 'image',
+            src: 'resources/images/logo_zgis.jpg',
+            width: 0.7 * 132 / 1.275,
+            height: 0.7 * 51 / 1.275
           }
         ]
       },

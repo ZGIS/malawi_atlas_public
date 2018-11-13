@@ -209,12 +209,6 @@
     }, {
       "path": "https://openlayers.org/en/v4.6.5/build/ol.js",
       "remote": true
-    }, {
-      "path": "https://code.jquery.com/jquery-1.11.0.min.js",
-      "remote": true
-    }, {
-      "path": "https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js",
-      "remote": true
     },
     {
       "path": "app.js",
@@ -249,10 +243,6 @@
    */
   "css": [{
       "path": "https://openlayers.org/en/v4.6.5/css/ol.css",
-      "remote": true
-    },
-    {
-      "path": "https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css",
       "remote": true
     },
     {
