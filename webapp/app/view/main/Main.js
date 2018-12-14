@@ -154,7 +154,8 @@ Ext.define('MalawiAtlas.view.main.Main', {
                       );
                     }
                   }
-                },
+                }
+                ,
                 {
                   text: 'Vulnerability Assessment to floods - Salima',
                   iconCls: 'x-fa fa-file',
@@ -166,6 +167,30 @@ Ext.define('MalawiAtlas.view.main.Main', {
                     }
                   }
                 }
+                ,
+                {
+                  text: 'Guidelines UAV',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/D_3_1_Guidelines_UAV.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+                ,
+                {
+                  text: 'Systematization UAV',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/D_3_3_Systematization_UAV.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
               ]
             }
           },
@@ -173,8 +198,17 @@ Ext.define('MalawiAtlas.view.main.Main', {
             xtype: 'button',
             iconCls: 'x-fa fa-question-circle',
             menu: new Ext.menu.Menu({
-              items: [
-
+              items: [{
+                  text: 'Documentation',
+                  iconCls: 'x-fa fa-question-circle',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'http://isi.zgis.at/malawi_atlas_docs/', '_blank'
+                      );
+                    }
+                  }
+                },
                 {
                   text: 'Source Code',
                   iconCls: 'x-fa fa-code',
@@ -193,7 +227,7 @@ Ext.define('MalawiAtlas.view.main.Main', {
             xtype: 'image',
             src: 'resources/images/logo_eu.png',
             width: 1.4 * 3345 / 81.65,
-            height: 1.4 *  3266 / 81.65
+            height: 1.4 * 3266 / 81.65
           },
           {
             xtype: 'image',
