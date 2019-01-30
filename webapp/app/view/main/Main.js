@@ -204,7 +204,7 @@ Ext.define('MalawiAtlas.view.main.Main', {
                   listeners: {
                     click: function() {
                       window.open(
-                        'http://isi.zgis.at/malawi_atlas_docs/', '_blank'
+                        'http://195.201.223.241/docs/', '_blank'
                       );
                     }
                   }
