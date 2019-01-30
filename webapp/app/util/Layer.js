@@ -2063,7 +2063,7 @@ function createWMSLayerFromJSON(layerJSON) {
     // prevent rendering problems with the pie charts.
     resultLayer = new ol.layer.Image({
       source: new ol.source.ImageWMS({
-        url: 'http://gis-malawi.com:8080/geoserver/malawi_atlas/wms',
+        url: 'http://195.201.223.241/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name
         },
@@ -2076,7 +2076,7 @@ function createWMSLayerFromJSON(layerJSON) {
   } else {
     resultLayer = new ol.layer.Tile({
       source: new ol.source.TileWMS({
-        url: 'http://gis-malawi.com:8080/geoserver/malawi_atlas/wms',
+        url: 'http://195.201.223.241/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name,
           'TILED': true
