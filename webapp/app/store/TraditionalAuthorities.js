@@ -6,7 +6,7 @@ Ext.define('MalawiAtlas.store.TraditionalAuthorities', {
 
   proxy: {
     type: 'ajax',
-    url: 'http://195.201.223.241/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=malawi:malawi_traditional_authority&outputFormat=application%2Fjson',
+    url: 'http://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=malawi:malawi_traditional_authority&outputFormat=application%2Fjson',
 
     reader: {
       type: 'json',

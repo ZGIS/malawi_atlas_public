@@ -2054,7 +2054,7 @@ function createWMSLayerFromJSON(layerJSON) {
   }
 
   // TODO: Read URL from config
-  var legend = 'http://gis-malawi.com:8080/geoserver/wms?' +
+  var legend = 'http://www.gis-malawi.com/geoserver/wms?' +
     '&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic' +
     '&FORMAT=image/png&LAYER=malawi_atlas:' +
     layerJSON.name;
@@ -2063,27 +2063,25 @@ function createWMSLayerFromJSON(layerJSON) {
     // prevent rendering problems with the pie charts.
     resultLayer = new ol.layer.Image({
       source: new ol.source.ImageWMS({
-        url: 'http://195.201.223.241/geoserver/malawi_atlas/wms',
+        url: 'http://www.gis-malawi.com/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name
         },
         serverType: 'geoserver',
-        // might be needed for some GeoServer instances
-        // crossOrigin: ''
+        crossOrigin: ''
       })
     });
 
   } else {
     resultLayer = new ol.layer.Tile({
       source: new ol.source.TileWMS({
-        url: 'http://195.201.223.241/geoserver/malawi_atlas/wms',
+        url: 'http://www.gis-malawi.com/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name,
           'TILED': true
         },
         serverType: 'geoserver',
-        // might be needed for some GeoServer instances
-        // crossOrigin: ''
+        crossOrigin: ''
       })
     });
   }
