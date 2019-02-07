@@ -96,7 +96,8 @@ var layerJSON = {
             "year": 2014,
             "source": "Z_GIS & COOPI",
             "layer_extent": "Salima",
-            "feature_info_activated": true
+            "feature_info_activated": true,
+            "useImageWmsInsteadOfTileWMS":true
           }, {
             "title": "Flood vulnerability index (selected GVHs)",
             "name": "salima_vulnerability_to_floods_index_gvh_2014",
@@ -138,7 +139,8 @@ var layerJSON = {
             "year": 2014,
             "source": "Z_GIS & COOPI",
             "layer_extent": "Salima",
-            "feature_info_activated": true
+            "feature_info_activated": true,
+            "useImageWmsInsteadOfTileWMS":true
           }, {
             "title": "GVH level",
             "name": "salima_resilience_to_food_insecurity_index_gvh_2014",
