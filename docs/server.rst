@@ -9,32 +9,27 @@ Software
 
 The operating system of the server can either be Linux or Windows.
 
-Apache Tomcat
--------------
+Apache HTTP Server
+------------------
 
-`Apache Tomcat <https://tomcat.apache.org/>`_ is a webserver that can also execute applications written in Java e.g. GeoServer. The server that hosts the current Malawi Atlas uses Apache Tomcat version ``9.0.10``. Apache Tomcat requires Java. It is very **important** that the installed version of Java matches the version of Apache Tomcat. This `table <https://tomcat.apache.org/whichversion.html>`_ gives an overview which versions should work well with each other.
+The website is served by the `Apache HTTP Server <https://httpd.apache.org/>`_ .
 
-With the default settings Apache Tomcat listenes to post ``8080``, but it should be changed to port ``80``. Moreover port ``80`` should be opened publicly meaning that external users can access the server on this port.
-
-The instructions how to install Apache Tomcat can be found on the official `website <https://tomcat.apache.org/tomcat-9.0-doc/setup.html>`_ .
-
-The source files of the Malawi Altas website can finally be placed in a directory of the Apache Tomcat. The name of the folder will finally be the last part of the URL e.g. the folder ``malawi_atlas`` will provide the content of :code:`isi.zgis.at/malawi_atlas`.
 
 GeoServer
 ---------
 
-GeoServer can be installed as standalone application or as `web archive` within Apache Tomcat. We chose the latter version. The instructions can be found on the official GeoServer `documentation <https://docs.geoserver.org/stable/en/user/installation/index.html>`_ .
+GeoServer is be installed as standalone application like described in the `docs <https://docs.geoserver.org/stable/en/user/installation/linux.html>`_.
 
-It is recommended to create a new directory that holds all GeoServer related files. This makes the update of the GeoServer much easier. The instructions how to change the data directory can be found `here <https://docs.geoserver.org/stable/en/user/datadirectory/setting.html>`_ .
+It is recommended to create a directory that holds all GeoServer related files. This makes the update of the GeoServer much easier. The instructions how to change the data directory can be found `here <https://docs.geoserver.org/stable/en/user/datadirectory/setting.html>`_ .
 
 For using the GeoServer folder of the Malawi Atlas you need to take the existing `geoserver_data` folder and place it on an convenient location on your server. Afterwards point GeoServer on this location like explained in the link before and restart the Geoserver.
 
-For some requests it is necessary to change some ``CORS`` settings. In the current Malawi Atlas we modified the ``web.xml`` according to this `instruction <$CATALINA_HOME/conf/web.xml>`_ .
+For some requests it is necessary to change some ``CORS`` settings. In the current Malawi Atlas we modified the ``web.xml`` according to this `instruction <https://docs.geoserver.org/latest/en/user/production/container.html#enable-cors>`_ .
 
 PostgreSQL
 ----------
 
-The database PostgreSQL stores all vector data of the Malawi Atlas. It can be downloaded from the official `website <https://www.postgresql.org/download/>`_ . For the current version of Malawi Atlas we used the installer from `EnterpriseDB <https://www.enterprisedb.com/downloads/postgres-postgresql-downloads>`_ . For security purposes it is recommended to not open the PostgreSQL port to the public. Hence, the database shall only be accessed locally by GeoServer. For inserting data it is necessary to use a ``role`` that has writing permissions. However, GeoServer does only need reading permission and should therefore use an own ``geoserver_reader`` role. This SQL snipped can be used (modified from this `source <https://gist.github.com/oinopion/4a207726edba8b99fd0be31cb28124d0>`_):
+The database PostgreSQL stores all vector data of the Malawi Atlas. It can be downloaded from the official `website <https://www.postgresql.org/download/>`_  or via the package manager of the operating system.  For security purposes it is recommended to not open the PostgreSQL port to the public. Hence, the database shall only be accessed locally by GeoServer. For inserting data it is necessary to use a ``role`` that has writing permissions. However, GeoServer does only need reading permission and should therefore use an own ``geoserver_reader`` role. This SQL snipped can be used (modified from this `source <https://gist.github.com/oinopion/4a207726edba8b99fd0be31cb28124d0>`_):
 
 .. code-block:: sql
 
@@ -54,7 +49,7 @@ The database PostgreSQL stores all vector data of the Malawi Atlas. It can be do
 
 For storing spatial data it is necessary to also install `PostGIS <https://postgis.net>`_. The installation instructions can be found on the official `documentation <https://postgis.net/install/>`_.
 
-We used PostgrSQL version ``10.4`` and PostGIS version ``2.4.4``, however Malawi Altas should actually work well with the lastest versions of both.
+We used PostgrSQL version ``11`` and PostGIS version ``2.5``, however Malawi Atlas should actually work well with the lastest versions of both.
 
 In order to populate the database you need the database dump. Afterwards you can load the data into PostGIS using this command:
 
@@ -72,14 +67,7 @@ Ext JS provides the JavaScript framework that Malawi Atlas uses. It can be downl
 Update Software
 ---------------
 
-From a security point of view it is necessary to update the server operating system (Windows, Linux, etc. ) and all programs regularly. However, every update also has the risk that afterwards something does not work anymore like expected.
-
-Especially Java updates can brake Apache Tomcat and the GeoServer. The last time when this happened, this solution was helpful:
-
-- open ``C:\apache-tomcat-9.0.10\bin\tomcat9w.exe``
-- open the tab ``Java``
-- set in ``Java Virtual Machine`` the path to the updated Java binaries e.g. ``C:\Program Files\Java\jre1.8.0_191\bin\server\jvm.dll``
-- eventually restart server
+From a security point of view it is necessary to update the server operating system (Windows, Linux, etc. ) and all programs regularly. However, every update also has the risk that afterwards something does not work anymore like expected. Especially Java updates can break GeoServer.
 
 
 Upload Data
@@ -97,13 +85,24 @@ Vector to Database
 
 All vector data is stored in the PostGIS database. There are two ways to import data.
 
-Single files can be opened in QGIS on Server. Then a connection to the local PostGIS database has to be established. Like in this screenshot:
+Single files can be opened in QGIS on the server. Then a connection to the local PostGIS database has to be established. Like in this screenshot:
 
 .. image:: img/qgis_postgis_connection.png
 
 With the plugin ``DB Manager`` any vector layer that is opened in QGIS can be imported to the PostGIS database. Make sure, to tick ``create spatial index`` and ``convert field names to lowercase``.
 
-Many vector layers can be bulk imported using the command line tool `ogr2ogr <https://www.gdal.org/ogr2ogr.html>`_ . Navigate to the folder of the files. On Linux:
+Data can also be imported with the command-line tool `ogr2ogr <https://www.gdal.org/ogr2ogr.html>`_
+
+.. code-block:: shell
+
+  ogr2ogr \
+  -t_srs EPSG:4326 \
+  -f "PostgreSQL" PG:dbname="malawi_atlas" \
+  -lco SCHEMA=my_schema \
+  -lco OVERWRITE=YES \
+  layer_to_be_imported.gpkg;
+
+Many vector layers can be bulk imported. Navigate to the folder of the files. On Linux:
 
 .. code-block:: shell
 
@@ -115,12 +114,6 @@ Many vector layers can be bulk imported using the command line tool `ogr2ogr <ht
   -lco OVERWRITE=YES
   $file;
   done
-
-on Windows:
-
-.. code-block:: shell
-
-  FOR %I in (*.gpkg) DO ogr2ogr -f "PostgreSQL" PG:"dbname='malawi_atlas' user='postgres' password='myPassword'" %I
 
 
 Large Raster Files to OpenAerialMap
@@ -212,7 +205,7 @@ Afterwards the website has to be build with the command line program `Sencha CMD
 Backup
 ------
 
-From time to time there should be an backup of both the PostGIS database and the GeoServer data directory. For the PostGIS backup this command is useful:
+From time to time there should be a backup of both the PostGIS database and the GeoServer data directory. For the PostGIS backup this command is useful:
 
 .. code-block:: shell
 
