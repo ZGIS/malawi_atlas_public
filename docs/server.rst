@@ -29,7 +29,7 @@ For some requests it is necessary to change some ``CORS`` settings. In the curre
 PostgreSQL
 ----------
 
-The database PostgreSQL stores all vector data of the Malawi Atlas. It can be downloaded from the official `website <https://www.postgresql.org/download/>`_  or via the package manager of the operating system.  For security purposes it is recommended to not open the PostgreSQL port to the public. Hence, the database shall only be accessed locally by GeoServer. For inserting data it is necessary to use a ``role`` that has writing permissions. However, GeoServer does only need reading permission and should therefore use an own ``geoserver_reader`` role. This SQL snipped can be used (modified from this `source <https://gist.github.com/oinopion/4a207726edba8b99fd0be31cb28124d0>`_):
+The database PostgreSQL stores all vector data of the Malawi Atlas. It can be downloaded from the official `website <https://www.postgresql.org/download/>`_  or via the package manager of the operating system (in case of Linux).  For security purposes it is recommended to not open the PostgreSQL port to the public. Hence, the database shall only be accessed locally by GeoServer. For inserting data it is necessary to use a ``role`` that has writing permissions. However, GeoServer does only need reading permission and should therefore use an own ``geoserver_reader`` role. This SQL snipped can be used (modified from this `source <https://gist.github.com/oinopion/4a207726edba8b99fd0be31cb28124d0>`_):
 
 .. code-block:: sql
 

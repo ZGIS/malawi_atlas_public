@@ -9,13 +9,13 @@ Even though the data from "Malawi Atlas" can be downloaded via the website, it c
 Installation
 ************
 
-`QGIS <https://www.qgis.org/>`_ is a desktop program that runs on Windows, Mac and Linux. It is free and open source, meaning that it is developed by a worldwide community. It does not cost anything. It can be downloaded from here: `https://www.qgis.org/en/site/forusers/download.html <https://www.qgis.org/en/site/forusers/download.html>`_
+`QGIS <https://www.qgis.org/>`_ is a desktop program that runs on Windows, Mac and Linux. It is free and open source, meaning that it is developed by a worldwide community. It does not cost anything. 
 
 
 Basemap
 *******
 
-In order to see a basemap (a map in the background) it is necessary to connect to a ``XYZ Tile Service``. In your ``Browser`` panel, navigate to ``XYZ Tiles``. Right click and choose ``New Connection`` and enter these values:
+In order to see a basemap (a map in the background) it is necessary to connect to a ``XYZ Tile Service``. In your QGIS ``Browser`` panel, navigate to ``XYZ Tiles``. Right click and choose ``New Connection`` and enter the following values:
 
 Name: ``OpenStreetmap``
 
@@ -48,7 +48,7 @@ In QGIS, go to your ``browser`` panel, right-click on ``WMS/WMTS`` and select ``
 
 Name: ``Malawi Atlas WMS``
 
-URL : ``http://isi.zgis.at/geoserver/wms?request=getcapabilities``
+URL : ``http://gis-malawi.com/geoserver/wms?request=getcapabilities``
 
 .. image:: img/qgis_wms_connection.png
 
@@ -61,7 +61,7 @@ In QGIS, go to your ``browser`` panel, right-click on ``WFS`` and select ``New C
 
 Name: ``Malawi Atlas WFS``
 
-URL : ``http://isi.zgis.at/geoserver/wfs?request=getcapabilities``
+URL : ``http://gis-malawi.com/geoserver/wfs?request=getcapabilities``
 
 .. image:: img/qgis_wfs_connection.png
 

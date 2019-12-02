@@ -43,12 +43,12 @@ Feature Info
 
 .. image:: img/feature_info.gif
 
-For some layers information about features can be shown. These can be accessed by clicking on the respective feature. Then a info panel will be shown on the bottom left. For some layers some charts will be displayed.
+For some layers information about features can be shown. These can be accessed by clicking on the respective feature. Then a info panel will be shown on the bottom left. For some layers diagrams will be displayed.
 
 Legend
 ------
 
-The legend panel on the right side displays the legends of all visible layers.
+The panel on the right side displays the legends of all visible layers.
 
 Measure
 ---------
