@@ -191,6 +191,66 @@ Ext.define('MalawiAtlas.view.main.Main', {
                     }
                   }
                 }
+                ,
+                {
+                  text: 'ECHO STRIM Baseline Consolidated Report',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/ECHO STRIM Baseline Consolidated Report 101219.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+                ,
+                {
+                  text: 'ECHO STRIM EVCA Consolidated Report',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/ECHO STRIM EVCA Consolidated Report 101219.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+                ,
+                {
+                  text: 'Karonga ECHO STRIM eVCA Report',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/Karonga ECHO STRIM eVCA Report.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+                ,
+                {
+                  text: 'Lilongwe ECHO STRIM eVCA Report',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/Lilongwe ECHO STRIM eVCA Report.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
+                ,
+                {
+                  text: 'Mzuzu ECHO STRIM eVCA Report',
+                  iconCls: 'x-fa fa-file',
+                  listeners: {
+                    click: function() {
+                      window.open(
+                        'resources/pdf/Mzuzu ECHO STRIM eVCA Report.pdf', '_blank'
+                      );
+                    }
+                  }
+                }
               ]
             }
           },
