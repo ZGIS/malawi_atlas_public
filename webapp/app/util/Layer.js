@@ -318,6 +318,140 @@ var layerJSON = {
         }]
       },
       {
+        "parentGroupName": "Mzuzu",
+        "groups": [{
+            "groupName": "Hazards",
+            "layers": [{
+              "title": "Flood hazards",
+              "name": "mzuzu_hazard_flood",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Mzuzu",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_type": "Vector (.gpkg)",
+              "vector_geometry": "polygon"
+            }, {
+              "title": "Strong wind hazards",
+              "name": "mzuzu_hazard_strongwind",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Mzuzu",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "Line"
+            }]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Lilongwe",
+        "groups": [{
+            "groupName": "Hazards",
+            "layers": [{
+              "title": "Cholera hazards",
+              "name": "lilongwe_hazard_cholera",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Lilongwe",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_type": "Vector (.gpkg)",
+              "vector_geometry": "polygon"
+            }, {
+              "title": "Dry spell hazards",
+              "name": "lilongwe_hazard_dryspell",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Lilongwe",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "Point"
+            }, {
+              "title": "Flood hazards",
+              "name": "lilongwe_hazard_flood",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Lilongwe",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "polygon"
+            }, {
+              "title": "Strong wind hazards",
+              "name": "lilongwe_hazard_strongwind",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Lilongwe",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "Line"
+            }]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Karonga",
+        "groups": [{
+            "groupName": "Hazards",
+            "layers": [{
+              "title": "Fall armyworm hazards",
+              "name": "karonga_hazard_armyworms",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Karonga",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_type": "Vector (.gpkg)",
+              "vector_geometry": "Point"
+            }, {
+              "title": "Cholera hazards",
+              "name": "karonga_hazard_cholera",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Karonga",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_type": "Vector (.gpkg)",
+              "vector_geometry": "polygon"
+            }, {
+              "title": "Dry spell hazards",
+              "name": "karonga_hazard_dryspell",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Karonga",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "Point"
+            }, {
+              "title": "Flood hazards",
+              "name": "karonga_hazard_flood",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Karonga",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "polygon"
+            }, {
+              "title": "Strong wind hazards",
+              "name": "karonga_hazard_strongwind",
+              "description": "",
+              "source": "COOPI & Z_GIS",
+              "year": 2020,
+              "layer_extent": "Karonga",
+              "projection": "WGS 84 (EPSG: 4326)",
+              "data_Type": "Vector (.gpkg)",
+              "vector_geometry": "Line"
+            }]
+          }
+        ]
+      },
+      {
         "parentGroupName": "Nsanje",
         "groups": [{
             "groupName": "UAV",
