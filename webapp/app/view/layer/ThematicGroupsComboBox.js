@@ -57,7 +57,9 @@ Ext.define('MalawiAtlas.view.layer.ThematicGroupsComboBox', {
       // activate layers
       var flatLayerList = MalawiAtlas.util.Layer.getFlatLayerList();
       flatLayerList.forEach(function(layer) {
-        if (record.get('thematicGroup') === layer.get('thematicGroup')) {
+        var themgroup = layer.get('thematicGroup');
+        if (typeof themgroup !== 'undefined' &&
+            themgroup.includes(record.get('thematicGroup'))) {
           layer.setVisible(true);
         } else {
           layer.setVisible(false);
