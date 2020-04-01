@@ -1971,7 +1971,7 @@ var layerJSON = {
                     "MALAWI_OTHER_HEALTH_FACILITIES"
                 ],
                 "opacity": 0.5,
-                "name": "infrastructure_and_drr_districts_with_population",
+                "name": "malawi_infrastructure_district_population",
                 "description": "",
                 "year": 2018,
                 "layer_extent": "Malawi",
@@ -1979,7 +1979,7 @@ var layerJSON = {
                 "data_type": "Vector (.gpkg)",
                 "vector_geometry": "Polygon",
                 "field_aliases": {
-                  "NAME_1": "District name",
+                  "district": "District name",
                   "population_2018": "Population"
                 }
               },
@@ -2364,6 +2364,25 @@ var layerJSON = {
                 "year": null,
                 "source": null,
                 "layer_extent": null
+              },
+              {
+                "title": "District boundaries",
+                "thematicGroup": [
+                    "MALAWI_MOH_HEALTH_FACILITIES",
+                    "MALAWI_CHAM_HEALTH_FACILITIES",
+                    "MALAWI_OTHER_HEALTH_FACILITIES"
+                ],
+                "name": "infrastructure_and_drr_districts_with_population",
+                "description": "",
+                "year": 2018,
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon",
+                "field_aliases": {
+                  "NAME_1": "District name",
+                  "population_2018": "Population"
+                }
               }
 
             ]
