@@ -1,6 +1,10 @@
 var layerJSON = {
   "MalawiAtlasLayers": {
     "thematicGroups": {
+      "MALAWI_HEALTH_FACILITIES": {
+        name: "Malawi health facilities and population",
+        extent: [3650738, -1945482, 4053741, -1032934]
+      },
       "MALAWI_HAZARD": {
         name: "Malawi Hazard Map expert based",
         extent: [3650738, -1945482, 4053741, -1032934]
@@ -1952,8 +1956,38 @@ var layerJSON = {
             "groupName": "Infrastructure and DRR facilities",
             "layers": [
               {
-                "title": "UNDP CHAM health facilities",
-                "name": "malawi_undp_cham_health_facilities",
+                "title": "District population",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "opacity": 0.5,
+                "name": "malawi_infrastructure_district_population",
+                "description": "",
+                "year": 2018,
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon",
+                "field_aliases": {
+                  "facility_name": "Facility name",
+                  "village": "Village",
+                  "gvh": "GVH",
+                  "ta": "TA",
+                  "district": "District",
+                  "region": "Region",
+                  "facility_type": "Facility type",
+                  "controlling_agency": "Controlling agency",
+                  "category": "Category",
+                  "name": "Name",
+                  "phone": "Phone number",
+                  "email": "Email",
+                  "cluster": "Cluster",
+                  "status": "Status",
+                  "date": "Date"
+                }
+              },
+              {
+                "title": "UNICEF CHAM primary health facilities",
+                "name": "health_facilities_cham_primary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -1980,8 +2014,9 @@ var layerJSON = {
                 }
               },
               {
-                "title": "UNDP MoH health facilities",
-                "name": "malawi_undp_moh_health_facilities",
+                "title": "UNICEF CHAM secondary health facilities",
+                "name": "health_facilities_cham_secondary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2008,8 +2043,126 @@ var layerJSON = {
                 }
               },
               {
-                "title": "UNDP other health facilities",
-                "name": "malawi_undp_other_health_facilities",
+                "title": "UNICEF MoH primary health facilities",
+                "name": "health_facilities_moh_primary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "description": "",
+                "year": 2020,
+                "source": "UN",
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Point",
+                "field_aliases": {
+                  "facility_name": "Facility name",
+                  "village": "Village",
+                  "gvh": "GVH",
+                  "ta": "TA",
+                  "district": "District",
+                  "region": "Region",
+                  "facility_type": "Facility type",
+                  "controlling_agency": "Controlling agency",
+                  "category": "Category",
+                  "name": "Name",
+                  "phone": "Phone number",
+                  "email": "Email",
+                  "cluster": "Cluster",
+                  "status": "Status",
+                  "date": "Date"
+                }
+              },
+              {
+                "title": "UNICEF MoH secondary health facilities",
+                "name": "health_facilities_moh_secondary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "description": "",
+                "year": 2020,
+                "source": "UN",
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Point",
+                "field_aliases": {
+                  "facility_name": "Facility name",
+                  "village": "Village",
+                  "gvh": "GVH",
+                  "ta": "TA",
+                  "district": "District",
+                  "region": "Region",
+                  "facility_type": "Facility type",
+                  "controlling_agency": "Controlling agency",
+                  "category": "Category",
+                  "name": "Name",
+                  "phone": "Phone number",
+                  "email": "Email",
+                  "cluster": "Cluster",
+                  "status": "Status",
+                  "date": "Date"
+                }
+              },
+              {
+                "title": "UNICEF MoH tertiary health facilities",
+                "name": "health_facilities_moh_tertiary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "description": "",
+                "year": 2020,
+                "source": "UN",
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Point",
+                "field_aliases": {
+                  "facility_name": "Facility name",
+                  "village": "Village",
+                  "gvh": "GVH",
+                  "ta": "TA",
+                  "district": "District",
+                  "region": "Region",
+                  "facility_type": "Facility type",
+                  "controlling_agency": "Controlling agency",
+                  "category": "Category",
+                  "name": "Name",
+                  "phone": "Phone number",
+                  "email": "Email",
+                  "cluster": "Cluster",
+                  "status": "Status",
+                  "date": "Date"
+                }
+              },
+              {
+                "title": "UNICEF others primary health facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "name": "health_facilities_others_primary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "description": "",
+                "year": 2020,
+                "source": "UN",
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Point",
+                "field_aliases": {
+                  "facility_name": "Facility name",
+                  "village": "Village",
+                  "gvh": "GVH",
+                  "ta": "TA",
+                  "district": "District",
+                  "region": "Region",
+                  "facility_type": "Facility type",
+                  "controlling_agency": "Controlling agency",
+                  "category": "Category",
+                  "name": "Name",
+                  "phone": "Phone number",
+                  "email": "Email",
+                  "cluster": "Cluster",
+                  "status": "Status",
+                  "date": "Date"
+                }
+              },
+              {
+                "title": "UNICEF others secondary health facilities",
+                "name": "health_facilities_others_secondary_health_facilities",
+                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2219,7 +2372,26 @@ var layerJSON = {
           },
           {
             "groupName": "Environment",
-            "layers": [{
+            "layers": [
+              {
+                "title": "River gauge stations",
+                "name": "malawi_environment_river_gauge_station",
+                "description": "",
+                "year": 2020,
+                "source": "",
+                "layer_extent": "Malawi",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Point",
+                "field_aliases": {
+                  "rgs": "RGS",
+                  "station_name": "Station name",
+                  "type": "Type",
+                  "project": "Project",
+                  "organization": "Organization"
+                }
+              },
+                {
                 "title": "Malawi Hillshade",
                 "name": "malawi_hillshade",
                 "description": "This digital elevation model indicates the elevation at each location across the nation of Malawi, with values given in metres. The data is a snippet of the ASTER global DEM, developed by The Ministry of Economy, Trade, and Industry (METI) of Japan and the United States National Aeronautics and Space Administration (NASA). You can click anywhere on the elevation model in order to identify the elevation value at that point. DEM usage note: the elevation values should not be taken as completely accurate at the local level as the accuracy is between 6 metres and 16 metres, i.e. individual elevation values in the DEM can be between 6 and 16 metres different from real life. The model gives a broad view of the topography and estimates of elevation at regional scales, but the elevation of a specific point should always be cross-referenced with a GPS waypoint at that location.",
