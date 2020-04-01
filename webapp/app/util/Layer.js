@@ -1,8 +1,16 @@
 var layerJSON = {
   "MalawiAtlasLayers": {
     "thematicGroups": {
-      "MALAWI_HEALTH_FACILITIES": {
-        name: "Malawi health facilities and population",
+      "MALAWI_CHAM_HEALTH_FACILITIES": {
+        name: "Malawi CHAM health facilities and population",
+        extent: [3650738, -1945482, 4053741, -1032934]
+      },
+      "MALAWI_MOH_HEALTH_FACILITIES": {
+        name: "Malawi MoH health facilities and population",
+        extent: [3650738, -1945482, 4053741, -1032934]
+      },
+      "MALAWI_OTHER_HEALTH_FACILITIES": {
+        name: "Malawi other health facilities and population",
         extent: [3650738, -1945482, 4053741, -1032934]
       },
       "MALAWI_HAZARD": {
@@ -1957,9 +1965,13 @@ var layerJSON = {
             "layers": [
               {
                 "title": "District population",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": [
+                    "MALAWI_MOH_HEALTH_FACILITIES",
+                    "MALAWI_CHAM_HEALTH_FACILITIES",
+                    "MALAWI_OTHER_HEALTH_FACILITIES"
+                ],
                 "opacity": 0.5,
-                "name": "malawi_infrastructure_district_population",
+                "name": "infrastructure_and_drr_districts_with_population",
                 "description": "",
                 "year": 2018,
                 "layer_extent": "Malawi",
@@ -1967,27 +1979,14 @@ var layerJSON = {
                 "data_type": "Vector (.gpkg)",
                 "vector_geometry": "Polygon",
                 "field_aliases": {
-                  "facility_name": "Facility name",
-                  "village": "Village",
-                  "gvh": "GVH",
-                  "ta": "TA",
-                  "district": "District",
-                  "region": "Region",
-                  "facility_type": "Facility type",
-                  "controlling_agency": "Controlling agency",
-                  "category": "Category",
-                  "name": "Name",
-                  "phone": "Phone number",
-                  "email": "Email",
-                  "cluster": "Cluster",
-                  "status": "Status",
-                  "date": "Date"
+                  "NAME_1": "District name",
+                  "population_2018": "Population"
                 }
               },
               {
                 "title": "UNICEF CHAM primary health facilities",
                 "name": "health_facilities_cham_primary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_CHAM_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2016,7 +2015,7 @@ var layerJSON = {
               {
                 "title": "UNICEF CHAM secondary health facilities",
                 "name": "health_facilities_cham_secondary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_CHAM_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2045,7 +2044,7 @@ var layerJSON = {
               {
                 "title": "UNICEF MoH primary health facilities",
                 "name": "health_facilities_moh_primary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_MOH_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2074,7 +2073,7 @@ var layerJSON = {
               {
                 "title": "UNICEF MoH secondary health facilities",
                 "name": "health_facilities_moh_secondary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_MOH_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2103,7 +2102,7 @@ var layerJSON = {
               {
                 "title": "UNICEF MoH tertiary health facilities",
                 "name": "health_facilities_moh_tertiary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_MOH_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2131,9 +2130,8 @@ var layerJSON = {
               },
               {
                 "title": "UNICEF others primary health facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
                 "name": "health_facilities_others_primary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_OTHER_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
@@ -2162,7 +2160,7 @@ var layerJSON = {
               {
                 "title": "UNICEF others secondary health facilities",
                 "name": "health_facilities_others_secondary_health_facilities",
-                "thematicGroup": "MALAWI_HEALTH_FACILITIES",
+                "thematicGroup": "MALAWI_OTHER_HEALTH_FACILITIES",
                 "description": "",
                 "year": 2020,
                 "source": "UN",
