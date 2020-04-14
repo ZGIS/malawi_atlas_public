@@ -85,11 +85,25 @@ Vector to Database
 
 All vector data is stored in the PostGIS database. There are two ways to import data.
 
-Single files can be opened in QGIS on the server. Then a connection to the local PostGIS database has to be established. Like in this screenshot:
+QGIS
+~~~~
+
+QGIS can connect to PostGIS via the ``Data Source Manager``. Like in this screenshot:
 
 .. image:: img/qgis_postgis_connection.png
 
-With the plugin ``DB Manager`` any vector layer that is opened in QGIS can be imported to the PostGIS database. Make sure, to tick ``create spatial index`` and ``convert field names to lowercase``.
+Then open a vector layer in QGIS that you want to upload to the database (preferably in ``EPSG:4326``). Open the plugin ``DB Manager`` and choose your database. It should look like this:
+
+.. image:: img/qgis_db_manager.png
+
+Click on ``Import Layer/File...``, then a dialog will open up where you can choose a vector layer of your QGIS project for uploading. Fill the form like in this screenshot:
+
+.. image:: img/qgis_upload_vector.png
+
+Make sure, to tick ``create spatial index`` and ``convert field names to lowercase``. Also make sure to directly put your layer into the correct schema and name it according to the naming conventions (see section ``Data Organization`` below).
+
+GDAL/OGR
+~~~~~~~~
 
 Data can also be imported with the command-line tool `ogr2ogr <https://www.gdal.org/ogr2ogr.html>`_
 
@@ -152,6 +166,19 @@ GeoServer
 ---------
 
 Publish the data on GeoServer using the admin user interface. For each PostGIS schema a new store has to be created. And each rasterfile needs an own store as well. Please follow the official `documentation <https://docs.geoserver.org/>`_ of GeoServer for the details.
+
+Vector data
+~~~~~~~~~~~
+
+A more detail description how to load vector data with GeoServer:
+
+0. Log in to GeoServer 
+1. Click on ``Layers`` and then on ``Add a new layer`` (prefixed with green plus)
+2. Choose the database schema in which your layers is located
+3. Choose your layer from the list and click ``publish``
+4. Now there are four tabs. The first one (which is activated by default) is the most important one. You typically only have do something in the section ``Bounding Boxes``. Namely click on ``Compute from data`` and on ``Compute from native bounds``. You can finally click ``Save`` and your layer is published. 
+5. Of course you can still edit some settings, like assigning a style, names, etc ...
+
 
 Website
 -------
