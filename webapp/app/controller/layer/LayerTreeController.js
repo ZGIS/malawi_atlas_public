@@ -26,7 +26,7 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
    */
   openDownloadWindow: function(view, rowIndex, colIndex, item, e, record, row) {
     var lid = record.data.get('lid');
-    var geoPackageURL = 'http://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:' + lid;
+    var geoPackageURL = 'https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:' + lid;
     window.open(
       geoPackageURL, '_blank'
     );

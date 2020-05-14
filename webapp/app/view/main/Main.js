@@ -264,7 +264,7 @@ Ext.define('MalawiAtlas.view.main.Main', {
                   listeners: {
                     click: function() {
                       window.open(
-                        'http://www.gis-malawi.com/docs/', '_blank'
+                        'https://www.gis-malawi.com/docs/', '_blank'
                       );
                     }
                   }

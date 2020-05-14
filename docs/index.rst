@@ -8,7 +8,7 @@ Welcome to Malawi Atlas's documentation!
 
 .. image:: img/screenshot.png
 
-The Malawi Atlas `website <http://isi.zgis.at/malawi_atlas>`_ displays geodata of various topics like natural
+The Malawi Atlas `website <https://www.gis-malawi.com/malawi_atlas>`_ displays geodata of various topics like natural
 hazards, vulnerability, resilience, risk reduction and demographics.
 
 .. toctree::

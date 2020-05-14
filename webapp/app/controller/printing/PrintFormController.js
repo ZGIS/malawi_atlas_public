@@ -84,7 +84,7 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
         {
           "type": "WMS",
           "layers": layerIDs,
-          "baseURL": "http://www.gis-malawi.com/geoserver/malawi_atlas/wms?",
+          "baseURL": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms?",
           "format": "image/png"
         }
       ],
@@ -107,7 +107,7 @@ Ext.define('MalawiAtlas.controller.printing.PrintFormController', {
     // it is necessary to encode the query
     // otherwise the print module does not accept it
     var request_encoded = encodeURIComponent(JSON.stringify(request_plain));
-    var pdf_url = 'http://www.gis-malawi.com/geoserver/pdf/print.pdf?spec='
+    var pdf_url = 'https://www.gis-malawi.com/geoserver/pdf/print.pdf?spec='
     pdf_url = pdf_url + request_encoded;
 
     window.open(

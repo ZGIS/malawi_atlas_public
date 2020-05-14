@@ -24,6 +24,7 @@ This repository contains the code for the _Malawi Atlas_ web application and the
   cd webapp
   ```
 
+- Download the [Sencha CMD](https://www.sencha.com/products/extjs/cmd-download/) commandline tool
 - Download Sencha Ext JS `6.2.0` from [here](https://www.sencha.com/legal/GPL/). Then run:
 
   ```shell

@@ -2464,7 +2464,7 @@ function createWMSLayerFromJSON(layerJSON) {
   }
 
   // TODO: Read URL from config
-  var legend = 'http://www.gis-malawi.com/geoserver/wms?' +
+  var legend = 'https://www.gis-malawi.com/geoserver/wms?' +
     '&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic' +
     '&FORMAT=image/png&LAYER=malawi_atlas:' +
     layerJSON.name;
@@ -2473,7 +2473,7 @@ function createWMSLayerFromJSON(layerJSON) {
     // prevent rendering problems with the pie charts.
     resultLayer = new ol.layer.Image({
       source: new ol.source.ImageWMS({
-        url: 'http://www.gis-malawi.com/geoserver/malawi_atlas/wms',
+        url: 'https://www.gis-malawi.com/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name
         },
@@ -2485,7 +2485,7 @@ function createWMSLayerFromJSON(layerJSON) {
   } else {
     resultLayer = new ol.layer.Tile({
       source: new ol.source.TileWMS({
-        url: 'http://www.gis-malawi.com/geoserver/malawi_atlas/wms',
+        url: 'https://www.gis-malawi.com/geoserver/malawi_atlas/wms',
         params: {
           'LAYERS': layerJSON.name,
           'TILED': true
