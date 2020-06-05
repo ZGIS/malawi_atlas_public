@@ -36,6 +36,18 @@ var layerJSON = {
       "MANGOCHI_HAZARD": {
         name: "Mangochi Hazard and Vulnerability",
         extent: [3854490, -1666433, 3988592, -1516044]
+      },
+      "KARONGA_PGIS": {
+        name: "Karonga PGIS Hazards",
+        extent: [3650738, -1945482, 4053741, -1032934]
+      },
+      "MZUZU_PGIS": {
+        name: "Mzuzu PGIS Hazards",
+        extent: [3650738, -1945482, 4053741, -1032934]
+      },
+      "LILONGWE_PGIS": {
+        name: "Lilongwe PGIS Hazards",
+        extent: [3650738, -1945482, 4053741, -1032934]
       }
     },
     "parentGroups": [{
@@ -336,6 +348,7 @@ var layerJSON = {
         "layers": [{
           "title": "Flood hazards",
           "name": "mzuzu_hazard_flood",
+          "thematicGroup": "MZUZU_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -346,6 +359,7 @@ var layerJSON = {
         }, {
           "title": "Strong wind hazards",
           "name": "mzuzu_hazard_strongwind",
+          "thematicGroup": "MZUZU_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -364,6 +378,7 @@ var layerJSON = {
         "layers": [{
           "title": "Cholera hazards",
           "name": "lilongwe_hazard_cholera",
+          "thematicGroup": "LILONGWE_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -374,6 +389,7 @@ var layerJSON = {
         }, {
           "title": "Dry spell hazards",
           "name": "lilongwe_hazard_dryspell",
+          "thematicGroup": "LILONGWE_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -384,6 +400,7 @@ var layerJSON = {
         }, {
           "title": "Flood hazards",
           "name": "lilongwe_hazard_flood",
+          "thematicGroup": "LILONGWE_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -394,6 +411,7 @@ var layerJSON = {
         }, {
           "title": "Strong wind hazards",
           "name": "lilongwe_hazard_strongwind",
+          "thematicGroup": "LILONGWE_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -412,6 +430,7 @@ var layerJSON = {
         "layers": [{
           "title": "Fall armyworm hazards",
           "name": "karonga_hazard_armyworms",
+          "thematicGroup": "KARONGA_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -422,6 +441,7 @@ var layerJSON = {
         }, {
           "title": "Cholera hazards",
           "name": "karonga_hazard_cholera",
+          "thematicGroup": "KARONGA_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -432,6 +452,7 @@ var layerJSON = {
         }, {
           "title": "Dry spell hazards",
           "name": "karonga_hazard_dryspell",
+          "thematicGroup": "KARONGA_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -442,6 +463,7 @@ var layerJSON = {
         }, {
           "title": "Flood hazards",
           "name": "karonga_hazard_flood",
+          "thematicGroup": "KARONGA_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
@@ -452,6 +474,7 @@ var layerJSON = {
         }, {
           "title": "Strong wind hazards",
           "name": "karonga_hazard_strongwind",
+          "thematicGroup": "KARONGA_PGIS",
           "description": "",
           "source": "COOPI & Z_GIS",
           "year": 2020,
