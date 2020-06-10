@@ -39,15 +39,15 @@ var layerJSON = {
       },
       "KARONGA_PGIS": {
         name: "Karonga PGIS Hazards",
-        extent: [3650738, -1945482, 4053741, -1032934]
+        extent: [3724116, -1188299, 3815412, -1068856]
       },
       "MZUZU_PGIS": {
         name: "Mzuzu PGIS Hazards",
-        extent: [3650738, -1945482, 4053741, -1032934]
+        extent: [3780375, -1289501, 3793398, -1277378]
       },
       "LILONGWE_PGIS": {
         name: "Lilongwe PGIS Hazards",
-        extent: [3650738, -1945482, 4053741, -1032934]
+        extent: [3748119, -1581948, 3771078, -1558820]
       }
     },
     "parentGroups": [{
