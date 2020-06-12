@@ -2007,6 +2007,20 @@ var layerJSON = {
             }
           },
           {
+            "title": "Roads",
+            "name": "malawi_major_roads",
+            "description": "",
+            "year": 2014,
+            "source": "MASDAP",
+            "layer_extent": "Malawi",
+            "projection": "WGS 84 (EPSG: 4326)",
+            "data_type": "Vector (.gpkg)",
+            "vector_geometry": "Polyline",
+            "field_aliases": {
+              "LENGTH": "Length",
+            }
+          },
+          {
             "title": "UNICEF CHAM primary health facilities",
             "name": "health_facilities_cham_primary_health_facilities",
             "thematicGroup": "MALAWI_CHAM_HEALTH_FACILITIES",
