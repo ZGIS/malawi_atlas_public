@@ -1,23 +1,20 @@
 /**
-* @author C. Mayer, meggsimum, Jakob Miksch
-*/
-Ext.define('MalawiAtlas.view.map.MeasureAreaButton', {
+ * @author C. Mayer, meggsimum, Jakob Miksch
+ */
+Ext.define("MalawiAtlas.view.map.MeasureAreaButton", {
   extend: "Ext.button.Button",
-  xtype: 'ma-map-measure-area-button',
-  requires: [
-    'MalawiAtlas.controller.map.MeasureButtonController'
-  ],
+  xtype: "ma-map-measure-area-button",
+  requires: ["MalawiAtlas.controller.map.MeasureButtonController"],
 
-  controller: 'measureButton',
+  controller: "measureButton",
 
-  iconCls: 'x-fa fa-square-o',
+  iconCls: "x-fa fa-square-o",
 
-  text: 'Area',
+  text: "Area",
 
-  measureType: 'Polygon',
+  measureType: "Polygon",
 
   listeners: {
-    click: 'onMeasureClick'
-  }
-
+    click: "onMeasureClick",
+  },
 });

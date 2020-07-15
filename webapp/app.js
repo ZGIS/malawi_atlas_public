@@ -1,14 +1,9 @@
-
 Ext.application({
-  name: 'MalawiAtlas',
+  name: "MalawiAtlas",
 
-  extend: 'MalawiAtlas.Application',
+  extend: "MalawiAtlas.Application",
 
-  requires: [
-    'MalawiAtlas.view.main.Main',
-    'Ext.tab.Panel',
-  ],
+  requires: ["MalawiAtlas.view.main.Main", "Ext.tab.Panel"],
 
-  mainView: 'MalawiAtlas.view.main.Main'
-
+  mainView: "MalawiAtlas.view.main.Main",
 });

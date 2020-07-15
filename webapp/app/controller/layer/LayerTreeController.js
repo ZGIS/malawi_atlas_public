@@ -1,22 +1,21 @@
-Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
-  extend: 'Ext.app.ViewController',
-  alias: 'controller.malawilayertree',
+Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
+  extend: "Ext.app.ViewController",
+  alias: "controller.malawilayertree",
 
-  requires: ['Ext.slider.Single'],
+  requires: ["Ext.slider.Single"],
 
   /**
    * If node is a group, then icon is disabled
    */
-  isGroup: function(view, rowIdx, colIdx, item, record) {
+  isGroup: function (view, rowIdx, colIdx, item, record) {
     return record.data.isLayerGroup;
   },
-
 
   /**
    * If node is a group or raster, then icon is disabled
    */
-  isRasterLayerOrGroup: function(view, rowIdx, colIdx, item, record) {
-    var isRaster = record.data.get('raster_properties');
+  isRasterLayerOrGroup: function (view, rowIdx, colIdx, item, record) {
+    var isRaster = record.data.get("raster_properties");
 
     return record.data.isLayerGroup || isRaster;
   },
@@ -24,39 +23,47 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
   /**
    * Downloads the layer as GeoPackage
    */
-  openDownloadWindow: function(view, rowIndex, colIndex, item, e, record, row) {
-    var lid = record.data.get('lid');
-    var geoPackageURL = 'https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:' + lid;
-    window.open(
-      geoPackageURL, '_blank'
-    );
+  openDownloadWindow: function (
+    view,
+    rowIndex,
+    colIndex,
+    item,
+    e,
+    record,
+    row
+  ) {
+    var lid = record.data.get("lid");
+    var geoPackageURL =
+      "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:" +
+      lid;
+    window.open(geoPackageURL, "_blank");
   },
 
   /**
    * Opens panel with metadata
    */
-  openMetaDataPanel: function(view, rowIndex, colIndex, item, e, record, row) {
+  openMetaDataPanel: function (view, rowIndex, colIndex, item, e, record, row) {
     var me = this;
 
     var layerData = record.data;
 
-    var infoPanel = Ext.ComponentQuery.query('ma-feature-info-panel')[0];
+    var infoPanel = Ext.ComponentQuery.query("ma-feature-info-panel")[0];
     infoPanel.removeAll();
-    infoPanel.setTitle(layerData.get('name'));
+    infoPanel.setTitle(layerData.get("name"));
     infoPanel.height = 300;
     infoPanel.insert(0, {
-      xtype: 'displayfield',
-      value: layerData.get('description'),
+      xtype: "displayfield",
+      value: layerData.get("description"),
       width: 300,
-      cls: 'text-wrapper',
+      cls: "text-wrapper",
     });
 
     var layerProperties = me.extractLayerProperties(layerData);
 
     if (layerProperties) {
-      var propertyGrid = Ext.create('Ext.grid.property.Grid', {
+      var propertyGrid = Ext.create("Ext.grid.property.Grid", {
         width: 300,
-        source: layerProperties
+        source: layerProperties,
       });
       infoPanel.insert(1, propertyGrid);
     }
@@ -69,24 +76,24 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
    * @param  {object} layerData the data of a record
    * @return {object} layerProperties the extracted properties
    * */
-  extractLayerProperties: function(layerData) {
+  extractLayerProperties: function (layerData) {
     var layerProperties = {};
-    var year = layerData.get('year');
+    var year = layerData.get("year");
     if (year) {
       layerProperties["Year"] = year;
     }
 
-    var layerSource = layerData.get('layer_source');
+    var layerSource = layerData.get("layer_source");
     if (layerSource) {
       layerProperties["Source"] = layerSource;
     }
 
-    var extent = layerData.get('layer_extent');
+    var extent = layerData.get("layer_extent");
     if (extent) {
       layerProperties["Extent"] = extent;
     }
 
-    var rasterProperties = layerData.get('raster_properties');
+    var rasterProperties = layerData.get("raster_properties");
     if (rasterProperties) {
       var spatialResolution = rasterProperties.spatial_resolution;
       if (spatialResolution) {
@@ -110,7 +117,7 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
    * Shows a silder that changes the opacity of the layer
    * Also makes layer visible in case it was invisible before
    */
-  showOpacitySlider: function(view, rowIndex, colIndex, item, e, record, row) {
+  showOpacitySlider: function (view, rowIndex, colIndex, item, e, record, row) {
     var contextMenu = new Ext.menu.Menu({
       items: [
         new Ext.slider.Single({
@@ -119,11 +126,11 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
           minValue: 0,
           maxValue: 100,
           listeners: {
-            changecomplete: function(slider, newValue, thumb, eOpts) {
+            changecomplete: function (slider, newValue, thumb, eOpts) {
               var layer = record.data;
               layer.setOpacity(newValue / 100);
             },
-            beforerender: function(slider, eOpts) {
+            beforerender: function (slider, eOpts) {
               var layer = record.data;
               layer.setVisible(true);
 
@@ -136,11 +143,11 @@ Ext.define('MalawiAtlas.controller.layer.LayerTreeController', {
                 sliderValue = 100;
               }
               slider.setValue(sliderValue);
-            }
-          }
-        })
-      ]
+            },
+          },
+        }),
+      ],
     });
     contextMenu.showAt(e.getXY());
-  }
+  },
 });

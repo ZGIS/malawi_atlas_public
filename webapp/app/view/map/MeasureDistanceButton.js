@@ -1,23 +1,20 @@
 /**
-* @author C. Mayer, meggsimum, Jakob Miksch
-*/
-Ext.define('MalawiAtlas.view.map.MeasureDistanceButton', {
+ * @author C. Mayer, meggsimum, Jakob Miksch
+ */
+Ext.define("MalawiAtlas.view.map.MeasureDistanceButton", {
   extend: "Ext.button.Button",
-  xtype: 'ma-map-measure-distance-button',
-  requires: [
-    'MalawiAtlas.controller.map.MeasureButtonController'
-  ],
+  xtype: "ma-map-measure-distance-button",
+  requires: ["MalawiAtlas.controller.map.MeasureButtonController"],
 
-  controller: 'measureButton',
+  controller: "measureButton",
 
-  iconCls: 'x-fa fa-arrows-h',
+  iconCls: "x-fa fa-arrows-h",
 
-  text: 'Distance',
+  text: "Distance",
 
-  measureType: 'LineString',
+  measureType: "LineString",
 
   listeners: {
-    click: 'onMeasureClick'
-  }
-
+    click: "onMeasureClick",
+  },
 });

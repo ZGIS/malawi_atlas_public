@@ -1,11 +1,9 @@
-Ext.define('MalawiAtlas.view.layer.LayerTree', {
-  extend: 'Ext.tree.Panel',
-  xtype: 'ma-layertree',
+Ext.define("MalawiAtlas.view.layer.LayerTree", {
+  extend: "Ext.tree.Panel",
+  xtype: "ma-layertree",
 
-  requires: [
-    'MalawiAtlas.controller.layer.LayerTreeController',
-  ],
-  controller: 'malawilayertree',
+  requires: ["MalawiAtlas.controller.layer.LayerTreeController"],
+  controller: "malawilayertree",
 
   useArrows: true,
   lines: false,
@@ -17,60 +15,66 @@ Ext.define('MalawiAtlas.view.layer.LayerTree', {
   // Reorder layers
   viewConfig: {
     plugins: {
-      ptype: 'treeviewdragdrop'
-    }
+      ptype: "treeviewdragdrop",
+    },
   },
 
-  columns: [{
-    xtype: 'treecolumn',
-    dataIndex: 'text',
-    width: 320,
-    menudisabled: true,
-    sortable: false
-  }, {
-    // info button
-    xtype: 'actioncolumn',
-    glyph: 'xf05a@FontAwesome',
-    menudisabled: true,
-    sortable: false,
-    width: 25,
-    isDisabled: 'isGroup',
-    handler: 'openMetaDataPanel'
-  }, {
-    // download button
-    xtype: 'actioncolumn',
-    glyph: 'xf019@FontAwesome',
-    menudisabled: true,
-    sortable: false,
-    width: 25,
-    isDisabled: 'isRasterLayerOrGroup',
-    handler: 'openDownloadWindow'
-  }, {
-    // slider button
-    xtype: 'actioncolumn',
-    glyph: 'xf06e@FontAwesome',
-    menudisabled: true,
-    sortable: false,
-    width: 25,
-    isDisabled: 'isGroup',
-    handler: 'showOpacitySlider'
-  }],
+  columns: [
+    {
+      xtype: "treecolumn",
+      dataIndex: "text",
+      width: 320,
+      menudisabled: true,
+      sortable: false,
+    },
+    {
+      // info button
+      xtype: "actioncolumn",
+      glyph: "xf05a@FontAwesome",
+      menudisabled: true,
+      sortable: false,
+      width: 25,
+      isDisabled: "isGroup",
+      handler: "openMetaDataPanel",
+    },
+    {
+      // download button
+      xtype: "actioncolumn",
+      glyph: "xf019@FontAwesome",
+      menudisabled: true,
+      sortable: false,
+      width: 25,
+      isDisabled: "isRasterLayerOrGroup",
+      handler: "openDownloadWindow",
+    },
+    {
+      // slider button
+      xtype: "actioncolumn",
+      glyph: "xf06e@FontAwesome",
+      menudisabled: true,
+      sortable: false,
+      width: 25,
+      isDisabled: "isGroup",
+      handler: "showOpacitySlider",
+    },
+  ],
 
-  initComponent: function() {
+  initComponent: function () {
     var me = this;
 
     var olMap = MalawiAtlas.util.Map.getOlMap();
 
     // TODO: use top level GeoExt function like in legend
     var layerArray = [];
-    olMap.getLayers().forEach(function(layer) {
-      if (layer.get('basemap') != true && layer.get('measurementLayer') != true) layerArray.push(layer);
+    olMap.getLayers().forEach(function (layer) {
+      if (layer.get("basemap") != true && layer.get("measurementLayer") != true)
+        layerArray.push(layer);
     });
 
-    var treeStore = Ext.create('GeoExt.data.store.LayersTree', {
+    var treeStore = Ext.create("GeoExt.data.store.LayersTree", {
       layerGroup: new ol.layer.Group({
-        layers: layerArray
-      })
+        layers: layerArray,
+      }),
     });
 
     me.store = treeStore;

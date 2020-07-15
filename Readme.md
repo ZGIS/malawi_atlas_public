@@ -39,6 +39,10 @@ This repository contains the code for the _Malawi Atlas_ web application and the
 
 Tested with Sencha Cmd v6.6 and Ext JS 6.2 (GPL).
 
+## Code Fomatting
+
+The code of the website is formatted using the default settings of [Prettier](https://prettier.io).
+
 ## Code Conventions
 
 The `xtype` attribute for own components shall start with `ma` which stand for "Malawi Atlas". This makes sure that there is no confusion with already existing `xtype`s.

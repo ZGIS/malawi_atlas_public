@@ -1,57 +1,55 @@
-Ext.define('MalawiAtlas.view.map.ZoomToExtent', {
-  extend: 'Ext.panel.Panel',
-  xtype: 'ma-map-zoom-to-exent',
+Ext.define("MalawiAtlas.view.map.ZoomToExtent", {
+  extend: "Ext.panel.Panel",
+  xtype: "ma-map-zoom-to-exent",
 
-  requires: [
-    'MalawiAtlas.controller.main.Main',
-  ],
+  requires: ["MalawiAtlas.controller.main.Main"],
 
-  controller: 'main',
+  controller: "main",
 
   referenceHolder: true,
   viewModel: true,
-  layout: 'hbox',
-  items: [{
-      xtype: 'combobox',
-      id: 'district_id',
-      reference: 'districts',
-      emptyText: 'District',
-      displayField: 'districtName',
-      publishes: 'value',
-      valueField: 'districtName',
+  layout: "hbox",
+  items: [
+    {
+      xtype: "combobox",
+      id: "district_id",
+      reference: "districts",
+      emptyText: "District",
+      displayField: "districtName",
+      publishes: "value",
+      valueField: "districtName",
       store: {
-        type: 'districts'
+        type: "districts",
       },
       minChars: 0,
-      queryMode: 'remote',
+      queryMode: "remote",
       typeAhead: true,
       listeners: {
-        'select': 'comboZoomToExtent'
-      }
+        select: "comboZoomToExtent",
+      },
     },
     {
-      xtype: 'combobox',
-      id: 'ta_id',
-      reference: 'traditionalauthorities',
-      emptyText: 'Traditional Authorities',
-      displayField: 'taName',
+      xtype: "combobox",
+      id: "ta_id",
+      reference: "traditionalauthorities",
+      emptyText: "Traditional Authorities",
+      displayField: "taName",
       forceSelection: true,
       bind: {
         filters: {
-          property: 'districtName',
-          value: '{districts.value}'
-        }
+          property: "districtName",
+          value: "{districts.value}",
+        },
       },
       store: {
-        type: 'traditionalauthorities'
+        type: "traditionalauthorities",
       },
       minChars: 0,
-      queryMode: 'remote',
+      queryMode: "remote",
       typeAhead: true,
       listeners: {
-        'select': 'comboZoomToExtent'
-      }
-    }
-  ]
-
+        select: "comboZoomToExtent",
+      },
+    },
+  ],
 });

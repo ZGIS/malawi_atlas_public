@@ -1,39 +1,35 @@
-Ext.define('MalawiAtlas.view.layer.ThematicGroupsComboBox', {
-  extend: 'Ext.form.ComboBox',
-  xtype: 'ma-thematic-group-combobox',
+Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
+  extend: "Ext.form.ComboBox",
+  xtype: "ma-thematic-group-combobox",
 
-  requires: [
-    'MalawiAtlas.controller.main.Main',
-  ],
+  requires: ["MalawiAtlas.controller.main.Main"],
 
   width: 250,
-  queryMode: 'local',
-  displayField: 'name',
-  valueField: 'extent',
-  emptyText: 'predefined map ... ',
-  initComponent: function() {
+  queryMode: "local",
+  displayField: "name",
+  valueField: "extent",
+  emptyText: "predefined map ... ",
+  initComponent: function () {
     var me = this;
 
     var thematicGroupItems = MalawiAtlas.util.Layer.thematicGroupItems;
 
     // re-structure JSON
     var comboBoxArray = [];
-    Object.keys(thematicGroupItems).forEach(
-      function(key) {
-        var thematicGroupParams = thematicGroupItems[key];
-        var name = thematicGroupParams.name;
-        var extent = thematicGroupParams.extent;
-        comboBoxArray.push({
-          name: name,
-          extent: extent,
-          thematicGroup: key
-        });
-      }
-    );
+    Object.keys(thematicGroupItems).forEach(function (key) {
+      var thematicGroupParams = thematicGroupItems[key];
+      var name = thematicGroupParams.name;
+      var extent = thematicGroupParams.extent;
+      comboBoxArray.push({
+        name: name,
+        extent: extent,
+        thematicGroup: key,
+      });
+    });
 
-    me.store = Ext.create('Ext.data.Store', {
-      fields: ['name', 'extent'],
-      data: comboBoxArray
+    me.store = Ext.create("Ext.data.Store", {
+      fields: ["name", "extent"],
+      data: comboBoxArray,
     });
 
     me.callParent();
@@ -42,8 +38,7 @@ Ext.define('MalawiAtlas.view.layer.ThematicGroupsComboBox', {
   layerChangeListenerKey: null,
 
   listeners: {
-    'select': function(combo, record, eOpts) {
-
+    select: function (combo, record, eOpts) {
       var me = this;
 
       // unset listener, otherwise thematic group will not be shown
@@ -51,15 +46,17 @@ Ext.define('MalawiAtlas.view.layer.ThematicGroupsComboBox', {
       ol.Observable.unByKey(me.layerChangeListenerKey);
 
       // zoom to extent
-      var extent = record.get('extent');
+      var extent = record.get("extent");
       MalawiAtlas.util.Map.zoomToExtent(extent);
 
       // activate layers
       var flatLayerList = MalawiAtlas.util.Layer.getFlatLayerList();
-      flatLayerList.forEach(function(layer) {
-        var themgroup = layer.get('thematicGroup');
-        if (typeof themgroup !== 'undefined' &&
-            themgroup.includes(record.get('thematicGroup'))) {
+      flatLayerList.forEach(function (layer) {
+        var themgroup = layer.get("thematicGroup");
+        if (
+          typeof themgroup !== "undefined" &&
+          themgroup.includes(record.get("thematicGroup"))
+        ) {
           layer.setVisible(true);
         } else {
           layer.setVisible(false);
@@ -67,11 +64,11 @@ Ext.define('MalawiAtlas.view.layer.ThematicGroupsComboBox', {
       });
 
       // if a layer is changed, combobox will be cleared
-      me.layerChangeListenerKey = MalawiAtlas.util.Map.getOlMap().getLayerGroup().on('change',
-        function() {
+      me.layerChangeListenerKey = MalawiAtlas.util.Map.getOlMap()
+        .getLayerGroup()
+        .on("change", function () {
           me.setValue(null);
         });
-    }
-  }
-
+    },
+  },
 });
