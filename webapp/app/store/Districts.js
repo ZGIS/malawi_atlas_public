@@ -11,8 +11,8 @@ Ext.define("MalawiAtlas.store.Districts", {
 
     reader: {
       type: "json",
-      rootProperty: "features",
-    },
+      rootProperty: "features"
+    }
   },
   fields: [
     "type",
@@ -22,9 +22,9 @@ Ext.define("MalawiAtlas.store.Districts", {
     "properties",
     {
       name: "districtName",
-      mapping: "properties.admin3",
-    },
+      mapping: "properties.admin3"
+    }
   ],
   autoLoad: true,
-  sorters: ["districtName"],
+  sorters: ["districtName"]
 });

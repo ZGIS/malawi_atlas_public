@@ -55,7 +55,7 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
       xtype: "displayfield",
       value: layerData.get("description"),
       width: 300,
-      cls: "text-wrapper",
+      cls: "text-wrapper"
     });
 
     var layerProperties = me.extractLayerProperties(layerData);
@@ -63,7 +63,7 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
     if (layerProperties) {
       var propertyGrid = Ext.create("Ext.grid.property.Grid", {
         width: 300,
-        source: layerProperties,
+        source: layerProperties
       });
       infoPanel.insert(1, propertyGrid);
     }
@@ -143,11 +143,11 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
                 sliderValue = 100;
               }
               slider.setValue(sliderValue);
-            },
-          },
-        }),
-      ],
+            }
+          }
+        })
+      ]
     });
     contextMenu.showAt(e.getXY());
-  },
+  }
 });

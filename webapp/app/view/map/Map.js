@@ -20,6 +20,6 @@ Ext.define("MalawiAtlas.view.map.Map", {
   },
 
   listeners: {
-    mapSingleClick: "onMapSingleClick",
-  },
+    mapSingleClick: "onMapSingleClick"
+  }
 });

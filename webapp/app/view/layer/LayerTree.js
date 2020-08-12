@@ -15,8 +15,8 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
   // Reorder layers
   viewConfig: {
     plugins: {
-      ptype: "treeviewdragdrop",
-    },
+      ptype: "treeviewdragdrop"
+    }
   },
 
   columns: [
@@ -25,7 +25,7 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       dataIndex: "text",
       width: 320,
       menudisabled: true,
-      sortable: false,
+      sortable: false
     },
     {
       // info button
@@ -35,7 +35,7 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       sortable: false,
       width: 25,
       isDisabled: "isGroup",
-      handler: "openMetaDataPanel",
+      handler: "openMetaDataPanel"
     },
     {
       // download button
@@ -45,7 +45,7 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       sortable: false,
       width: 25,
       isDisabled: "isRasterLayerOrGroup",
-      handler: "openDownloadWindow",
+      handler: "openDownloadWindow"
     },
     {
       // slider button
@@ -55,8 +55,8 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       sortable: false,
       width: 25,
       isDisabled: "isGroup",
-      handler: "showOpacitySlider",
-    },
+      handler: "showOpacitySlider"
+    }
   ],
 
   initComponent: function () {
@@ -73,8 +73,8 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
 
     var treeStore = Ext.create("GeoExt.data.store.LayersTree", {
       layerGroup: new ol.layer.Group({
-        layers: layerArray,
-      }),
+        layers: layerArray
+      })
     });
 
     me.store = treeStore;
@@ -83,5 +83,5 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
     // me.expandAll();
 
     me.callParent();
-  },
+  }
 });

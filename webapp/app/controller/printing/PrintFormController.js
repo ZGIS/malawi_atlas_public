@@ -7,7 +7,7 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
     var form = me.getView().getForm();
     form.setValues({
       title: null,
-      comment: null,
+      comment: null
     });
   },
 
@@ -53,7 +53,7 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
         var legendItem = {
           icons: [legendUrl],
           name: layerName,
-          iconBeforeName: false,
+          iconBeforeName: false
         };
 
         // add items to their arrays
@@ -78,7 +78,7 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
             -20037508.3392,
             -20037508.3392,
             20037508.3392,
-            20037508.3392,
+            20037508.3392
           ],
           tileSize: [256, 256],
           resolutions: [
@@ -100,16 +100,16 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
             4.777314266967774,
             2.388657133483887,
             1.1943285667419434,
-            0.5971642833709717,
+            0.5971642833709717
           ],
-          extension: "png",
+          extension: "png"
         },
         {
           type: "WMS",
           layers: layerIDs,
           baseURL: "https://www.gis-malawi.com/geoserver/malawi_atlas/wms?",
-          format: "image/png",
-        },
+          format: "image/png"
+        }
       ],
       pages: [
         {
@@ -119,15 +119,15 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
           scale: 577790,
           dpi: 150,
           geodetic: true,
-          strictEpsg4326: false,
-        },
+          strictEpsg4326: false
+        }
       ],
       legends: [
         {
           name: "",
-          classes: legendItems,
-        },
-      ],
+          classes: legendItems
+        }
+      ]
     };
 
     // build PDF URL
@@ -141,5 +141,5 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
 
     // reset values
     me.resetValues();
-  },
+  }
 });

@@ -23,13 +23,13 @@ Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
       comboBoxArray.push({
         name: name,
         extent: extent,
-        thematicGroup: key,
+        thematicGroup: key
       });
     });
 
     me.store = Ext.create("Ext.data.Store", {
       fields: ["name", "extent"],
-      data: comboBoxArray,
+      data: comboBoxArray
     });
 
     me.callParent();
@@ -69,6 +69,6 @@ Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
         .on("change", function () {
           me.setValue(null);
         });
-    },
-  },
+    }
+  }
 });

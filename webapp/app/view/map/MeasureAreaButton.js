@@ -15,6 +15,6 @@ Ext.define("MalawiAtlas.view.map.MeasureAreaButton", {
   measureType: "Polygon",
 
   listeners: {
-    click: "onMeasureClick",
-  },
+    click: "onMeasureClick"
+  }
 });

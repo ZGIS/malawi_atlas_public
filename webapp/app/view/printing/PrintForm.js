@@ -20,12 +20,12 @@ Ext.define("MalawiAtlas.view.printing.PrintForm", {
 
       defaultType: "textfield",
       fieldDefaults: {
-        labelWidth: 60,
+        labelWidth: 60
       },
 
       layout: {
         type: "vbox",
-        align: "stretch",
+        align: "stretch"
       },
 
       bodyPadding: 5,
@@ -34,25 +34,25 @@ Ext.define("MalawiAtlas.view.printing.PrintForm", {
       items: [
         {
           emptyText: "Map Title",
-          name: "title",
+          name: "title"
         },
         {
           xtype: "textarea",
           emptyText: "Comment",
           name: "comment",
-          flex: 1,
-        },
-      ],
-    },
+          flex: 1
+        }
+      ]
+    }
   ],
   buttons: [
     {
       iconCls: "x-fa fa-refresh",
-      handler: "resetValues",
+      handler: "resetValues"
     },
     {
       iconCls: "x-fa fa-print",
-      handler: "onPrintSubmit",
-    },
-  ],
+      handler: "onPrintSubmit"
+    }
+  ]
 });

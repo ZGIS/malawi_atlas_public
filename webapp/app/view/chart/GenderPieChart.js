@@ -12,7 +12,7 @@ Ext.define("MalawiAtlas.view.chart.GenderPieChart", {
     angleField: "count_persons",
     label: {
       field: "gender_type",
-      display: "outside",
-    },
-  },
+      display: "outside"
+    }
+  }
 });

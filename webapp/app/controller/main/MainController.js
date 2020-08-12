@@ -35,7 +35,7 @@ Ext.define("MalawiAtlas.controller.main.Main", {
     // format geometry
     var geometry = record.get("geometry");
     var format = new ol.format.GeoJSON({
-      featureProjection: "EPSG:3857",
+      featureProjection: "EPSG:3857"
     });
 
     var geoJsonGeom = format.readGeometry(geometry);
@@ -46,5 +46,5 @@ Ext.define("MalawiAtlas.controller.main.Main", {
       Ext.getCmp("ta_id").setValue(null);
       Ext.getCmp("district_id").setValue(null);
     });
-  },
+  }
 });

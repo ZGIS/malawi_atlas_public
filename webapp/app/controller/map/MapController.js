@@ -50,23 +50,23 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
           new ol.style.Style({
             stroke: new ol.style.Stroke({
               color: "yellow",
-              width: 3,
+              width: 3
             }),
             fill: new ol.style.Fill({
-              color: "rgba(244, 238, 66, 0.4)",
+              color: "rgba(244, 238, 66, 0.4)"
             }),
             image: new ol.style.Circle({
               radius: 15,
               fill: new ol.style.Fill({
-                color: "rgba(244, 238, 66, 0.4)",
+                color: "rgba(244, 238, 66, 0.4)"
               }),
               stroke: new ol.style.Stroke({
                 color: "gray",
-                width: 3,
-              }),
-            }),
-          }),
-        ],
+                width: 3
+              })
+            })
+          })
+        ]
       });
       MalawiAtlas.util.Map.getOlMap().addLayer(me.selectionLayer);
     }
@@ -78,7 +78,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
       view.getResolution(),
       "EPSG:3857",
       {
-        INFO_FORMAT: "application/json",
+        INFO_FORMAT: "application/json"
       }
     );
 
@@ -97,7 +97,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
           // somehow the EPSG code has to be changed,
           // even though it worked with EPSG:3857 with the old GeoServer
           var format = new ol.format.GeoJSON({
-            featureProjection: "EPSG:4326",
+            featureProjection: "EPSG:4326"
           });
           var features = format.readFeatures(geoJson);
 
@@ -162,7 +162,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
               if (me.selectionLayer) {
                 me.selectionLayer.getSource().clear();
               }
-            },
+            }
           });
 
           me.infoPanel.show();
@@ -170,7 +170,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
 
         failure: function (response) {
           // TODO: Handle fail
-        },
+        }
       });
     }
   },
@@ -186,7 +186,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
 
     var propertyGrid = Ext.create("Ext.grid.property.Grid", {
       width: 300,
-      source: properties,
+      source: properties
     });
 
     // transform to WGS84
@@ -202,7 +202,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
 
       me.infoPanel.insert(0, {
         xtype: "displayfield",
-        value: "Coordinate: " + coordinate,
+        value: "Coordinate: " + coordinate
       });
       me.infoPanel.insert(1, propertyGrid);
     } else {
@@ -264,7 +264,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
         var tmpItem = {
           name: name,
           value: (value * 100) / 255,
-          fillColor: fillcolor,
+          fillColor: fillcolor
         };
         chartData.push(tmpItem);
       }
@@ -273,21 +273,21 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
     // create store for chart
     var chartStore = new Ext.data.Store({
       fields: ["name", "value", " fillColor"],
-      data: chartData,
+      data: chartData
     });
 
     me.infoPanel.height = 300;
 
     me.infoPanel.insert(0, {
       xtype: "displayfield",
-      value: "District VA Index: " + vaIndex,
+      value: "District VA Index: " + vaIndex
     });
 
     var chart = Ext.create(
       "MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart",
       {
         store: chartStore,
-        chartTitle: "Absolute indicator values",
+        chartTitle: "Absolute indicator values"
       }
     );
 
@@ -346,7 +346,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
         var tmpItem = {
           name: name,
           value: (value * 100) / 255,
-          fillColor: fillcolor,
+          fillColor: fillcolor
         };
         chartData.push(tmpItem);
       }
@@ -355,21 +355,21 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
     // create store for chart
     var chartStore = new Ext.data.Store({
       fields: ["name", "value", " fillColor"],
-      data: chartData,
+      data: chartData
     });
 
     me.infoPanel.height = 300;
 
     me.infoPanel.insert(0, {
       xtype: "displayfield",
-      value: "District RA index: " + raIndex,
+      value: "District RA index: " + raIndex
     });
 
     var chart = Ext.create(
       "MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart",
       {
         store: chartStore,
-        chartTitle: "Absolute indicator values",
+        chartTitle: "Absolute indicator values"
       }
     );
 
@@ -388,29 +388,29 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
         xtype: "displayfield",
         value:
           "EA Household Density: " +
-          properties["Household density (households per km2)"],
+          properties["Household density (households per km2)"]
       });
       me.infoPanel.insert(1, {
         xtype: "displayfield",
-        value: "Malawi Average: " + 246.2, // computed with Postgres
+        value: "Malawi Average: " + 246.2 // computed with Postgres
       });
     } else if (
       featureInfoLayer.get("lid") === "malawi_population_density_2008"
     ) {
       me.infoPanel.insert(0, {
         xtype: "displayfield",
-        value: "EA: " + properties["Population density (persons per km2)"],
+        value: "EA: " + properties["Population density (persons per km2)"]
       });
       me.infoPanel.insert(1, {
         xtype: "displayfield",
-        value: "Malawi Average: " + 1077, // computed with Postgres
+        value: "Malawi Average: " + 1077 // computed with Postgres
       });
     }
 
     var propertyGrid = Ext.create("Ext.grid.property.Grid", {
       width: 300,
       renderTo: Ext.getBody(),
-      source: properties,
+      source: properties
     });
 
     me.infoPanel.insert(2, propertyGrid);
@@ -430,24 +430,24 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
       data: [
         {
           gender_type: "male",
-          count_persons: countMale,
+          count_persons: countMale
         },
         {
           gender_type: "female",
-          count_persons: countFemale,
-        },
-      ],
+          count_persons: countFemale
+        }
+      ]
     });
 
     var pieChart = Ext.create("MalawiAtlas.view.chart.GenderPieChart", {
-      store: chartStore,
+      store: chartStore
     });
     me.infoPanel.insert(0, pieChart);
 
     var propertyGrid = Ext.create("Ext.grid.property.Grid", {
       width: 300,
       renderTo: Ext.getBody(),
-      source: properties,
+      source: properties
     });
     me.infoPanel.insert(1, propertyGrid);
   },
@@ -499,5 +499,5 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
     } else {
       MalawiAtlas.util.Map.getOlMap().removeControl(me.swipeControl);
     }
-  },
+  }
 });

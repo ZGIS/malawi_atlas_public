@@ -5,7 +5,7 @@ Ext.define("MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart", {
   requires: [
     "Ext.chart.series.Bar",
     "Ext.chart.axis.Numeric",
-    "Ext.chart.axis.Category",
+    "Ext.chart.axis.Category"
   ],
 
   width: 400,
@@ -19,7 +19,7 @@ Ext.define("MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart", {
       position: "bottom",
       grid: true,
       minimum: 0,
-      maximum: 100,
+      maximum: 100
     },
     {
       type: "category",
@@ -27,9 +27,9 @@ Ext.define("MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart", {
       label: {
         fontSize: 10,
         padding: 0,
-        textAlign: "right",
-      },
-    },
+        textAlign: "right"
+      }
+    }
   ],
 
   padding: "0 10 0 0",
@@ -47,19 +47,19 @@ Ext.define("MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart", {
         field: "value",
         renderer: Ext.util.Format.numberRenderer("0.0"),
         orientation: "horizontal",
-        contrast: true,
+        contrast: true
       },
 
       // colors of bars
       renderer: function (sprite, config, data, index) {
         var fillColor = data.store.getAt(index).get("fillColor");
         return {
-          fillStyle: fillColor, // dark red
+          fillStyle: fillColor // dark red
         };
       },
 
-      axis: "bottom",
-    },
+      axis: "bottom"
+    }
   ],
 
   initComponent: function () {
@@ -74,10 +74,10 @@ Ext.define("MalawiAtlas.view.chart.VulnerbilityAndResilienceIndexChart", {
         width: 100,
         height: 30,
         x: 40, // the sprite x position
-        y: 20, // the sprite y position
+        y: 20 // the sprite y position
       });
     }
 
     me.callParent();
-  },
+  }
 });

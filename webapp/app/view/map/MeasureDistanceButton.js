@@ -15,6 +15,6 @@ Ext.define("MalawiAtlas.view.map.MeasureDistanceButton", {
   measureType: "LineString",
 
   listeners: {
-    click: "onMeasureClick",
-  },
+    click: "onMeasureClick"
+  }
 });

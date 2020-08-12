@@ -11,8 +11,8 @@ Ext.define("MalawiAtlas.Application", {
   quickTips: false,
   platformConfig: {
     desktop: {
-      quickTips: true,
-    },
+      quickTips: true
+    }
   },
 
   stores: [
@@ -33,5 +33,5 @@ Ext.define("MalawiAtlas.Application", {
         }
       }
     );
-  },
+  }
 });

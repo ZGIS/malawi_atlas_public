@@ -3,52 +3,52 @@ var layerJSON = {
     thematicGroups: {
       MALAWI_CHAM_HEALTH_FACILITIES: {
         name: "Malawi CHAM health facilities and population",
-        extent: [3650738, -1945482, 4053741, -1032934],
+        extent: [3650738, -1945482, 4053741, -1032934]
       },
       MALAWI_MOH_HEALTH_FACILITIES: {
         name: "Malawi MoH health facilities and population",
-        extent: [3650738, -1945482, 4053741, -1032934],
+        extent: [3650738, -1945482, 4053741, -1032934]
       },
       MALAWI_OTHER_HEALTH_FACILITIES: {
         name: "Malawi other health facilities and population",
-        extent: [3650738, -1945482, 4053741, -1032934],
+        extent: [3650738, -1945482, 4053741, -1032934]
       },
       MALAWI_HAZARD: {
         name: "Malawi Hazard Map expert based",
-        extent: [3650738, -1945482, 4053741, -1032934],
+        extent: [3650738, -1945482, 4053741, -1032934]
       },
       LINTHIPE_LINGADZI: {
         name: "Linthipe/Lingadzi Study",
-        extent: [3714696, -1644987, 3850868, -1515511],
+        extent: [3714696, -1644987, 3850868, -1515511]
       },
       SALIMA_DISASTER: {
         name: "Salima Disaster Risk Reduction",
-        extent: [3797310, -1586808, 3855005, -1507639],
+        extent: [3797310, -1586808, 3855005, -1507639]
       },
       SALIMA_VULERNABILITY: {
         name: "Salima Vulnerability to floods",
-        extent: [3807468, -1569169, 3850398, -1510389],
+        extent: [3807468, -1569169, 3850398, -1510389]
       },
       SALIMA_RESILIENCE: {
         name: "Salima Resilience to food insecurity",
-        extent: [3807468, -1569169, 3850398, -1510389],
+        extent: [3807468, -1569169, 3850398, -1510389]
       },
       MANGOCHI_HAZARD: {
         name: "Mangochi Hazard and Vulnerability",
-        extent: [3854490, -1666433, 3988592, -1516044],
+        extent: [3854490, -1666433, 3988592, -1516044]
       },
       KARONGA_PGIS: {
         name: "Karonga PGIS Hazards",
-        extent: [3724116, -1188299, 3815412, -1068856],
+        extent: [3724116, -1188299, 3815412, -1068856]
       },
       MZUZU_PGIS: {
         name: "Mzuzu PGIS Hazards",
-        extent: [3780375, -1289501, 3793398, -1277378],
+        extent: [3780375, -1289501, 3793398, -1277378]
       },
       LILONGWE_PGIS: {
         name: "Lilongwe PGIS Hazards",
-        extent: [3748119, -1581948, 3771078, -1558820],
-      },
+        extent: [3748119, -1581948, 3771078, -1558820]
+      }
     },
     parentGroups: [
       {
@@ -67,7 +67,7 @@ var layerJSON = {
                 layer_extent: "Salima",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Floods (COOPI PGIS 2013)",
@@ -80,7 +80,7 @@ var layerJSON = {
                 layer_extent: "Salima",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Floods (Irrigation & Water Development Department)",
@@ -92,7 +92,7 @@ var layerJSON = {
                 layer_extent: "Salima",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Floods (Forestry Department)",
@@ -104,9 +104,9 @@ var layerJSON = {
                 layer_extent: "Salima",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
-              },
-            ],
+                vector_geometry: "Polygon"
+              }
+            ]
           },
           {
             groupName: "Vulnerability to floods",
@@ -125,7 +125,7 @@ var layerJSON = {
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
                 vector_geometry: "Polygon",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 title: "Piecharts",
@@ -136,7 +136,7 @@ var layerJSON = {
                 source: "Z_GIS & COOPI",
                 layer_extent: "Salima",
                 feature_info_activated: true,
-                useImageWmsInsteadOfTileWMS: true,
+                useImageWmsInsteadOfTileWMS: true
               },
               {
                 title: "Flood vulnerability index (selected GVHs)",
@@ -153,10 +153,10 @@ var layerJSON = {
                 field_aliases: {
                   gvh: "GVH",
                   ta_name: "TA",
-                  ref: "Vulnerability to floods index",
-                },
-              },
-            ],
+                  ref: "Vulnerability to floods index"
+                }
+              }
+            ]
           },
           {
             groupName: "Resilience to food insecurity",
@@ -175,7 +175,7 @@ var layerJSON = {
                 projection: "WGS 84 (EPSG: 4326)",
                 "Data type": "Vector (.gpkg)",
                 Vector_geometry: "Polygon",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 title: "Resilience to food insecurity index (charts)",
@@ -186,7 +186,7 @@ var layerJSON = {
                 source: "Z_GIS & COOPI",
                 layer_extent: "Salima",
                 feature_info_activated: true,
-                useImageWmsInsteadOfTileWMS: true,
+                useImageWmsInsteadOfTileWMS: true
               },
               {
                 title: "GVH level",
@@ -203,10 +203,10 @@ var layerJSON = {
                 field_aliases: {
                   gvh: "GVH",
                   ta_name: "TA",
-                  ra_index: "Resilience to food insecurity (RA) index",
-                },
-              },
-            ],
+                  ra_index: "Resilience to food insecurity (RA) index"
+                }
+              }
+            ]
           },
           {
             groupName: "Socioeconomic information",
@@ -241,10 +241,10 @@ var layerJSON = {
                   tot_hh: "Total number of households",
                   longitude: "utm_y",
                   utm: "utm_x",
-                  elevation: "Elevation",
-                },
-              },
-            ],
+                  elevation: "Elevation"
+                }
+              }
+            ]
           },
           {
             groupName: "Infrastructure and DRR facilities",
@@ -267,8 +267,8 @@ var layerJSON = {
                   categories: "Featurecategory",
                   position: "Featuredetails",
                   longitude: "Longitude",
-                  elevation: "Elevation",
-                },
+                  elevation: "Elevation"
+                }
               },
               {
                 title: "Trained village civil protection comittees(VCPC)",
@@ -295,8 +295,8 @@ var layerJSON = {
                   train_sub: "Training subject",
                   trainerorg: "Training organisation",
                   latitude: "Latitude",
-                  longitude: "Longitude",
-                },
+                  longitude: "Longitude"
+                }
               },
               {
                 title: "DRR infrastructures",
@@ -322,8 +322,8 @@ var layerJSON = {
                   evacuation: "Evacuation centre ?",
                   location: "Location",
                   lat: "latitude",
-                  long: "longitude",
-                },
+                  long: "longitude"
+                }
               },
               {
                 title: "River Gauge levels",
@@ -338,8 +338,8 @@ var layerJSON = {
                   latitude: "Latitude",
                   longitude: "Longitude",
                   river: "River",
-                  river_gaug: "River gauge",
-                },
+                  river_gaug: "River gauge"
+                }
               },
               {
                 title: "Health Facilities",
@@ -358,8 +358,8 @@ var layerJSON = {
                   founder: "Founder",
                   location: "Location",
                   lat: "latitude",
-                  long: "longitude",
-                },
+                  long: "longitude"
+                }
               },
               {
                 title: "Traditional authorities",
@@ -372,11 +372,11 @@ var layerJSON = {
                 layer_extent: "Salima",
                 projection: "WGS 84(EPSG: 4326)",
                 "Data type": "Vector(.gpkg)",
-                Vector_geometry: "Polygon",
-              },
-            ],
-          },
-        ],
+                Vector_geometry: "Polygon"
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Mzuzu",
@@ -394,7 +394,7 @@ var layerJSON = {
                 layer_extent: "Mzuzu",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Strong wind hazards",
@@ -406,11 +406,11 @@ var layerJSON = {
                 layer_extent: "Mzuzu",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "Line",
-              },
-            ],
-          },
-        ],
+                vector_geometry: "Line"
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Lilongwe",
@@ -428,7 +428,7 @@ var layerJSON = {
                 layer_extent: "Lilongwe",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Dry spell hazards",
@@ -440,7 +440,7 @@ var layerJSON = {
                 layer_extent: "Lilongwe",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "Point",
+                vector_geometry: "Point"
               },
               {
                 title: "Flood hazards",
@@ -452,7 +452,7 @@ var layerJSON = {
                 layer_extent: "Lilongwe",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Strong wind hazards",
@@ -464,11 +464,11 @@ var layerJSON = {
                 layer_extent: "Lilongwe",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "Line",
-              },
-            ],
-          },
-        ],
+                vector_geometry: "Line"
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Karonga",
@@ -486,7 +486,7 @@ var layerJSON = {
                 layer_extent: "Karonga",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Point",
+                vector_geometry: "Point"
               },
               {
                 title: "Cholera hazards",
@@ -498,7 +498,7 @@ var layerJSON = {
                 layer_extent: "Karonga",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Dry spell hazards",
@@ -510,7 +510,7 @@ var layerJSON = {
                 layer_extent: "Karonga",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "Point",
+                vector_geometry: "Point"
               },
               {
                 title: "Flood hazards",
@@ -522,7 +522,7 @@ var layerJSON = {
                 layer_extent: "Karonga",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Strong wind hazards",
@@ -534,11 +534,11 @@ var layerJSON = {
                 layer_extent: "Karonga",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "Line",
-              },
-            ],
-          },
-        ],
+                vector_geometry: "Line"
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Nsanje",
@@ -548,24 +548,24 @@ var layerJSON = {
             layers: [
               {
                 title: "Extent",
-                name: "nsanje_extent_uav",
+                name: "nsanje_extent_uav"
               },
               {
                 title: "Kernel Density",
-                name: "nsanje_kernel_density",
+                name: "nsanje_kernel_density"
               },
               {
                 title: "Houses",
-                name: "nsanje_house_uav_coopi",
+                name: "nsanje_house_uav_coopi"
               },
               {
                 title: "Orthophoto",
                 name: "nsanje_uav",
                 description:
                   "Extraction of settlements based on object-based image analysis (OBIA) approach and optical UAV-based imagery. Analysis conducted by Department of Geoinformatics - Z_GIS, University of Salzburg. In collaboration with COOPI and Concern Worldwide. Data provided by Agrisense.",
-                year: 2018,
-              },
-            ],
+                year: 2018
+              }
+            ]
           },
           {
             groupName: "Hazards",
@@ -580,7 +580,7 @@ var layerJSON = {
                 source: "COOPI & Z_GIS",
                 year: 2013,
                 data_type: "vector",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Cholera incidences (PGIS)",
@@ -592,7 +592,7 @@ var layerJSON = {
                 layer_extent: "Nsanje",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Point",
+                vector_geometry: "Point"
               },
               {
                 title: "Human - wildlife conflict (PGIS)",
@@ -604,7 +604,7 @@ var layerJSON = {
                 layer_extent: "Nsanje",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Point",
+                vector_geometry: "Point"
               },
               {
                 title: "Crop pests (PGIS)",
@@ -616,7 +616,7 @@ var layerJSON = {
                 layer_extent: "Nsanje",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_Geometry: "Point",
+                vector_Geometry: "Point"
               },
               {
                 title: "Flood hazard (PGIS)",
@@ -628,7 +628,7 @@ var layerJSON = {
                 layer_extent: "Nsanje",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Dry spell hazard (PGIS)",
@@ -640,9 +640,9 @@ var layerJSON = {
                 layer_extent: "Nsanje",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
-              },
-            ],
+                vector_geometry: "polygon"
+              }
+            ]
           },
           {
             groupName: "Infrastructure and DRR facilities",
@@ -650,12 +650,12 @@ var layerJSON = {
               {
                 name: "nsanje_ngo_mapping_ta_summaries_coopi_2018",
                 title: "NGO mapping by TA",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 name: "nsanje_ngo_mapping_by_project_coopi_2018",
                 title: "NGO mapping by Project",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 title: "Airport (disaster management)",
@@ -681,8 +681,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Boreholes",
@@ -709,8 +709,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Bridges",
@@ -737,8 +737,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Communication towers",
@@ -764,8 +764,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Community / other centres",
@@ -793,8 +793,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Disaster mitigation",
@@ -821,8 +821,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Early warning systems",
@@ -849,8 +849,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Health facilities",
@@ -886,8 +886,8 @@ var layerJSON = {
                   toilets: "Number of toilets",
                   notes: "Notes",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Identified evacuation centres",
@@ -919,8 +919,8 @@ var layerJSON = {
                   toilets: "Number of toilets",
                   details: "Other notes",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Markets",
@@ -946,8 +946,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Power stations",
@@ -974,8 +974,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Religious Centres",
@@ -1006,8 +1006,8 @@ var layerJSON = {
                   "evac?": "Notes",
                   details: "Other details",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Schools",
@@ -1040,8 +1040,8 @@ var layerJSON = {
                   notes: "Other details",
                   village: "Village",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Sports grounds",
@@ -1069,10 +1069,10 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation - from ASTER DEM (metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
-              },
-            ],
+                  data_date: "Date collected"
+                }
+              }
+            ]
           },
           {
             groupName: "Shock sensitive social protection",
@@ -1094,8 +1094,8 @@ var layerJSON = {
                   ta: "TA",
                   latitude: "Latitude",
                   longitude: "Longitude",
-                  elevation: "Elevation (GPS, metres)",
-                },
+                  elevation: "Elevation (GPS, metres)"
+                }
               },
               {
                 title: "Pre-targeted vulnerable households",
@@ -1111,8 +1111,8 @@ var layerJSON = {
                 field_aliases: {
                   lat: "Latitude",
                   long: "Longitude",
-                  elevation: "Elevation (GPS, metres)",
-                },
+                  elevation: "Elevation (GPS, metres)"
+                }
               },
               {
                 title: "Pre-targeted vulnerable households (density)",
@@ -1128,8 +1128,8 @@ var layerJSON = {
                   value_meaning:
                     "Density of vulnerable households pre-targeted by Concern Worldwide",
                   value_statistics: "Min = 0, max = 383",
-                  spatial_resolution: "10m x 10m",
-                },
+                  spatial_resolution: "10m x 10m"
+                }
               },
               {
                 title: "Cash distribution centres",
@@ -1161,12 +1161,12 @@ var layerJSON = {
                   wateraccess: "Access to water",
                   toilets: "Number of toilets",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
-              },
-            ],
-          },
-        ],
+                  data_date: "Date collected"
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Mangochi",
@@ -1176,24 +1176,24 @@ var layerJSON = {
             layers: [
               {
                 title: "Extent",
-                name: "mangochi_uav_data_extent",
+                name: "mangochi_uav_data_extent"
               },
               {
                 title: "Kernel Density",
-                name: "mangochi_kernel_density",
+                name: "mangochi_kernel_density"
               },
               {
                 title: "Houses",
-                name: "mangochi_uav_houses_merged_coopi",
+                name: "mangochi_uav_houses_merged_coopi"
               },
               {
                 title: "Orthophoto",
                 name: "mangochi_uav_imagery",
                 description:
                   "Extraction of settlements based on object-based image analysis (OBIA) approach and optical UAV-based imagery. Analysis conducted by Department of Geoinformatics - Z_GIS, University of Salzburg. In collaboration with COOPI and Concern Worldwide. Data provided by Agrisense.",
-                year: 2018,
-              },
-            ],
+                year: 2018
+              }
+            ]
           },
           {
             groupName: "Hazards",
@@ -1215,8 +1215,8 @@ var layerJSON = {
                   ta: "TA",
                   notes: "Notes",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Flood frequency",
@@ -1233,8 +1233,8 @@ var layerJSON = {
                   value_meaning:
                     "Values relate to return period(RP)- 10, 20, 50 year RP",
                   value_statistics: "Min = 0, max = 50",
-                  spatial_resolution: "0.1 x 0.1 degrees",
-                },
+                  spatial_resolution: "0.1 x 0.1 degrees"
+                }
               },
               {
                 title: "Drought exposure",
@@ -1252,8 +1252,8 @@ var layerJSON = {
                   value_meaning:
                     "The expected annual population exposed to droughts",
                   value_statistics: "Min = 0, max = 13393",
-                  spatial_resolution: "1km x 1km",
-                },
+                  spatial_resolution: "1km x 1km"
+                }
               },
               {
                 title: "Crop pest exposure - armyworms (PGIS)",
@@ -1266,7 +1266,7 @@ var layerJSON = {
                 layer_extent: "Mangochi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Human - wildlife conflict zones (PGIS)",
@@ -1279,7 +1279,7 @@ var layerJSON = {
                 layer_extent: "Mangochi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Landslide hazard (PGIS)",
@@ -1292,7 +1292,7 @@ var layerJSON = {
                 layer_extent: "Mangochi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Strong winds hazards (PGIS)",
@@ -1305,9 +1305,9 @@ var layerJSON = {
                 layer_extent: "Mangochi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
-              },
-            ],
+                vector_geometry: "Polygon"
+              }
+            ]
           },
           {
             groupName: "Infrastructure and DRR facilities",
@@ -1315,12 +1315,12 @@ var layerJSON = {
               {
                 title: "NGO Mapping TA summaries",
                 name: "mangochi_ngo_mapping_cc_ec_drm_ta_summaries_coopi_2018",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 title: "NGO Mapping by Project",
                 name: "mangochi_ngo_mapping_cc_ec_drm_by_project_coopi_2018",
-                feature_info_activated: true,
+                feature_info_activated: true
               },
               {
                 title: "Bridges",
@@ -1348,8 +1348,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Boreholes",
@@ -1378,8 +1378,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Communication towers",
@@ -1403,8 +1403,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Community centres",
@@ -1431,8 +1431,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Early warning systems",
@@ -1460,8 +1460,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Evacuation routes (PGIS)",
@@ -1480,8 +1480,8 @@ var layerJSON = {
                   gvh: "GVH",
                   ta: "TA",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Health facilities",
@@ -1516,8 +1516,8 @@ var layerJSON = {
                   beds: "Number of beds",
                   services: "Services offered",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Identified evacuation centres",
@@ -1542,8 +1542,8 @@ var layerJSON = {
                   utm_y: "UTM Northing",
                   elev_aster: "Elevation - from ASTER DEM (metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Maize mills",
@@ -1567,8 +1567,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Markets",
@@ -1594,8 +1594,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Police stations",
@@ -1621,8 +1621,8 @@ var layerJSON = {
                   utm_y: "UTM Northing",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Power lines",
@@ -1638,8 +1638,8 @@ var layerJSON = {
                 field_aliases: {
                   gvh: "GVH",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Power stations",
@@ -1661,8 +1661,8 @@ var layerJSON = {
                   latitude: "Latitude",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Religious Centres",
@@ -1695,8 +1695,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation - from ASTER DEM (metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Schools",
@@ -1727,8 +1727,8 @@ var layerJSON = {
                   elev_gps: "Elevation (GPS, metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Sports grounds",
@@ -1754,8 +1754,8 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation - from ASTER DEM (metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
+                  data_date: "Date collected"
+                }
               },
               {
                 title: "Village Headman House",
@@ -1777,10 +1777,10 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS (metres)",
                   elev_aster: "Elevation (from ASTER DEM, metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
-              },
-            ],
+                  data_date: "Date collected"
+                }
+              }
+            ]
           },
           {
             groupName: "Shock sensitive social protection",
@@ -1802,8 +1802,8 @@ var layerJSON = {
                   ta: "TA",
                   latitude: "Latitude",
                   longitude: "Longitude",
-                  elevation: "Elevation (GPS, metres)",
-                },
+                  elevation: "Elevation (GPS, metres)"
+                }
               },
               {
                 title: "Pre-targeted vulnerable households",
@@ -1819,8 +1819,8 @@ var layerJSON = {
                 field_aliases: {
                   lat: "Latitude",
                   long: "Longitude",
-                  elevation: "Elevation (GPS, metres)",
-                },
+                  elevation: "Elevation (GPS, metres)"
+                }
               },
               {
                 title: "Pre-targeted vulnerable households (density)",
@@ -1836,8 +1836,8 @@ var layerJSON = {
                   value_meaning:
                     "Density of vulnerable households pre-targeted by Concern Worldwide",
                   value_statistics: "Min = 0, max = 383",
-                  spatial_resolution: "10m x 10m",
-                },
+                  spatial_resolution: "10m x 10m"
+                }
               },
               {
                 title: "Cash distribution centres",
@@ -1862,10 +1862,10 @@ var layerJSON = {
                   elev_gps: "Elevation - GPS, metres",
                   elev_aster: "Elevation - from ASTER DEM (metres)",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
-              },
-            ],
+                  data_date: "Date collected"
+                }
+              }
+            ]
           },
           {
             groupName: "Environment",
@@ -1887,12 +1887,12 @@ var layerJSON = {
                   notes: "Notes",
                   ta: "TA",
                   data_sourc: "Data collection method",
-                  data_date: "Date collected",
-                },
-              },
-            ],
-          },
-        ],
+                  data_date: "Date collected"
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Linthipe/Lingadzi",
@@ -1912,7 +1912,7 @@ var layerJSON = {
                 layer_extent: "Lingadzi Catchment",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Linthipe - Flood Affected Areas 03/2006",
@@ -1926,9 +1926,9 @@ var layerJSON = {
                 layer_extent: "Linthipe Catchment",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
-              },
-            ],
+                vector_geometry: "Polygon"
+              }
+            ]
           },
           {
             groupName: "Environment",
@@ -1943,7 +1943,7 @@ var layerJSON = {
                 layer_extent: "Lingadzi Catchment",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Linthipe catchment",
@@ -1955,7 +1955,7 @@ var layerJSON = {
                 layer_extent: "Linthipe Catchment",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Change NDVI 1990/2009",
@@ -1968,7 +1968,7 @@ var layerJSON = {
                 layer_extent: "Linthipe and Lingadzi Catchments",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Change forest 1990/2009",
@@ -1981,7 +1981,7 @@ var layerJSON = {
                 layer_extent: "Linthipe and Lingadzi Catchments",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Land Use/Land Cover 2009",
@@ -1995,7 +1995,7 @@ var layerJSON = {
                 layer_extent: "Linthipe and Lingadzi Catchments",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Land Use/Land Cover 1990",
@@ -2009,11 +2009,11 @@ var layerJSON = {
                 layer_extent: "Linthipe and Lingadzi Catchments",
                 projection: "WGS 84 (EPSG: 4326)",
                 Data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
-              },
-            ],
-          },
-        ],
+                vector_geometry: "Polygon"
+              }
+            ]
+          }
+        ]
       },
       {
         parentGroupName: "Chikwawa",
@@ -2031,7 +2031,7 @@ var layerJSON = {
                 layer_extent: "Chikwawa",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Human - wildlife conflict (PGIS)",
@@ -2043,7 +2043,7 @@ var layerJSON = {
                 layer_extent: "Chikwawa",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Flood hazards (PGIS)",
@@ -2055,7 +2055,7 @@ var layerJSON = {
                 layer_extent: "Chikwawa",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Cholera outbreaks (PGIS)",
@@ -2067,11 +2067,11 @@ var layerJSON = {
                 layer_extent: "Chikwawa",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_Type: "Vector (.gpkg)",
-                vector_geometry: "point",
-              },
-            ],
-          }, // todo: add remaining layers from this dataset
-        ],
+                vector_geometry: "point"
+              }
+            ]
+          } // todo: add remaining layers from this dataset
+        ]
       },
       {
         parentGroupName: "Malawi",
@@ -2095,10 +2095,10 @@ var layerJSON = {
                 data_type: "Raster",
                 raster_properties: {
                   value_statistics: "Min = 10; Max = 100; Units = years",
-                  spatial_resolution: "Approx. 90m x 90m",
-                },
-              },
-            ],
+                  spatial_resolution: "Approx. 90m x 90m"
+                }
+              }
+            ]
           },
           {
             groupName: "Hazards",
@@ -2115,7 +2115,7 @@ var layerJSON = {
                 layer_extent: "Malawi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Landslides",
@@ -2128,7 +2128,7 @@ var layerJSON = {
                 layer_extent: "Malawi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Wildfires",
@@ -2141,7 +2141,7 @@ var layerJSON = {
                 layer_extent: "Malawi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Floods",
@@ -2154,7 +2154,7 @@ var layerJSON = {
                 layer_extent: "Malawi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Earthquakes",
@@ -2167,7 +2167,7 @@ var layerJSON = {
                 layer_extent: "Malawi",
                 projection: "WGS 84 (EPSG: 4326)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Drought Exposure",
@@ -2185,10 +2185,10 @@ var layerJSON = {
                     "Values represent the estimated number of people exposed annually to drought hazards",
                   "Values statistics": "Min = 37; Max = 2776",
                   Units: "Metres",
-                  "Spatial resolution": "0.04 x 0.04 degrees",
-                },
-              },
-            ],
+                  "Spatial resolution": "0.04 x 0.04 degrees"
+                }
+              }
+            ]
           },
           {
             groupName: "Infrastructure and DRR facilities",
@@ -2198,7 +2198,7 @@ var layerJSON = {
                 thematicGroup: [
                   "MALAWI_MOH_HEALTH_FACILITIES",
                   "MALAWI_CHAM_HEALTH_FACILITIES",
-                  "MALAWI_OTHER_HEALTH_FACILITIES",
+                  "MALAWI_OTHER_HEALTH_FACILITIES"
                 ],
                 opacity: 0.5,
                 name: "malawi_infrastructure_district_population",
@@ -2210,8 +2210,8 @@ var layerJSON = {
                 vector_geometry: "Polygon",
                 field_aliases: {
                   district: "District name",
-                  population_2018: "Population",
-                },
+                  population_2018: "Population"
+                }
               },
               {
                 title: "Roads",
@@ -2224,8 +2224,8 @@ var layerJSON = {
                 data_type: "Vector (.gpkg)",
                 vector_geometry: "Polyline",
                 field_aliases: {
-                  LENGTH: "Length",
-                },
+                  LENGTH: "Length"
+                }
               },
               {
                 title: "UNICEF CHAM primary health facilities",
@@ -2253,8 +2253,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF CHAM secondary health facilities",
@@ -2282,8 +2282,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF MoH primary health facilities",
@@ -2311,8 +2311,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF MoH secondary health facilities",
@@ -2340,8 +2340,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF MoH tertiary health facilities",
@@ -2369,8 +2369,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF others primary health facilities",
@@ -2398,8 +2398,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "UNICEF others secondary health facilities",
@@ -2427,8 +2427,8 @@ var layerJSON = {
                   email: "Email",
                   cluster: "Cluster",
                   status: "Status",
-                  date: "Date",
-                },
+                  date: "Date"
+                }
               },
               {
                 title: "Health facilities",
@@ -2458,8 +2458,8 @@ var layerJSON = {
                   fundedby: "Funder",
                   population: "Population served",
                   no_op: "Number of out-patients",
-                  no_birth_: "Number of births",
-                },
+                  no_birth_: "Number of births"
+                }
               },
               {
                 title: "Schools",
@@ -2478,10 +2478,10 @@ var layerJSON = {
                   emis_nume: "EMIS number",
                   teach_2013: "Teachers (2013)",
                   boys_2013: "Male students (2013)",
-                  girls_2013: "Female students (2013)",
-                },
-              },
-            ],
+                  girls_2013: "Female students (2013)"
+                }
+              }
+            ]
           },
           {
             groupName: "Population",
@@ -2499,7 +2499,7 @@ var layerJSON = {
                 source:
                   "Malawi National Statistics Office, accessed from MASDAP",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "Polygon",
+                vector_geometry: "Polygon"
               },
               {
                 title: "Household density",
@@ -2512,7 +2512,7 @@ var layerJSON = {
                 source:
                   "Malawi National Statistics Office, accessed from MASDAP",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Population density",
@@ -2525,9 +2525,9 @@ var layerJSON = {
                 source:
                   "Malawi National Statistics Office, accessed from MASDAP",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
-              },
-            ],
+                vector_geometry: "polygon"
+              }
+            ]
           },
           {
             groupName: "Socioeconomic information",
@@ -2541,7 +2541,7 @@ var layerJSON = {
               acceso:
                 "Average travel travel time to nearest TA-level market centre (hours)",
               depratio: "Dependency ratio",
-              maxed: "Mean max years education",
+              maxed: "Mean max years education"
             },
             layers: [
               {
@@ -2555,7 +2555,7 @@ var layerJSON = {
                 source:
                   "International Food Policy Research Institute, 2004, Malawi - Poverty Headcount / accessed on CIAT website (http://gisweb.ciat.cgiar.org/povertymapping/)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Mean maximum years of education",
@@ -2568,7 +2568,7 @@ var layerJSON = {
                 source:
                   "International Food Policy Research Institute, 2004, Malawi - Poverty Headcount / accessed on CIAT website (http://gisweb.ciat.cgiar.org/povertymapping/)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "GINI Index",
@@ -2581,7 +2581,7 @@ var layerJSON = {
                 source:
                   "International Food Policy Research Institute, 2004, Malawi - Poverty Headcount / accessed on CIAT website (http://gisweb.ciat.cgiar.org/povertymapping/)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title:
@@ -2595,7 +2595,7 @@ var layerJSON = {
                 source:
                   "International Food Policy Research Institute, 2004, Malawi - Poverty Headcount / accessed on CIAT website (http://gisweb.ciat.cgiar.org/povertymapping/)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
+                vector_geometry: "polygon"
               },
               {
                 title: "Dependency ratio",
@@ -2608,9 +2608,9 @@ var layerJSON = {
                 source:
                   "International Food Policy Research Institute, 2004, Malawi - Poverty Headcount / accessed on CIAT website (http://gisweb.ciat.cgiar.org/povertymapping/)",
                 data_type: "Vector (.gpkg)",
-                vector_geometry: "polygon",
-              },
-            ],
+                vector_geometry: "polygon"
+              }
+            ]
           },
           {
             groupName: "Administrative Data",
@@ -2622,7 +2622,7 @@ var layerJSON = {
                 description: null,
                 year: null,
                 source: null,
-                layer_extent: null,
+                layer_extent: null
               },
               {
                 title: "District boundaries",
@@ -2630,7 +2630,7 @@ var layerJSON = {
                 description: null,
                 year: null,
                 source: null,
-                layer_extent: null,
+                layer_extent: null
               },
               {
                 title: "Traditional authorities",
@@ -2638,14 +2638,14 @@ var layerJSON = {
                 description: null,
                 year: null,
                 source: null,
-                layer_extent: null,
+                layer_extent: null
               },
               {
                 title: "District boundaries",
                 thematicGroup: [
                   "MALAWI_MOH_HEALTH_FACILITIES",
                   "MALAWI_CHAM_HEALTH_FACILITIES",
-                  "MALAWI_OTHER_HEALTH_FACILITIES",
+                  "MALAWI_OTHER_HEALTH_FACILITIES"
                 ],
                 name: "infrastructure_and_drr_districts_with_population",
                 description: "",
@@ -2656,10 +2656,10 @@ var layerJSON = {
                 vector_geometry: "Polygon",
                 field_aliases: {
                   NAME_1: "District name",
-                  population_2018: "Population",
-                },
-              },
-            ],
+                  population_2018: "Population"
+                }
+              }
+            ]
           },
           {
             groupName: "Environment",
@@ -2679,8 +2679,8 @@ var layerJSON = {
                   station_name: "Station name",
                   type: "Type",
                   project: "Project",
-                  organization: "Organization",
-                },
+                  organization: "Organization"
+                }
               },
               {
                 title: "Malawi Hillshade",
@@ -2701,8 +2701,8 @@ var layerJSON = {
                   Units: "metres",
                   value_statistics: "Min = 37, max = 2776",
                   spatial_resolution: "25m x 25m",
-                  Additional_notes: "ASTER GDEM is a product of METI and NASA",
-                },
+                  Additional_notes: "ASTER GDEM is a product of METI and NASA"
+                }
               },
               {
                 title: "Soil organic carbon",
@@ -2721,15 +2721,15 @@ var layerJSON = {
                     "Values are an estimate of the quantity of organic carbon in top soil in grams",
                   "Values statistics": "Min = 3; Max = 205",
                   Units: "Grams",
-                  "Spatial resolution": "0.02 x 0.02 degrees",
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+                  "Spatial resolution": "0.02 x 0.02 degrees"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 };
 
 var thematicGroupItems = layerJSON.MalawiAtlasLayers.thematicGroups;
@@ -2755,11 +2755,11 @@ function createWMSLayerFromJSON(layerJSON) {
       source: new ol.source.ImageWMS({
         url: "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
         params: {
-          LAYERS: layerJSON.name,
+          LAYERS: layerJSON.name
         },
         serverType: "geoserver",
-        crossOrigin: "",
-      }),
+        crossOrigin: ""
+      })
     });
   } else {
     resultLayer = new ol.layer.Tile({
@@ -2767,11 +2767,11 @@ function createWMSLayerFromJSON(layerJSON) {
         url: "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
         params: {
           LAYERS: layerJSON.name,
-          TILED: true,
+          TILED: true
         },
         serverType: "geoserver",
-        crossOrigin: "",
-      }),
+        crossOrigin: ""
+      })
     });
   }
 
@@ -2826,14 +2826,14 @@ parentGroups.forEach(function (parentGroup) {
 
     var groupLayer = new ol.layer.Group({
       name: group.groupName,
-      layers: wmsLayers,
+      layers: wmsLayers
     });
     groupLayers.push(groupLayer);
   }); // end - group
 
   var parentGroupLayer = new ol.layer.Group({
     name: parentGroup.parentGroupName,
-    layers: groupLayers,
+    layers: groupLayers
   });
   parentGroupLayers.push(parentGroupLayer);
 }); // end - parent group
@@ -2850,15 +2850,15 @@ var baseLayers = [
       url:
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
       attributions:
-        "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-    }),
+        "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+    })
   }),
   new ol.layer.Tile({
     lid: "basemapStreet",
     visible: true,
     basemap: true,
-    source: new ol.source.OSM(),
-  }),
+    source: new ol.source.OSM()
+  })
 ];
 
 Ext.define("MalawiAtlas.util.Layer", {
@@ -2887,5 +2887,5 @@ Ext.define("MalawiAtlas.util.Layer", {
     });
 
     return flatLayers;
-  },
+  }
 });

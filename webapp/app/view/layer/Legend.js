@@ -56,14 +56,14 @@ Ext.define("MalawiAtlas.view.layer.Legend", {
       xtype: "displayfield",
       value: layer.get("title"),
       layerRef: layer.get("lid"),
-      hidden: layer.getVisible() === false,
+      hidden: layer.getVisible() === false
     });
     me.items.push({
       xtype: "image",
       src: layer.get("legend"),
       layerRef: layer.get("lid"),
       hidden: layer.getVisible() === false,
-      height: height,
+      height: height
     });
-  },
+  }
 });

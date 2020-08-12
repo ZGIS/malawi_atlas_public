@@ -27,23 +27,23 @@ Ext.define("MalawiAtlas.controller.map.MeasureButtonController", {
       stopClick: true, // prevents doubleclick event while drawing
       style: new ol.style.Style({
         fill: new ol.style.Fill({
-          color: "rgba(255, 255, 255, 0.2)",
+          color: "rgba(255, 255, 255, 0.2)"
         }),
         stroke: new ol.style.Stroke({
           color: "rgba(0, 0, 0, 0.5)",
           lineDash: [10, 10],
-          width: 2,
+          width: 2
         }),
         image: new ol.style.Circle({
           radius: 5,
           stroke: new ol.style.Stroke({
-            color: "rgba(0, 0, 0, 0.7)",
+            color: "rgba(0, 0, 0, 0.7)"
           }),
           fill: new ol.style.Fill({
-            color: "rgba(255, 255, 255, 0.2)",
-          }),
-        }),
-      }),
+            color: "rgba(255, 255, 255, 0.2)"
+          })
+        })
+      })
     });
     MalawiAtlas.util.Map.getOlMap().addInteraction(draw);
 
@@ -143,5 +143,5 @@ Ext.define("MalawiAtlas.controller.map.MeasureButtonController", {
     area_hectar = Math.round(area_hectar * 10) / 10;
 
     return area_km2 + " km<sup>2</sup>" + "<br>" + area_hectar + " ha";
-  },
+  }
 });

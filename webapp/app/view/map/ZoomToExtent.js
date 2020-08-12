@@ -19,14 +19,14 @@ Ext.define("MalawiAtlas.view.map.ZoomToExtent", {
       publishes: "value",
       valueField: "districtName",
       store: {
-        type: "districts",
+        type: "districts"
       },
       minChars: 0,
       queryMode: "remote",
       typeAhead: true,
       listeners: {
-        select: "comboZoomToExtent",
-      },
+        select: "comboZoomToExtent"
+      }
     },
     {
       xtype: "combobox",
@@ -38,18 +38,18 @@ Ext.define("MalawiAtlas.view.map.ZoomToExtent", {
       bind: {
         filters: {
           property: "districtName",
-          value: "{districts.value}",
-        },
+          value: "{districts.value}"
+        }
       },
       store: {
-        type: "traditionalauthorities",
+        type: "traditionalauthorities"
       },
       minChars: 0,
       queryMode: "remote",
       typeAhead: true,
       listeners: {
-        select: "comboZoomToExtent",
-      },
-    },
-  ],
+        select: "comboZoomToExtent"
+      }
+    }
+  ]
 });

@@ -13,5 +13,5 @@ Ext.define("MalawiAtlas.view.map.BasemapButton", {
   width: 100,
   scale: "small",
 
-  handler: "onBasemapBtn",
+  handler: "onBasemapBtn"
 });

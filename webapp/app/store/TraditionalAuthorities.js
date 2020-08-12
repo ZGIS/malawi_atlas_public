@@ -11,8 +11,8 @@ Ext.define("MalawiAtlas.store.TraditionalAuthorities", {
 
     reader: {
       type: "json",
-      rootProperty: "features",
-    },
+      rootProperty: "features"
+    }
   },
   fields: [
     "type",
@@ -22,13 +22,13 @@ Ext.define("MalawiAtlas.store.TraditionalAuthorities", {
     "properties",
     {
       name: "taName",
-      mapping: "properties.name1_",
+      mapping: "properties.name1_"
     },
     {
       name: "districtName",
-      mapping: "properties.name2_",
-    },
+      mapping: "properties.name2_"
+    }
   ],
   autoLoad: true,
-  sorters: ["taName"],
+  sorters: ["taName"]
 });
