@@ -1,5 +1,8 @@
 format:
-	prettier --write app
+	prettier \
+	  --trailing-comma none \
+	  --write \
+	  app
 
 
 
