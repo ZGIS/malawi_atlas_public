@@ -2,7 +2,7 @@
 
 # Copies the content of the docs directory to the web server
 # NOTE: Not implemented in Makefile because TIMESTAMP varibale is 
-#       apparently not statics
+#       apparently not static
 
 TIMESTAMP=$(shell date +"%Y-%m-%dT%H%M")
 DOCS_TEMPORARY_DIR=/home/gis-malawi/tmp/${TIMESTAMP}_docs

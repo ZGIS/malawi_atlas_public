@@ -84,6 +84,8 @@ pip3 install rinohtype
 sphinx-build -b rinoh . _build/rinoh
 ```
 
+The docs can directly pushed to the webserver using the `push_docs.sh` script. 
+
 ## Getting Started with Ext JS and OpenLayers
 
 This command creates a new Ext JS application with classic mode only:
