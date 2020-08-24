@@ -359,6 +359,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
         align: "stretch"
       },
       scrollable: "y",
+      collapsible: "y", 
       items: [
         {
           title: "Layers",
