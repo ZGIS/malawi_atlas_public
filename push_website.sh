@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # Copies the website built to the web server
 # NOTE: Not implemented in Makefile because TIMESTAMP varibale is 
@@ -11,13 +11,14 @@ WEBSITE_PUBLISH_DIR=/var/www/html/
 rsync \
     --recursive \
     --verbose \
-    webapp/build/production/MalawiAtlas/* \
-    malawi-atlas:${WEBSITE_TEMPORARY_DIR};
+    webapp/build/production/MalawiAtlas/ \
+    malawi-atlas:"${WEBSITE_TEMPORARY_DIR}";
 
 # "-t" flag is necessary for executing the sudo command
 ssh -t \
   malawi-atlas \
-  "sudo cp \
+  "sudo rsync \
+    --recursive \
     --verbose \
-    --recursive ${WEBSITE_TEMPORARY_DIR}/* \
-    ${WEBSITE_PUBLISH_DIR}"
+    \"${WEBSITE_TEMPORARY_DIR}\" \
+    \"${WEBSITE_PUBLISH_DIR}\""

@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # Copies the content of the docs directory to the web server
 # NOTE: Not implemented in Makefile because TIMESTAMP varibale is 
@@ -12,15 +12,16 @@ rsync \
     --recursive \
     --verbose \
     docs/_build/html/* \
-    malawi-atlas:${DOCS_TEMPORARY_DIR};
+    malawi-atlas:"${DOCS_TEMPORARY_DIR}";
 
 # "-t" flag is necessary for executing the sudo command
 ssh -t \
   malawi-atlas \
   "sudo mkdir \
-     --parents ${DOCS_WEB_DIR} \
+     --parents \"${DOCS_WEB_DIR}\" \
      &&  
-   sudo cp \
+   sudo rsync \
+     --recursive \
      --verbose \
-     --recursive ${DOCS_TEMPORARY_DIR}/* \
-     ${DOCS_WEB_DIR}"
+     \"${DOCS_TEMPORARY_DIR}\" \
+     \"${DOCS_WEB_DIR}\""
