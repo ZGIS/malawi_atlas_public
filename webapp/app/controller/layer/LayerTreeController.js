@@ -32,11 +32,96 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
     record,
     row
   ) {
-    var lid = record.data.get("lid");
-    var geoPackageURL =
-      "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:" +
-      lid;
-    window.open(geoPackageURL, "_blank");
+    Ext.create("Ext.window.Window", {
+      title: "Download layer",
+      width: 200,
+      layout: "fit",
+      items: {
+        xtype: "container",
+        flex: 1,
+        layout: {
+          type: "vbox",
+          align: "stretch"
+        },
+        defaults: {
+          margin: "5 10 5 10"
+        },
+        defaultType: "button",
+        items: [
+          {
+            text: "GeoPackage",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=geopackage&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+          {
+            text: "ShapeFile",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=shape-zip&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+          {
+            text: "GeoJSON",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=application/json&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+          {
+            text: "CSV",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=csv&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+          {
+            text: "KML",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=kml&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+          {
+            text: "GML2",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=GML2&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          },
+
+          {
+            text: "GML3",
+            handler: function () {
+              var lid = record.data.get("lid");
+              var geoPackageURL =
+                "https://www.gis-malawi.com/geoserver/malawi_atlas/ows?service=WFS&version=1.0.0&request=GetFeature&outputFormat=GML3&typeName=malawi:" +
+                lid;
+              window.open(geoPackageURL, "_blank");
+            }
+          }
+        ]
+      }
+    }).show();
   },
 
   /**
