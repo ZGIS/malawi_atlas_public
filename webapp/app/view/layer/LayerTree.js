@@ -62,6 +62,8 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
   initComponent: function () {
     var me = this;
 
+    // TODO: start loading layer tree once the config JSON has been loaded
+
     var olMap = MalawiAtlas.util.Map.getOlMap();
 
     // TODO: use top level GeoExt function like in legend

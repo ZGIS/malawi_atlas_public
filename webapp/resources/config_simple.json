@@ -1,0 +1,172 @@
+{
+  "MalawiAtlasLayers": {
+    "thematicGroups": {
+      "SALIMA_DISASTER": {
+        "name": "Salima Disaster Risk Reduction",
+        "extent": [
+          3797310,
+          -1586808,
+          3855005,
+          -1507639
+        ]
+      },
+      "SALIMA_VULERNABILITY": {
+        "name": "Salima Vulnerability to floods",
+        "extent": [
+          3807468,
+          -1569169,
+          3850398,
+          -1510389
+        ]
+      },
+      "MZUZU_PGIS": {
+        "name": "Mzuzu PGIS Hazards",
+        "extent": [
+          3780375,
+          -1289501,
+          3793398,
+          -1277378
+        ]
+      }
+    },
+    "parentGroups": [
+      {
+        "parentGroupName": "Salima",
+        "groups": [
+          {
+            "groupName": "Hazards",
+            "layers": [
+              {
+                "title": "Floods (DoDMA)",
+                "name": "salima_hazard_flood_dodma",
+                "description": "Flood hazard zones delineated through community mapping exercises conducted by the Government of Malawi Department of Disaster Management (DoDMA)",
+                "year": "Unknown",
+                "source": "DoDMA",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon"
+              },
+              {
+                "title": "Floods (COOPI PGIS 2013)",
+                "name": "salima_hazard_pgis",
+                "thematicGroup": "SALIMA_DISASTER",
+                "description": "Flood zones as identified in participatory GIS (PGIS) exercises",
+                "year": "Unknown",
+                "source": "COOPI",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon"
+              },
+              {
+                "title": "Floods (Irrigation & Water Development Department)",
+                "name": "salima_hazard_flood_irrigation_and_water_department",
+                "description": "Unknown",
+                "year": "Zones of flood hazard as identified by the Salima District Department of Water and Irrigation",
+                "source": "Salima Department of Water and Irrigation",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon"
+              },
+              {
+                "title": "Floods (Forestry Department)",
+                "name": "salima_hazard_flood_forestry_department",
+                "description": "Zones of flood hazard as identified by the Salima District Department of Forestry.",
+                "year": "Unknown",
+                "source": "Salima Forestry Department",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon"
+              }
+            ]
+          },
+          {
+            "groupName": "Vulnerability to floods",
+            "layers": [
+              {
+                "title": "Flood vulnerability index",
+                "name": "salima_vulnerability_to_floods_index_2014",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "opacity": 0.6,
+                "description": "The flood vulnerability index highlights the spatial patterns in socioeconomic vulnerability to floods across the district. The index is a relative measure of vulnerability for the district of Salima and is based on a number of indicators including poverty, market and urban area accessability, health centre and education accessability, crop density, early warning systems, access to evacuation sites / safe places and more. The index was developed based on an approach developed by Kienberger (2009/2012) in Mozambique. See attached report for more details.",
+                "legendHeight": 150,
+                "year": 2014,
+                "source": "Z_GIS & COOPI",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon",
+                "feature_info_activated": true
+              },
+              {
+                "title": "Piecharts",
+                "name": "salima_vulnerability_to_floods_index_2014_chart",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "description": null,
+                "year": 2014,
+                "source": "Z_GIS & COOPI",
+                "layer_extent": "Salima",
+                "feature_info_activated": true,
+                "useImageWmsInsteadOfTileWMS": true
+              },
+              {
+                "title": "Flood vulnerability index (selected GVHs)",
+                "name": "salima_vulnerability_to_floods_index_gvh_2014",
+                "thematicGroup": "SALIMA_VULERNABILITY",
+                "description": "The flood vulnerability index highlights the spatial patterns in socioeconomic vulnerability to floods across the district. The index is a relative measure of vulnerability for the district of Salima and is based on a number of indicators including poverty, market and urban area accessability, health centre and education accessability, crop density, early warning systems, access to evacuation sites / safe places and more. The index was developed based on an approach developed by Kienberger (2009/2012) in Mozambique. This specific analysis was conducted for a number of selected GVHs in Salima District. See attached report for more details.",
+                "year": 2014,
+                "source": "Z_GIS & COOPI",
+                "layer_extent": "Salima",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "Polygon",
+                "field_aliases": {
+                  "gvh": "GVH",
+                  "ta_name": "TA",
+                  "ref": "Vulnerability to floods index"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Mzuzu",
+        "groups": [
+          {
+            "groupName": "Hazards",
+            "layers": [
+              {
+                "title": "Flood hazards",
+                "name": "mzuzu_hazard_flood",
+                "thematicGroup": "MZUZU_PGIS",
+                "description": "",
+                "source": "COOPI & Z_GIS",
+                "year": 2020,
+                "layer_extent": "Mzuzu",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "polygon"
+              },
+              {
+                "title": "Strong wind hazards",
+                "name": "mzuzu_hazard_strongwind",
+                "thematicGroup": "MZUZU_PGIS",
+                "description": "",
+                "source": "COOPI & Z_GIS",
+                "year": 2020,
+                "layer_extent": "Mzuzu",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_Type": "Vector (.gpkg)",
+                "vector_geometry": "Line"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

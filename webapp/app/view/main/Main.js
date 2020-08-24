@@ -349,28 +349,28 @@ Ext.define("MalawiAtlas.view.main.Main", {
     },
 
     // left side-bar
-    {
-      xtype: "panel",
-      region: "west",
-      width: 400,
-      layout: {
-        type: "vbox",
-        pack: "start",
-        align: "stretch"
-      },
-      scrollable: "y",
-      items: [
-        {
-          title: "Layers",
+    // {
+    //   xtype: "panel",
+    //   region: "west",
+    //   width: 400,
+    //   layout: {
+    //     type: "vbox",
+    //     pack: "start",
+    //     align: "stretch"
+    //   },
+    //   scrollable: "y",
+    //   items: [
+    //     {
+    //       title: "Layers",
 
-          xtype: "ma-layertree",
-          bodyBorder: false
-        },
-        {
-          xtype: "ma-feature-info-panel"
-        }
-      ]
-    },
+    //       xtype: "ma-layertree",
+    //       bodyBorder: false
+    //     },
+    //     {
+    //       xtype: "ma-feature-info-panel"
+    //     }
+    //   ]
+    // },
 
     // legend
     {
