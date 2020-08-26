@@ -19,7 +19,6 @@ Ext.define("MalawiAtlas.view.main.Main", {
   initComponent: function () {
     var me = this;
 
-    console.log("init Component");
     Ext.Ajax.request({
       url: "resources/config_simple.json",
       success: function (response) {
@@ -155,21 +154,13 @@ Ext.define("MalawiAtlas.view.main.Main", {
           }),
         ];
 
-        layers = baseLayers.concat(parentGroupLayers)
+        layers = baseLayers.concat(parentGroupLayers);
 
         Ext.each(layers, function (layer) {
           if (layer) {
-              me.olMap.addLayer(layer);
+            me.olMap.addLayer(layer);
           }
-      });
-        // me.olMap.addLayer(
-        //   new ol.layer.Tile({
-        //     source: new ol.source.OSM(),
-        //   })
-        // );
-
-        me.olMap.getView().setCenter(ol.proj.fromLonLat([24, 48]));
-        // TODO: find map here
+        });
       },
     });
     me.callParent();

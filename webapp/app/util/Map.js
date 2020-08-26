@@ -13,12 +13,6 @@ var olMap = new ol.Map({
   }),
 });
 
-// TODO: is this really needed?
-var baselayers = [];
-olMap.getLayers().forEach(function (layer) {
-  if (layer.get("basemap") == true) baselayers.push(layer);
-});
-
 olMap.addControl(
   new ol.control.ScaleLine({
     minWidth: 120,
