@@ -171,6 +171,7 @@ Ext.define("MalawiAtlas.util.Map", {
    * Creates OL groups from JSON config
    */
   makeLayerGroups: function (parentGroups) {
+    var me = this;
     parentGroupLayers = [];
     parentGroups.forEach(function (parentGroup) {
       var groupLayers = [];
@@ -191,7 +192,7 @@ Ext.define("MalawiAtlas.util.Map", {
             layer.field_aliases = fieldAliases;
           }
 
-          var wmsLayer = MalawiAtlas.util.Map.createWMSLayerFromJSON(layer);
+          var wmsLayer = me.createWMSLayerFromJSON(layer);
 
           wmsLayers.push(wmsLayer);
         }); // end - layer
@@ -211,4 +212,107 @@ Ext.define("MalawiAtlas.util.Map", {
     }); // end - parent group
     return parentGroupLayers;
   },
+
+  makeLegend: function () {
+    var me = this;
+    var leg = Ext.ComponentQuery.query("ma-legend")[0];
+
+    var flatLayers = me.getFlatLayerList();
+
+    Ext.each(
+      flatLayers,
+      function (layer) {
+        var height;
+
+        if (layer.get("legendHeight")) {
+          height = layer.get("legendHeight");
+        }
+
+        leg.add({
+          itemId: "text_" + layer.get("lid"),
+          xtype: "displayfield",
+          value: layer.get("title"),
+          layerRef: layer.get("lid"),
+          hidden: layer.getVisible() === false,
+        });
+
+        leg.add({
+          xtype: "image",
+          src: layer.get("legend"),
+          layerRef: layer.get("lid"),
+          hidden: layer.getVisible() === false,
+          height: height,
+        });
+      },
+      this,
+      true // <---REVERSE
+    );
+
+    Ext.each(flatLayers, function (layer) {
+      layer.on("change:visible", function (evt) {
+        var layer = evt.target;
+        var lid = layer.get("lid");
+        if (layer.getVisible()) {
+          // TODO: make more elegant!!
+          leg.items.each(function (item) {
+            if (item.layerRef === lid) {
+              item.show();
+            }
+          });
+        } else {
+          // TODO: make more elegant!!
+          leg.items.each(function (item) {
+            if (item.layerRef === lid) {
+              item.hide();
+            }
+          });
+        }
+      });
+    });
+  },
+
+  makeThematicMaps: function (thematicGroupItems) {
+    var comboBoxArray = [];
+    Object.keys(thematicGroupItems).forEach(function (key) {
+      var thematicGroupParams = thematicGroupItems[key];
+      var name = thematicGroupParams.name;
+      var extent = thematicGroupParams.extent;
+      comboBoxArray.push({
+        name: name,
+        extent: extent,
+        thematicGroup: key,
+      });
+    });
+
+    comboStore = Ext.create("Ext.data.Store", {
+      fields: ["name", "extent"],
+      data: comboBoxArray,
+    });
+
+    var thematicGroupsComp = Ext.ComponentQuery.query(
+      "ma-thematic-group-combobox"
+    )[0];
+
+    thematicGroupsComp.setStore(comboStore);
+  },
+
+  baseLayers: [
+    new ol.layer.Tile({
+      lid: "basemapSatellite",
+      basemap: true,
+      visible: false,
+      source: new ol.source.XYZ({
+        url:
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attributions:
+          "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+      }),
+    }),
+    new ol.layer.Tile({
+      lid: "basemapStreet",
+      visible: true,
+      basemap: true,
+      source: new ol.source.OSM(),
+    }),
+  ],
 });
