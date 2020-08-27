@@ -21,7 +21,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
 
     // read properties from config file
     Ext.Ajax.request({
-      url: "resources/config_simple.json",
+      url: "resources/config.json",
       success: function (response) {
         var layerJson = Ext.decode(response.responseText);
 
@@ -188,8 +188,6 @@ Ext.define("MalawiAtlas.view.main.Main", {
 
         var flatLayers = MalawiAtlas.util.Layer.getFlatLayerList();
 
-        var legendItems = [];
-
         Ext.each(
           flatLayers,
           function (layer) {
@@ -240,6 +238,35 @@ Ext.define("MalawiAtlas.view.main.Main", {
             }
           });
         });
+
+        // THEMATIC MAP
+
+
+        var thematicGroupItems = layerJson.MalawiAtlasLayers.thematicGroups;
+
+        var comboBoxArray = [];
+        Object.keys(thematicGroupItems).forEach(function (key) {
+          var thematicGroupParams = thematicGroupItems[key];
+          var name = thematicGroupParams.name;
+          var extent = thematicGroupParams.extent;
+          comboBoxArray.push({
+            name: name,
+            extent: extent,
+            thematicGroup: key
+          });
+        });
+
+
+        comboStore = Ext.create("Ext.data.Store", {
+          fields: ["name", "extent"],
+          data: comboBoxArray
+        });
+
+        var thematicGroupsComp = Ext.ComponentQuery.query("ma-thematic-group-combobox")[0];
+
+        thematicGroupsComp.setStore(comboStore);
+
+
       }
     });
     me.callParent();
@@ -272,9 +299,9 @@ Ext.define("MalawiAtlas.view.main.Main", {
             }
           },
           "->",
-          // {
-          //   xtype: "ma-thematic-group-combobox"
-          // },
+          {
+            xtype: "ma-thematic-group-combobox"
+          },
           {
             xtype: "button",
             text: "Measure",
