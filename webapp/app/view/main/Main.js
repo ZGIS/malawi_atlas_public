@@ -255,75 +255,75 @@ Ext.define("MalawiAtlas.view.main.Main", {
               ]
             })
           },
-          // {
-          //   xtype: "button",
-          //   text: "Zoom",
-          //   iconCls: "x-fa fa-search",
-          //   menu: new Ext.menu.Menu({
-          //     referenceHolder: true,
-          //     viewModel: true,
-          //     items: [
-          //       {
-          //         text: "Malawi",
-          //         iconCls: "ma-zoom-malawi",
-          //         listeners: {
-          //           click: function () {
-          //             MalawiAtlas.util.Map.zoomToExtent([
-          //               3650738,
-          //               -1945482,
-          //               4053741,
-          //               -1032934
-          //             ]);
-          //           }
-          //         }
-          //       },
-          //       "-",
-          //       {
-          //         xtype: "combobox",
-          //         id: "district_id",
-          //         reference: "districts",
-          //         emptyText: "District",
-          //         displayField: "districtName",
-          //         publishes: "value",
-          //         valueField: "districtName",
-          //         store: {
-          //           type: "districts"
-          //         },
-          //         minChars: 0,
-          //         queryMode: "remote",
-          //         typeAhead: true,
-          //         listeners: {
-          //           select: "comboZoomToExtent"
-          //         },
-          //         indent: false
-          //       },
-          //       {
-          //         xtype: "combobox",
-          //         id: "ta_id",
-          //         reference: "traditionalauthorities",
-          //         emptyText: "Traditional Authorities",
-          //         displayField: "taName",
-          //         forceSelection: true,
-          //         bind: {
-          //           filters: {
-          //             property: "districtName",
-          //             value: "{districts.value}"
-          //           }
-          //         },
-          //         store: {
-          //           type: "traditionalauthorities"
-          //         },
-          //         minChars: 0,
-          //         queryMode: "remote",
-          //         typeAhead: true,
-          //         listeners: {
-          //           select: "comboZoomToExtent"
-          //         },
-          //         indent: false
-          //       }
-          //     ]
-          //   })
-          // },
+          {
+            xtype: "button",
+            text: "Zoom",
+            iconCls: "x-fa fa-search",
+            menu: new Ext.menu.Menu({
+              referenceHolder: true,
+              viewModel: true,
+              items: [
+                {
+                  text: "Malawi",
+                  iconCls: "ma-zoom-malawi",
+                  listeners: {
+                    click: function () {
+                      MalawiAtlas.util.Map.zoomToExtent([
+                        3650738,
+                        -1945482,
+                        4053741,
+                        -1032934
+                      ]);
+                    }
+                  }
+                },
+                "-",
+                {
+                  xtype: "combobox",
+                  id: "district_id",
+                  reference: "districts",
+                  emptyText: "District",
+                  displayField: "districtName",
+                  publishes: "value",
+                  valueField: "districtName",
+                  store: {
+                    type: "districts"
+                  },
+                  minChars: 0,
+                  queryMode: "remote",
+                  typeAhead: true,
+                  listeners: {
+                    select: "comboZoomToExtent"
+                  },
+                  indent: false
+                },
+                {
+                  xtype: "combobox",
+                  id: "ta_id",
+                  reference: "traditionalauthorities",
+                  emptyText: "Traditional Authorities",
+                  displayField: "taName",
+                  forceSelection: true,
+                  bind: {
+                    filters: {
+                      property: "districtName",
+                      value: "{districts.value}"
+                    }
+                  },
+                  store: {
+                    type: "traditionalauthorities"
+                  },
+                  minChars: 0,
+                  queryMode: "remote",
+                  typeAhead: true,
+                  listeners: {
+                    select: "comboZoomToExtent"
+                  },
+                  indent: false
+                }
+              ]
+            })
+          },
           {
             text: "Reports",
             iconCls: "x-fa fa-file",
