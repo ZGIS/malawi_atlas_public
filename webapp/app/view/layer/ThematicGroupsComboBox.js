@@ -26,7 +26,7 @@ Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
       MalawiAtlas.util.Map.zoomToExtent(extent);
 
       // activate layers
-      var flatLayerList = MalawiAtlas.util.Layer.getFlatLayerList();
+      var flatLayerList = MalawiAtlas.util.Map.getFlatLayerList();
       flatLayerList.forEach(function (layer) {
         var themgroup = layer.get("thematicGroup");
         if (

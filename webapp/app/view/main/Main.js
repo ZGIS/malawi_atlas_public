@@ -186,7 +186,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
 
         var leg = Ext.ComponentQuery.query("ma-legend")[0];
 
-        var flatLayers = MalawiAtlas.util.Layer.getFlatLayerList();
+        var flatLayers = MalawiAtlas.util.Map.getFlatLayerList();
 
         Ext.each(
           flatLayers,
