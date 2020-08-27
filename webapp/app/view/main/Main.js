@@ -181,6 +181,65 @@ Ext.define("MalawiAtlas.view.main.Main", {
         });
 
         layerTree.setStore(store);
+
+        // LEGEND
+
+        var leg = Ext.ComponentQuery.query("ma-legend")[0];
+
+        var flatLayers = MalawiAtlas.util.Layer.getFlatLayerList();
+
+        var legendItems = [];
+
+        Ext.each(
+          flatLayers,
+          function (layer) {
+            var height;
+
+            if (layer.get("legendHeight")) {
+              height = layer.get("legendHeight");
+            }
+
+            leg.add({
+              itemId: "text_" + layer.get("lid"),
+              xtype: "displayfield",
+              value: layer.get("title"),
+              layerRef: layer.get("lid"),
+              hidden: layer.getVisible() === false
+            });
+
+            leg.add({
+              xtype: "image",
+              src: layer.get("legend"),
+              layerRef: layer.get("lid"),
+              hidden: layer.getVisible() === false,
+              height: height
+            });
+          },
+          this,
+          true // <---REVERSE
+        );
+
+        Ext.each(flatLayers, function (layer) {
+          layer.on("change:visible", function (evt) {
+            var layer = evt.target;
+            var lid = layer.get("lid");
+            if (layer.getVisible()) {
+              // TODO: make more elegant!!
+              leg.items.each(function (item) {
+                if (item.layerRef === lid) {
+                  item.show();
+                }
+              });
+            } else {
+              // TODO: make more elegant!!
+              leg.items.each(function (item) {
+                if (item.layerRef === lid) {
+                  item.hide();
+                }
+              });
+            }
+          });
+        });
       }
     });
     me.callParent();
@@ -543,20 +602,20 @@ Ext.define("MalawiAtlas.view.main.Main", {
           xtype: "ma-feature-info-panel"
         }
       ]
-    }
+    },
 
     // legend
     // TODO ENABLE AGAIN
-    // {
-    //   region: "east",
-    //   title: "Legend",
-    //   width: 180,
-    //   scrollable: "y",
-    //   items: [
-    //     {
-    //       xtype: "ma-legend"
-    //     }
-    //   ]
-    // }
+    {
+      region: "east",
+      title: "Legend",
+      width: 180,
+      scrollable: "y",
+      items: [
+        {
+          xtype: "ma-legend"
+        }
+      ]
+    }
   ]
 });
