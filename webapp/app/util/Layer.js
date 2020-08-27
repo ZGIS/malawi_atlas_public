@@ -21,5 +21,5 @@ Ext.define("MalawiAtlas.util.Layer", {
     });
 
     return flatLayers;
-  },
+  }
 });

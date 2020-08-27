@@ -19,6 +19,9 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
     }
   },
 
+  // empty store will be filled later
+  store: {},
+
   columns: [
     {
       xtype: "treecolumn",
@@ -57,33 +60,5 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       isDisabled: "isGroup",
       handler: "showOpacitySlider"
     }
-  ],
-
-  initComponent: function () {
-    var me = this;
-
-    // TODO: start loading layer tree once the config JSON has been loaded
-
-    var olMap = MalawiAtlas.util.Map.getOlMap();
-
-    // TODO: use top level GeoExt function like in legend
-    var layerArray = [];
-    olMap.getLayers().forEach(function (layer) {
-      if (layer.get("basemap") != true && layer.get("measurementLayer") != true)
-        layerArray.push(layer);
-    });
-
-    var treeStore = Ext.create("GeoExt.data.store.LayersTree", {
-      layerGroup: new ol.layer.Group({
-        layers: layerArray
-      })
-    });
-
-    me.store = treeStore;
-
-    // uncomment, if layer tree shall be expanded
-    // me.expandAll();
-
-    me.callParent();
-  }
+  ]
 });
