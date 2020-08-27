@@ -22,189 +22,190 @@ Ext.define("MalawiAtlas.view.main.Main", {
     // read properties from config file
     Ext.Ajax.request({
       url: "resources/config.json",
-      success: function (response) {
-        var configJson = Ext.decode(response.responseText);
-
-        var parentGroups = configJson.MalawiAtlasLayers.parentGroups;
-
-        parentGroupLayers = [];
-        parentGroups.forEach(function (parentGroup) {
-          var groupLayers = [];
-
-          var groups = parentGroup.groups;
-          groups.forEach(function (group) {
-            wmsLayers = [];
-
-            var layers = group.layers;
-            layers.forEach(function (layer) {
-              // assign properties of group
-              var groupDescription = group.group_description;
-              if (groupDescription) {
-                layer.description = groupDescription;
-              }
-              var fieldAliases = group.field_aliases;
-              if (fieldAliases) {
-                layer.field_aliases = fieldAliases;
-              }
-
-              var wmsLayer = MalawiAtlas.util.Map.createWMSLayerFromJSON(layer);
-
-              wmsLayers.push(wmsLayer);
-            }); // end - layer
-
-            var groupLayer = new ol.layer.Group({
-              name: group.groupName,
-              layers: wmsLayers,
-            });
-            groupLayers.push(groupLayer);
-          }); // end - group
-
-          var parentGroupLayer = new ol.layer.Group({
-            name: parentGroup.parentGroupName,
-            layers: groupLayers,
-          });
-          parentGroupLayers.push(parentGroupLayer);
-        }); // end - parent group
-
-        // has to be at the bottom of all layers
-        var baseLayers = [
-          new ol.layer.Tile({
-            lid: "basemapSatellite",
-            basemap: true,
-            visible: false,
-            source: new ol.source.XYZ({
-              url:
-                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-              attributions:
-                "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
-            }),
-          }),
-          new ol.layer.Tile({
-            lid: "basemapStreet",
-            visible: true,
-            basemap: true,
-            source: new ol.source.OSM(),
-          }),
-        ];
-
-        layers = baseLayers.concat(parentGroupLayers);
-
-        Ext.each(layers, function (layer) {
-          if (layer) {
-            me.olMap.addLayer(layer);
-          }
-        });
-
-        // set Layer Tree
-
-        layerTree = Ext.ComponentQuery.query("ma-layertree")[0];
-
-        var layerArray = [];
-        me.olMap.getLayers().forEach(function (layer) {
-          if (
-            layer.get("basemap") != true &&
-            layer.get("measurementLayer") != true
-          )
-            layerArray.push(layer);
-        });
-
-        var store = Ext.create("GeoExt.data.store.LayersTree", {
-          layerGroup: new ol.layer.Group({
-            layers: layerArray,
-          }),
-        });
-
-        layerTree.setStore(store);
-
-        // LEGEND
-
-        var leg = Ext.ComponentQuery.query("ma-legend")[0];
-
-        var flatLayers = MalawiAtlas.util.Map.getFlatLayerList();
-
-        Ext.each(
-          flatLayers,
-          function (layer) {
-            var height;
-
-            if (layer.get("legendHeight")) {
-              height = layer.get("legendHeight");
-            }
-
-            leg.add({
-              itemId: "text_" + layer.get("lid"),
-              xtype: "displayfield",
-              value: layer.get("title"),
-              layerRef: layer.get("lid"),
-              hidden: layer.getVisible() === false,
-            });
-
-            leg.add({
-              xtype: "image",
-              src: layer.get("legend"),
-              layerRef: layer.get("lid"),
-              hidden: layer.getVisible() === false,
-              height: height,
-            });
-          },
-          this,
-          true // <---REVERSE
-        );
-
-        Ext.each(flatLayers, function (layer) {
-          layer.on("change:visible", function (evt) {
-            var layer = evt.target;
-            var lid = layer.get("lid");
-            if (layer.getVisible()) {
-              // TODO: make more elegant!!
-              leg.items.each(function (item) {
-                if (item.layerRef === lid) {
-                  item.show();
-                }
-              });
-            } else {
-              // TODO: make more elegant!!
-              leg.items.each(function (item) {
-                if (item.layerRef === lid) {
-                  item.hide();
-                }
-              });
-            }
-          });
-        });
-
-        // THEMATIC MAP
-
-        var thematicGroupItems = configJson.MalawiAtlasLayers.thematicGroups;
-
-        var comboBoxArray = [];
-        Object.keys(thematicGroupItems).forEach(function (key) {
-          var thematicGroupParams = thematicGroupItems[key];
-          var name = thematicGroupParams.name;
-          var extent = thematicGroupParams.extent;
-          comboBoxArray.push({
-            name: name,
-            extent: extent,
-            thematicGroup: key,
-          });
-        });
-
-        comboStore = Ext.create("Ext.data.Store", {
-          fields: ["name", "extent"],
-          data: comboBoxArray,
-        });
-
-        var thematicGroupsComp = Ext.ComponentQuery.query(
-          "ma-thematic-group-combobox"
-        )[0];
-
-        thematicGroupsComp.setStore(comboStore);
-      },
+      success: me.loadConfigJson,
     });
     me.callParent();
 
     me.mapCmp = Ext.ComponentQuery.query("ma-mappanel")[0];
     me.olMap = me.mapCmp.map;
+  },
+
+  loadConfigJson: function (response) {
+
+    var me = this;
+    var configJson = Ext.decode(response.responseText);
+
+    var parentGroups = configJson.MalawiAtlasLayers.parentGroups;
+
+    parentGroupLayers = [];
+    parentGroups.forEach(function (parentGroup) {
+      var groupLayers = [];
+
+      var groups = parentGroup.groups;
+      groups.forEach(function (group) {
+        wmsLayers = [];
+
+        var layers = group.layers;
+        layers.forEach(function (layer) {
+          // assign properties of group
+          var groupDescription = group.group_description;
+          if (groupDescription) {
+            layer.description = groupDescription;
+          }
+          var fieldAliases = group.field_aliases;
+          if (fieldAliases) {
+            layer.field_aliases = fieldAliases;
+          }
+
+          var wmsLayer = MalawiAtlas.util.Map.createWMSLayerFromJSON(layer);
+
+          wmsLayers.push(wmsLayer);
+        }); // end - layer
+
+        var groupLayer = new ol.layer.Group({
+          name: group.groupName,
+          layers: wmsLayers,
+        });
+        groupLayers.push(groupLayer);
+      }); // end - group
+
+      var parentGroupLayer = new ol.layer.Group({
+        name: parentGroup.parentGroupName,
+        layers: groupLayers,
+      });
+      parentGroupLayers.push(parentGroupLayer);
+    }); // end - parent group
+
+    // has to be at the bottom of all layers
+    var baseLayers = [
+      new ol.layer.Tile({
+        lid: "basemapSatellite",
+        basemap: true,
+        visible: false,
+        source: new ol.source.XYZ({
+          url:
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          attributions:
+            "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+        }),
+      }),
+      new ol.layer.Tile({
+        lid: "basemapStreet",
+        visible: true,
+        basemap: true,
+        source: new ol.source.OSM(),
+      }),
+    ];
+
+    layers = baseLayers.concat(parentGroupLayers);
+
+    Ext.each(layers, function (layer) {
+      if (layer) {
+        me.olMap.addLayer(layer);
+      }
+    });
+
+    // set Layer Tree
+
+    layerTree = Ext.ComponentQuery.query("ma-layertree")[0];
+
+    var layerArray = [];
+    me.olMap.getLayers().forEach(function (layer) {
+      if (layer.get("basemap") != true && layer.get("measurementLayer") != true)
+        layerArray.push(layer);
+    });
+
+    var store = Ext.create("GeoExt.data.store.LayersTree", {
+      layerGroup: new ol.layer.Group({
+        layers: layerArray,
+      }),
+    });
+
+    layerTree.setStore(store);
+
+    // LEGEND
+
+    var leg = Ext.ComponentQuery.query("ma-legend")[0];
+
+    var flatLayers = MalawiAtlas.util.Map.getFlatLayerList();
+
+    Ext.each(
+      flatLayers,
+      function (layer) {
+        var height;
+
+        if (layer.get("legendHeight")) {
+          height = layer.get("legendHeight");
+        }
+
+        leg.add({
+          itemId: "text_" + layer.get("lid"),
+          xtype: "displayfield",
+          value: layer.get("title"),
+          layerRef: layer.get("lid"),
+          hidden: layer.getVisible() === false,
+        });
+
+        leg.add({
+          xtype: "image",
+          src: layer.get("legend"),
+          layerRef: layer.get("lid"),
+          hidden: layer.getVisible() === false,
+          height: height,
+        });
+      },
+      this,
+      true // <---REVERSE
+    );
+
+    Ext.each(flatLayers, function (layer) {
+      layer.on("change:visible", function (evt) {
+        var layer = evt.target;
+        var lid = layer.get("lid");
+        if (layer.getVisible()) {
+          // TODO: make more elegant!!
+          leg.items.each(function (item) {
+            if (item.layerRef === lid) {
+              item.show();
+            }
+          });
+        } else {
+          // TODO: make more elegant!!
+          leg.items.each(function (item) {
+            if (item.layerRef === lid) {
+              item.hide();
+            }
+          });
+        }
+      });
+    });
+
+    // THEMATIC MAP
+
+    var thematicGroupItems = configJson.MalawiAtlasLayers.thematicGroups;
+
+    var comboBoxArray = [];
+    Object.keys(thematicGroupItems).forEach(function (key) {
+      var thematicGroupParams = thematicGroupItems[key];
+      var name = thematicGroupParams.name;
+      var extent = thematicGroupParams.extent;
+      comboBoxArray.push({
+        name: name,
+        extent: extent,
+        thematicGroup: key,
+      });
+    });
+
+    comboStore = Ext.create("Ext.data.Store", {
+      fields: ["name", "extent"],
+      data: comboBoxArray,
+    });
+
+    var thematicGroupsComp = Ext.ComponentQuery.query(
+      "ma-thematic-group-combobox"
+    )[0];
+
+    thematicGroupsComp.setStore(comboStore);
   },
 
   items: [
