@@ -167,4 +167,48 @@ Ext.define("MalawiAtlas.util.Map", {
 
     return resultLayer;
   },
+  /**
+   * Creates OL groups from JSON config
+   */
+  makeLayerGroups: function (parentGroups) {
+    parentGroupLayers = [];
+    parentGroups.forEach(function (parentGroup) {
+      var groupLayers = [];
+
+      var groups = parentGroup.groups;
+      groups.forEach(function (group) {
+        wmsLayers = [];
+
+        var layers = group.layers;
+        layers.forEach(function (layer) {
+          // assign properties of group
+          var groupDescription = group.group_description;
+          if (groupDescription) {
+            layer.description = groupDescription;
+          }
+          var fieldAliases = group.field_aliases;
+          if (fieldAliases) {
+            layer.field_aliases = fieldAliases;
+          }
+
+          var wmsLayer = MalawiAtlas.util.Map.createWMSLayerFromJSON(layer);
+
+          wmsLayers.push(wmsLayer);
+        }); // end - layer
+
+        var groupLayer = new ol.layer.Group({
+          name: group.groupName,
+          layers: wmsLayers,
+        });
+        groupLayers.push(groupLayer);
+      }); // end - group
+
+      var parentGroupLayer = new ol.layer.Group({
+        name: parentGroup.parentGroupName,
+        layers: groupLayers,
+      });
+      parentGroupLayers.push(parentGroupLayer);
+    }); // end - parent group
+    return parentGroupLayers;
+  },
 });
