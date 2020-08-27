@@ -243,18 +243,18 @@ Ext.define("MalawiAtlas.view.main.Main", {
               ]
             })
           },
-          // {
-          //   xtype: "button",
-          //   text: "Print",
-          //   iconCls: "x-fa fa-print",
-          //   menu: new Ext.menu.Menu({
-          //     items: [
-          //       {
-          //         xtype: "ma-print-form"
-          //       }
-          //     ]
-          //   })
-          // },
+          {
+            xtype: "button",
+            text: "Print",
+            iconCls: "x-fa fa-print",
+            menu: new Ext.menu.Menu({
+              items: [
+                {
+                  xtype: "ma-print-form"
+                }
+              ]
+            })
+          },
           // {
           //   xtype: "button",
           //   text: "Zoom",
