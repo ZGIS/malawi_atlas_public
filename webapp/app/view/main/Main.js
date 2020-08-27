@@ -538,10 +538,10 @@ Ext.define("MalawiAtlas.view.main.Main", {
 
           xtype: "ma-layertree",
           bodyBorder: false
+        },
+        {
+          xtype: "ma-feature-info-panel"
         }
-        //   {
-        //     xtype: "ma-feature-info-panel"
-        //   }
       ]
     }
 
