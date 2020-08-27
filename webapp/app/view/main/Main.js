@@ -216,33 +216,33 @@ Ext.define("MalawiAtlas.view.main.Main", {
           // {
           //   xtype: "ma-thematic-group-combobox"
           // },
-          // {
-          //   xtype: "button",
-          //   text: "Measure",
-          //   requires: ["MalawiAtlas.controller.map.MeasureButtonController"],
-          //   controller: "measureButton",
-          //   iconCls: "x-fa fa-arrows-h",
-          //   menu: new Ext.menu.Menu({
-          //     items: [
-          //       {
-          //         iconCls: "x-fa fa-square-o",
-          //         text: "Area",
-          //         measureType: "Polygon",
-          //         listeners: {
-          //           click: "onMeasureClick"
-          //         }
-          //       },
-          //       {
-          //         iconCls: "x-fa fa-arrows-h",
-          //         text: "Distance",
-          //         measureType: "LineString",
-          //         listeners: {
-          //           click: "onMeasureClick"
-          //         }
-          //       }
-          //     ]
-          //   })
-          // },
+          {
+            xtype: "button",
+            text: "Measure",
+            requires: ["MalawiAtlas.controller.map.MeasureButtonController"],
+            controller: "measureButton",
+            iconCls: "x-fa fa-arrows-h",
+            menu: new Ext.menu.Menu({
+              items: [
+                {
+                  iconCls: "x-fa fa-square-o",
+                  text: "Area",
+                  measureType: "Polygon",
+                  listeners: {
+                    click: "onMeasureClick"
+                  }
+                },
+                {
+                  iconCls: "x-fa fa-arrows-h",
+                  text: "Distance",
+                  measureType: "LineString",
+                  listeners: {
+                    click: "onMeasureClick"
+                  }
+                }
+              ]
+            })
+          },
           // {
           //   xtype: "button",
           //   text: "Print",
