@@ -59,7 +59,6 @@ var measureLayer = new ol.layer.Vector({
 olMap.addLayer(measureLayer);
 measureLayer.setVisible(true);
 
-
 /**
  * Utility class for map and layer related tasks
  */
@@ -90,7 +89,7 @@ Ext.define("MalawiAtlas.util.Map", {
   },
 
   /**
-   * Untangle the nested layers 
+   * Untangle the nested layers
    * returns a list with all single layers
    */
   getFlatLayerList: function () {
@@ -122,34 +121,31 @@ Ext.define("MalawiAtlas.util.Map", {
       legendHeight = layerJSON.legendHeight;
     }
 
-    // TODO: Read URL from config
     var legend =
-      "https://www.gis-malawi.com/geoserver/wms?" +
-      "&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic" +
-      "&FORMAT=image/png&LAYER=malawi_atlas:" +
+      layerJSON.url +
+      "?&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetLegendGraphic" +
+      "&FORMAT=image/png&LAYER=" +
       layerJSON.name;
     var resultLayer;
     if (layerJSON.useImageWmsInsteadOfTileWMS) {
       // prevent rendering problems with the pie charts.
       resultLayer = new ol.layer.Image({
         source: new ol.source.ImageWMS({
-          url: "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
+          url: layerJSON.url,
           params: {
             LAYERS: layerJSON.name,
           },
-          serverType: "geoserver",
           crossOrigin: "",
         }),
       });
     } else {
       resultLayer = new ol.layer.Tile({
         source: new ol.source.TileWMS({
-          url: "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
+          url: layerJSON.url,
           params: {
             LAYERS: layerJSON.name,
             TILED: true,
           },
-          serverType: "geoserver",
           crossOrigin: "",
         }),
       });
@@ -186,7 +182,7 @@ Ext.define("MalawiAtlas.util.Map", {
 
       var groups = parentGroup.groups;
       groups.forEach(function (group) {
-        wmsLayers = [];
+        normalLayers = [];
 
         var layers = group.layers;
         layers.forEach(function (layer) {
@@ -200,14 +196,15 @@ Ext.define("MalawiAtlas.util.Map", {
             layer.field_aliases = fieldAliases;
           }
 
-          var wmsLayer = me.createWMSLayerFromJSON(layer);
-
-          wmsLayers.push(wmsLayer);
+          if (layer.layer_type === "WMS") {
+            var mapLayer = me.createWMSLayerFromJSON(layer);
+            normalLayers.push(mapLayer);
+          }
         }); // end - layer
 
         var groupLayer = new ol.layer.Group({
           name: group.groupName,
-          layers: wmsLayers,
+          layers: normalLayers,
         });
         groupLayers.push(groupLayer);
       }); // end - group

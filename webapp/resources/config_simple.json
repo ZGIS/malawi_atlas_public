@@ -37,6 +37,8 @@
             "groupName": "Hazards",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (DoDMA)",
                 "name": "salima_hazard_flood_dodma",
                 "description": "Flood hazard zones delineated through community mapping exercises conducted by the Government of Malawi Department of Disaster Management (DoDMA)",
@@ -48,6 +50,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (COOPI PGIS 2013)",
                 "name": "salima_hazard_pgis",
                 "thematicGroup": "SALIMA_DISASTER",
@@ -60,6 +64,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (Irrigation & Water Development Department)",
                 "name": "salima_hazard_flood_irrigation_and_water_department",
                 "description": "Unknown",
@@ -71,6 +77,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (Forestry Department)",
                 "name": "salima_hazard_flood_forestry_department",
                 "description": "Zones of flood hazard as identified by the Salima District Department of Forestry.",
@@ -87,6 +95,8 @@
             "groupName": "Vulnerability to floods",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood vulnerability index",
                 "name": "salima_vulnerability_to_floods_index_2014",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -102,6 +112,8 @@
                 "feature_info_activated": true
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Piecharts",
                 "name": "salima_vulnerability_to_floods_index_2014_chart",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -113,6 +125,8 @@
                 "useImageWmsInsteadOfTileWMS": true
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood vulnerability index (selected GVHs)",
                 "name": "salima_vulnerability_to_floods_index_gvh_2014",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -140,6 +154,8 @@
             "groupName": "Hazards",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood hazards",
                 "name": "mzuzu_hazard_flood",
                 "thematicGroup": "MZUZU_PGIS",
@@ -152,6 +168,46 @@
                 "vector_geometry": "polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
+                "title": "Strong wind hazards",
+                "name": "mzuzu_hazard_strongwind",
+                "thematicGroup": "MZUZU_PGIS",
+                "description": "",
+                "source": "COOPI & Z_GIS",
+                "year": 2020,
+                "layer_extent": "Mzuzu",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_Type": "Vector (.gpkg)",
+                "vector_geometry": "Line"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Mzuzu",
+        "groups": [
+          {
+            "groupName": "Hazards",
+            "layers": [
+              {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
+                "title": "Flood hazards",
+                "name": "mzuzu_hazard_flood",
+                "thematicGroup": "MZUZU_PGIS",
+                "description": "",
+                "source": "COOPI & Z_GIS",
+                "year": 2020,
+                "layer_extent": "Mzuzu",
+                "projection": "WGS 84 (EPSG: 4326)",
+                "data_type": "Vector (.gpkg)",
+                "vector_geometry": "polygon"
+              },
+              {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Strong wind hazards",
                 "name": "mzuzu_hazard_strongwind",
                 "thematicGroup": "MZUZU_PGIS",
