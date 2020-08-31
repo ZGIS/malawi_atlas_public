@@ -27,6 +27,15 @@
           3793398,
           -1277378
         ]
+      },
+      "GLOBAL_FLOOD": {
+        "name": "Global Flood",
+        "extent": [
+          3650738,
+          -1945482,
+          4053741,
+          -1032934
+        ]
       }
     },
     "parentGroups": [
@@ -186,38 +195,27 @@
         ]
       },
       {
-        "parentGroupName": "Mzuzu",
+        "parentGroupName": "Global Floods",
         "groups": [
           {
-            "groupName": "Hazards",
+            "groupName": "Global Floods",
             "layers": [
               {
                 "layer_type": "WMS",
-                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
-                "title": "Flood hazards",
-                "name": "mzuzu_hazard_flood",
-                "thematicGroup": "MZUZU_PGIS",
-                "description": "",
-                "source": "COOPI & Z_GIS",
-                "year": 2020,
-                "layer_extent": "Mzuzu",
-                "projection": "WGS 84 (EPSG: 4326)",
-                "data_type": "Vector (.gpkg)",
-                "vector_geometry": "polygon"
+                "url": "http://globalfloods-ows.ecmwf.int/glofas-ows/",
+                "title": "AccRainEGE",
+                "name": "AccRainEGE",
+                "thematicGroup": "GLOBAL_FLOOD",
+                "openlayers_projection": "EPSG:4326", 
+                "useImageWmsInsteadOfTileWMS": true
               },
               {
                 "layer_type": "WMS",
-                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
-                "title": "Strong wind hazards",
-                "name": "mzuzu_hazard_strongwind",
-                "thematicGroup": "MZUZU_PGIS",
-                "description": "",
-                "source": "COOPI & Z_GIS",
-                "year": 2020,
-                "layer_extent": "Mzuzu",
-                "projection": "WGS 84 (EPSG: 4326)",
-                "data_Type": "Vector (.gpkg)",
-                "vector_geometry": "Line"
+                "url": "https://edo.jrc.ec.europa.eu/gdo/php/wms.php?SERVICE=WMS",
+                "title": "grid_1dd_rdri",
+                "name": "grid_1dd_rdri",
+                "thematicGroup": "GLOBAL_FLOOD",
+                "openlayers_projection": "EPSG:4326"
               }
             ]
           }

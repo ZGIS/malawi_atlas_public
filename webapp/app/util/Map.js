@@ -127,26 +127,28 @@ Ext.define("MalawiAtlas.util.Map", {
       "&FORMAT=image/png&LAYER=" +
       layerJSON.name;
     var resultLayer;
+
     if (layerJSON.useImageWmsInsteadOfTileWMS) {
       // prevent rendering problems with the pie charts.
       resultLayer = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           url: layerJSON.url,
+          projection: layerJSON.openlayers_projection,
           params: {
             LAYERS: layerJSON.name,
           },
-          crossOrigin: "",
         }),
       });
     } else {
+
       resultLayer = new ol.layer.Tile({
         source: new ol.source.TileWMS({
           url: layerJSON.url,
+          projection: layerJSON.openlayers_projection,
           params: {
             LAYERS: layerJSON.name,
             TILED: true,
           },
-          crossOrigin: "",
         }),
       });
     } // set layer properties
