@@ -37,7 +37,7 @@ Ext.define("MalawiAtlas.controller.printing.PrintFormController", {
     var olExtent = olView.calculateExtent();
 
     // all layers
-    var layers = MalawiAtlas.util.Layer.getFlatLayerList();
+    var layers = MalawiAtlas.util.Map.getFlatLayerList();
 
     // container arrays
     var layerIDs = [];

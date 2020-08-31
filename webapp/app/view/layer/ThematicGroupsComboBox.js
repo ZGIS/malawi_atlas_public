@@ -8,32 +8,8 @@ Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
   queryMode: "local",
   displayField: "name",
   valueField: "extent",
-  emptyText: "predefined map ... ",
-  initComponent: function () {
-    var me = this;
-
-    var thematicGroupItems = MalawiAtlas.util.Layer.thematicGroupItems;
-
-    // re-structure JSON
-    var comboBoxArray = [];
-    Object.keys(thematicGroupItems).forEach(function (key) {
-      var thematicGroupParams = thematicGroupItems[key];
-      var name = thematicGroupParams.name;
-      var extent = thematicGroupParams.extent;
-      comboBoxArray.push({
-        name: name,
-        extent: extent,
-        thematicGroup: key
-      });
-    });
-
-    me.store = Ext.create("Ext.data.Store", {
-      fields: ["name", "extent"],
-      data: comboBoxArray
-    });
-
-    me.callParent();
-  },
+  emptyText: "Choose your map:",
+  store: {},
 
   layerChangeListenerKey: null,
 
@@ -50,7 +26,7 @@ Ext.define("MalawiAtlas.view.layer.ThematicGroupsComboBox", {
       MalawiAtlas.util.Map.zoomToExtent(extent);
 
       // activate layers
-      var flatLayerList = MalawiAtlas.util.Layer.getFlatLayerList();
+      var flatLayerList = MalawiAtlas.util.Map.getFlatLayerList();
       flatLayerList.forEach(function (layer) {
         var themgroup = layer.get("thematicGroup");
         if (

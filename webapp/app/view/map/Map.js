@@ -8,6 +8,7 @@ Ext.define("MalawiAtlas.view.map.Map", {
 
   initComponent: function () {
     var me = this;
+
     me.map = MalawiAtlas.util.Map.getOlMap();
 
     // convert OL event to Ext event

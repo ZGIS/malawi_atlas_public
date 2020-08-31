@@ -55,6 +55,10 @@ The directory `notes` contains documentation and experiences.
 
 The directory `vector_images` contains the original graphic files that can be used to create PNG files.
 
+## Changing Layers
+
+All layers are defined in [`webapp/resources/config.json`](webapp/resources/config.json). 
+
 ## Sphinx Documenation
 
 The folder `docs` contains the documentation which uses [Sphinx](http://www.sphinx-doc.org/en/master/) generator. Installation on Ubuntu 18.04:

@@ -458,7 +458,7 @@ Ext.define("MalawiAtlas.controller.map.MapController", {
     // get landcover layers
     var lc1990 = null;
     var lc2009 = null;
-    MalawiAtlas.util.Layer.getFlatLayerList().forEach(function (layer) {
+    MalawiAtlas.util.Map.getFlatLayerList().forEach(function (layer) {
       var lid = layer.get("lid");
       if (lid === "linthipe_lingadzi_land_use_land_cover_1990") {
         lc1990 = layer;

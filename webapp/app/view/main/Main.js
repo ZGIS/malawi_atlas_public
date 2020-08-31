@@ -9,12 +9,66 @@ Ext.define("MalawiAtlas.view.main.Main", {
     "MalawiAtlas.view.map.BasemapButton",
     "MalawiAtlas.view.map.ZoomToExtent",
     "MalawiAtlas.store.Districts",
-    "MalawiAtlas.store.TraditionalAuthorities"
+    "MalawiAtlas.store.TraditionalAuthorities",
   ],
 
   controller: "main",
 
   layout: "border",
+
+  initComponent: function () {
+    var me = this;
+
+    // read properties from config file
+    Ext.Ajax.request({
+      url: "resources/config.json",
+      success: me.loadConfigJson,
+    });
+    me.callParent();
+
+    me.mapCmp = Ext.ComponentQuery.query("ma-mappanel")[0];
+    me.olMap = me.mapCmp.map;
+  },
+
+  loadConfigJson: function (response) {
+    var me = this;
+    var configJson = Ext.decode(response.responseText);
+
+    // add layers from Config
+    var parentGroups = configJson.MalawiAtlasLayers.parentGroups;
+    var parentGroupLayers = MalawiAtlas.util.Map.makeLayerGroups(parentGroups);
+    baseLayers = MalawiAtlas.util.Map.baseLayers;
+    layers = baseLayers.concat(parentGroupLayers);
+    Ext.each(layers, function (layer) {
+      if (layer) {
+        me.olMap.addLayer(layer);
+      }
+    });
+
+    // layer tree
+    layerTree = Ext.ComponentQuery.query("ma-layertree")[0];
+
+    var layerArray = [];
+    me.olMap.getLayers().forEach(function (layer) {
+      if (layer.get("basemap") != true && layer.get("measurementLayer") != true)
+        layerArray.push(layer);
+    });
+
+    var store = Ext.create("GeoExt.data.store.LayersTree", {
+      layerGroup: new ol.layer.Group({
+        layers: layerArray,
+      }),
+    });
+    layerTree.setStore(store);
+
+    // Legend
+    MalawiAtlas.util.Map.makeLegend();
+
+    // thematic map chooser
+    var thematicGroupItems = configJson.MalawiAtlasLayers.thematicGroups;
+    MalawiAtlas.util.Map.makeThematicMaps(thematicGroupItems);
+
+  },
 
   items: [
     {
@@ -22,7 +76,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
       frame: false,
       tbar: {
         defaults: {
-          scale: "medium"
+          scale: "medium",
         },
         items: [
           {
@@ -35,13 +89,13 @@ Ext.define("MalawiAtlas.view.main.Main", {
               el: {
                 click: function () {
                   location.reload();
-                }
-              }
-            }
+                },
+              },
+            },
           },
           "->",
           {
-            xtype: "ma-thematic-group-combobox"
+            xtype: "ma-thematic-group-combobox",
           },
           {
             xtype: "button",
@@ -56,19 +110,19 @@ Ext.define("MalawiAtlas.view.main.Main", {
                   text: "Area",
                   measureType: "Polygon",
                   listeners: {
-                    click: "onMeasureClick"
-                  }
+                    click: "onMeasureClick",
+                  },
                 },
                 {
                   iconCls: "x-fa fa-arrows-h",
                   text: "Distance",
                   measureType: "LineString",
                   listeners: {
-                    click: "onMeasureClick"
-                  }
-                }
-              ]
-            })
+                    click: "onMeasureClick",
+                  },
+                },
+              ],
+            }),
           },
           {
             xtype: "button",
@@ -77,10 +131,10 @@ Ext.define("MalawiAtlas.view.main.Main", {
             menu: new Ext.menu.Menu({
               items: [
                 {
-                  xtype: "ma-print-form"
-                }
-              ]
-            })
+                  xtype: "ma-print-form",
+                },
+              ],
+            }),
           },
           {
             xtype: "button",
@@ -99,10 +153,10 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         3650738,
                         -1945482,
                         4053741,
-                        -1032934
+                        -1032934,
                       ]);
-                    }
-                  }
+                    },
+                  },
                 },
                 "-",
                 {
@@ -114,15 +168,15 @@ Ext.define("MalawiAtlas.view.main.Main", {
                   publishes: "value",
                   valueField: "districtName",
                   store: {
-                    type: "districts"
+                    type: "districts",
                   },
                   minChars: 0,
                   queryMode: "remote",
                   typeAhead: true,
                   listeners: {
-                    select: "comboZoomToExtent"
+                    select: "comboZoomToExtent",
                   },
-                  indent: false
+                  indent: false,
                 },
                 {
                   xtype: "combobox",
@@ -134,22 +188,22 @@ Ext.define("MalawiAtlas.view.main.Main", {
                   bind: {
                     filters: {
                       property: "districtName",
-                      value: "{districts.value}"
-                    }
+                      value: "{districts.value}",
+                    },
                   },
                   store: {
-                    type: "traditionalauthorities"
+                    type: "traditionalauthorities",
                   },
                   minChars: 0,
                   queryMode: "remote",
                   typeAhead: true,
                   listeners: {
-                    select: "comboZoomToExtent"
+                    select: "comboZoomToExtent",
                   },
-                  indent: false
-                }
-              ]
-            })
+                  indent: false,
+                },
+              ],
+            }),
           },
           {
             text: "Reports",
@@ -165,8 +219,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/Report_RA_Salima_20140327.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Vulnerability Assessment to floods - Salima",
@@ -177,8 +231,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/Report_VA_Salima_20140327.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Guidelines UAV",
@@ -189,8 +243,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/D_3_1_Guidelines_UAV.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Systematization UAV",
@@ -201,8 +255,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/D_3_3_Systematization_UAV.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "ECHO STRIM Baseline Consolidated Report",
@@ -213,8 +267,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/ECHO STRIM Baseline Consolidated Report 101219.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "ECHO STRIM EVCA Consolidated Report",
@@ -225,8 +279,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/ECHO STRIM EVCA Consolidated Report 101219.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Karonga ECHO STRIM eVCA Report",
@@ -237,8 +291,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/Karonga ECHO STRIM eVCA Report.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Lilongwe ECHO STRIM eVCA Report",
@@ -249,8 +303,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/Lilongwe ECHO STRIM eVCA Report.pdf",
                         "_blank"
                       );
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Mzuzu ECHO STRIM eVCA Report",
@@ -261,11 +315,11 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "resources/pdf/Mzuzu ECHO STRIM eVCA Report.pdf",
                         "_blank"
                       );
-                    }
-                  }
-                }
-              ]
-            }
+                    },
+                  },
+                },
+              ],
+            },
           },
           {
             xtype: "button",
@@ -278,8 +332,8 @@ Ext.define("MalawiAtlas.view.main.Main", {
                   listeners: {
                     click: function () {
                       window.open("https://www.gis-malawi.com/docs/", "_blank");
-                    }
-                  }
+                    },
+                  },
                 },
                 {
                   text: "Source Code",
@@ -290,44 +344,44 @@ Ext.define("MalawiAtlas.view.main.Main", {
                         "https://github.com/zgis/malawi_atlas_public",
                         "_blank"
                       );
-                    }
-                  }
-                }
-              ]
-            })
+                    },
+                  },
+                },
+              ],
+            }),
           },
           {
             xtype: "image",
             src: "resources/images/logo_eu.png",
             width: (1.4 * 3345) / 81.65,
-            height: (1.4 * 3266) / 81.65
+            height: (1.4 * 3266) / 81.65,
           },
           {
             xtype: "image",
             src: "resources/images/logo_malawi_government.png",
             width: 40,
-            height: 40
+            height: 40,
           },
           {
             xtype: "image",
             src: "resources/images/logo_coopi.jpeg",
             width: 1320 / 13.55,
-            height: 542 / 13.55
+            height: 542 / 13.55,
           },
           {
             xtype: "image",
             src: "resources/images/logo_concern_worldwide.gif",
             width: (0.8 * 434) / 3.675,
-            height: (0.8 * 147) / 3.675
+            height: (0.8 * 147) / 3.675,
           },
           {
             xtype: "image",
             src: "resources/images/logo_zgis.jpg",
             width: (0.7 * 132) / 1.275,
-            height: (0.7 * 51) / 1.275
-          }
-        ]
-      }
+            height: (0.7 * 51) / 1.275,
+          },
+        ],
+      },
     },
 
     // map
@@ -340,12 +394,12 @@ Ext.define("MalawiAtlas.view.main.Main", {
       items: [
         {
           xtype: "ma-mappanel",
-          anchor: "100% 100%"
+          anchor: "100% 100%",
         },
         {
-          xtype: "ma-basemap-button"
-        }
-      ]
+          xtype: "ma-basemap-button",
+        },
+      ],
     },
 
     // left side-bar
@@ -356,7 +410,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
       layout: {
         type: "vbox",
         pack: "start",
-        align: "stretch"
+        align: "stretch",
       },
       scrollable: "y",
       collapsed: "y",
@@ -364,14 +418,13 @@ Ext.define("MalawiAtlas.view.main.Main", {
       items: [
         {
           title: "Layers",
-
           xtype: "ma-layertree",
-          bodyBorder: false
+          bodyBorder: false,
         },
         {
-          xtype: "ma-feature-info-panel"
-        }
-      ]
+          xtype: "ma-feature-info-panel",
+        },
+      ],
     },
 
     // legend
@@ -382,9 +435,9 @@ Ext.define("MalawiAtlas.view.main.Main", {
       scrollable: "y",
       items: [
         {
-          xtype: "ma-legend"
-        }
-      ]
-    }
-  ]
+          xtype: "ma-legend",
+        },
+      ],
+    },
+  ],
 });
