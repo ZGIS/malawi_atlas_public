@@ -77,7 +77,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
       tbar: {
         defaults: {
           scale: "medium",
-        },define
+        },
         items: [
           {
             xtype: "image",
