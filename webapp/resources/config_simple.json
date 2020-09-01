@@ -27,6 +27,15 @@
           3793398,
           -1277378
         ]
+      },
+      "GLOBAL_DROUGHT_OBSERVATORY": {
+        "name": "Global Drought Observatory",
+        "extent": [
+          -2123009,
+          -4977281,
+          6955292,
+          4652758
+        ]
       }
     },
     "parentGroups": [
@@ -37,6 +46,8 @@
             "groupName": "Hazards",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (DoDMA)",
                 "name": "salima_hazard_flood_dodma",
                 "description": "Flood hazard zones delineated through community mapping exercises conducted by the Government of Malawi Department of Disaster Management (DoDMA)",
@@ -48,6 +59,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (COOPI PGIS 2013)",
                 "name": "salima_hazard_pgis",
                 "thematicGroup": "SALIMA_DISASTER",
@@ -60,6 +73,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (Irrigation & Water Development Department)",
                 "name": "salima_hazard_flood_irrigation_and_water_department",
                 "description": "Unknown",
@@ -71,6 +86,8 @@
                 "vector_geometry": "Polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Floods (Forestry Department)",
                 "name": "salima_hazard_flood_forestry_department",
                 "description": "Zones of flood hazard as identified by the Salima District Department of Forestry.",
@@ -87,6 +104,8 @@
             "groupName": "Vulnerability to floods",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood vulnerability index",
                 "name": "salima_vulnerability_to_floods_index_2014",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -102,6 +121,8 @@
                 "feature_info_activated": true
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Piecharts",
                 "name": "salima_vulnerability_to_floods_index_2014_chart",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -113,6 +134,8 @@
                 "useImageWmsInsteadOfTileWMS": true
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood vulnerability index (selected GVHs)",
                 "name": "salima_vulnerability_to_floods_index_gvh_2014",
                 "thematicGroup": "SALIMA_VULERNABILITY",
@@ -140,6 +163,8 @@
             "groupName": "Hazards",
             "layers": [
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Flood hazards",
                 "name": "mzuzu_hazard_flood",
                 "thematicGroup": "MZUZU_PGIS",
@@ -152,6 +177,8 @@
                 "vector_geometry": "polygon"
               },
               {
+                "layer_type": "WMS",
+                "url": "https://www.gis-malawi.com/geoserver/malawi_atlas/wms",
                 "title": "Strong wind hazards",
                 "name": "mzuzu_hazard_strongwind",
                 "thematicGroup": "MZUZU_PGIS",
@@ -162,6 +189,35 @@
                 "projection": "WGS 84 (EPSG: 4326)",
                 "data_Type": "Vector (.gpkg)",
                 "vector_geometry": "Line"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "parentGroupName": "Global Drought Observatory",
+        "groups": [
+          {
+            "groupName": "Global Drought Observatory",
+            "layers": [
+              {
+                "layer_type": "WMS",
+                "url": "http://globalfloods-ows.ecmwf.int/glofas-ows/",
+                "title": "Accumulated Precipitation",
+                "name": "AccRainEGE",
+                "thematicGroup": "GLOBAL_DROUGHT_OBSERVATORY",
+                "openlayers_projection": "EPSG:4326",
+                "useImageWmsInsteadOfTileWMS": true,
+                "opacity": 0.6
+              },
+              {
+                "layer_type": "WMS",
+                "url": "https://edo.jrc.ec.europa.eu/gdo/php/wms.php?SERVICE=WMS",
+                "title": "Risk of Drought Impact for Agriculture (RDrI-Agri)",
+                "name": "grid_1dd_rdri",
+                "thematicGroup": "GLOBAL_DROUGHT_OBSERVATORY",
+                "openlayers_projection": "EPSG:4326",
+                "opacity": 0.6
               }
             ]
           }
