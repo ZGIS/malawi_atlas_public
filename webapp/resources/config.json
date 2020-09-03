@@ -3008,7 +3008,8 @@
                 "thematicGroup": "GLOBAL_DATA",
                 "openlayers_projection": "EPSG:4326",
                 "useImageWmsInsteadOfTileWMS": true,
-                "opacity": 0.6
+                "opacity": 0.6,
+                "cors_special_treatment": true
               },
               {
                 "layer_type": "WMS",
@@ -3017,7 +3018,8 @@
                 "name": "grid_1dd_rdri",
                 "thematicGroup": "GLOBAL_DATA",
                 "openlayers_projection": "EPSG:4326",
-                "opacity": 0.6
+                "opacity": 0.6,
+                "cors_special_treatment": true
               }
             ]
           }

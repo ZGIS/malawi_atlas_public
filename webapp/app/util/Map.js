@@ -128,6 +128,13 @@ Ext.define("MalawiAtlas.util.Map", {
       layerJson.name;
     var resultLayer;
 
+    // some OWS servers do not have CORS activated
+    // in this case "crossOrigin" must be undefined
+    var crossOrigin = "anonymous";
+    if (layerJson.cors_special_treatment) {
+      crossOrigin = undefined;
+    }
+
     if (layerJson.useImageWmsInsteadOfTileWMS) {
       // prevent rendering problems with the pie charts.
       resultLayer = new ol.layer.Image({
@@ -136,7 +143,8 @@ Ext.define("MalawiAtlas.util.Map", {
           projection: layerJson.openlayers_projection,
           params: {
             LAYERS: layerJson.name
-          }
+          },
+          crossOrigin: crossOrigin
         })
       });
     } else {
@@ -147,7 +155,8 @@ Ext.define("MalawiAtlas.util.Map", {
           params: {
             LAYERS: layerJson.name,
             TILED: true
-          }
+          },
+          crossOrigin: crossOrigin
         })
       });
     } // set layer properties
