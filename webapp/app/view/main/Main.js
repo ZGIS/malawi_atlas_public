@@ -341,6 +341,11 @@ Ext.define("MalawiAtlas.view.main.Main", {
                   );
                 }
               }
+            },
+            {
+              text: "Contact the Webmaster",
+              iconCls: "x-fa fa-envelope",
+              href: "mailto:stefan.kienberger@sbg.ac.at"
             }
           ]
         })
