@@ -346,34 +346,29 @@ Ext.define("MalawiAtlas.view.main.Main", {
         })
       },
       {
-        xtype: "image",
-        src: "resources/images/logo_eu.png",
-        width: (1.4 * 3345) / 81.65,
-        height: (1.4 * 3266) / 81.65
+        xtype: "panel",
+        html:
+          '<a href="https://ec.europa.eu/echo/index_en"><img src="resources/images/logo_eu.png" width="50" height="50"></a>'
       },
       {
-        xtype: "image",
-        src: "resources/images/logo_malawi_government.png",
-        width: 40,
-        height: 40
+        xtype: "panel",
+        html:
+          '<a href="https://www.malawi.gov.mw/"><img src="resources/images/logo_malawi_government.png" width="50" height="50"></a>'
       },
       {
-        xtype: "image",
-        src: "resources/images/logo_coopi.jpeg",
-        width: 1320 / 13.55,
-        height: 542 / 13.55
+        xtype: "panel",
+        html:
+          '<a href="https://www.coopi.org/en"><img src="resources/images/logo_coopi.jpeg" width="100" height="40"></a>'
       },
       {
-        xtype: "image",
-        src: "resources/images/logo_concern_worldwide.gif",
-        width: (0.8 * 434) / 3.675,
-        height: (0.8 * 147) / 3.675
+        xtype: "panel",
+        html:
+          '<a href="https://www.concern.net/"><img src="resources/images/logo_concern_worldwide.gif" width="95" height="32"></a>'
       },
       {
-        xtype: "image",
-        src: "resources/images/logo_zgis.jpg",
-        width: (0.7 * 132) / 1.275,
-        height: (0.7 * 51) / 1.275
+        xtype: "panel",
+        html:
+          '<a href="https://www.zgis.at"><img src="resources/images/logo_zgis.jpg" width="70" height="28"></a>'
       }
     ]
   },
