@@ -112,10 +112,7 @@
       "GLOBAL_DATA": {
         "name": "Global Data",
         "extent": [
-          -2123009,
-          -4977281,
-          6955292,
-          4652758
+          -3140539 ,-4918577, 6798749, 4907141
         ]
       }
     },
@@ -3020,6 +3017,11 @@
                 "openlayers_projection": "EPSG:4326",
                 "opacity": 0.6,
                 "cors_special_treatment": true
+              },
+              {
+                "layer_type": "KML",
+                "url": "https://api.codetabs.com/v1/proxy/?quest=https://gdacs.org/xml/gdacs.kml",
+                "title": "Disaster Alerts - GDACS"
               }
             ]
           }

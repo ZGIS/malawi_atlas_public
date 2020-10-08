@@ -209,6 +209,18 @@ Ext.define("MalawiAtlas.util.Map", {
           if (layer.layer_type === "WMS") {
             var mapLayer = me.createWMSLayerFromLayerJson(layer);
             normalLayers.push(mapLayer);
+          } else if (layer.layer_type === "KML") {
+            var kmlLayer = new ol.layer.Vector({
+              source: new ol.source.Vector({
+                url: layer.url,
+
+                format: new ol.format.KML()
+              }),
+              name: layer.title,
+              visible: false
+            });
+
+            normalLayers.push(kmlLayer);
           }
         }); // end - layer
 
