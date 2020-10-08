@@ -160,6 +160,11 @@ Ext.define("MalawiAtlas.util.Map", {
         })
       });
     } // set layer properties
+
+    if (layerJson.url.startsWith("https://www.gis-malawi.com/")) {
+      resultLayer.set("fromGisMalawiCom", true);
+    }
+
     resultLayer.set("dataqtip", layerJson.dataqtip);
     resultLayer.set("description", layerJson.description);
     resultLayer.set("feature_info_activated", layerJson.feature_info_activated);

@@ -47,7 +47,7 @@ Ext.define("MalawiAtlas.view.layer.LayerTree", {
       menudisabled: true,
       sortable: false,
       width: 25,
-      isDisabled: "isRasterLayerOrGroup",
+      isDisabled: "checkIfNotDownloadable",
       handler: "openDownloadWindow"
     },
     {

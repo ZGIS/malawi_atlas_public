@@ -12,12 +12,15 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
   },
 
   /**
-   * If node is a group or raster, then icon is disabled
+   * Checks if layer is from gis-malawi.com and if it is a raster layer
+   * or a layer group
    */
-  isRasterLayerOrGroup: function (view, rowIdx, colIdx, item, record) {
+  checkIfNotDownloadable: function (view, rowIdx, colIdx, item, record) {
+    // other
     var isRaster = record.data.get("raster_properties");
+    var notFromGisMalawiCom = !record.data.get("fromGisMalawiCom");
 
-    return record.data.isLayerGroup || isRaster;
+    return notFromGisMalawiCom || record.data.isLayerGroup || isRaster;
   },
 
   /**
