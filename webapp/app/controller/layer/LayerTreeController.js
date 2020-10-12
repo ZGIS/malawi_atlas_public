@@ -16,8 +16,9 @@ Ext.define("MalawiAtlas.controller.layer.LayerTreeController", {
    * or a layer group
    */
   checkIfNotDownloadable: function (view, rowIdx, colIdx, item, record) {
-    // other
-    var isRaster = record.data.get("raster_properties");
+
+    var isRaster = record.data.get("raster_properties") || record.data.get("is_raster") ;
+
     var notFromGisMalawiCom = !record.data.get("fromGisMalawiCom");
 
     return notFromGisMalawiCom || record.data.isLayerGroup || isRaster;

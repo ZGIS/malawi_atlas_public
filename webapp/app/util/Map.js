@@ -165,6 +165,7 @@ Ext.define("MalawiAtlas.util.Map", {
       resultLayer.set("fromGisMalawiCom", true);
     }
 
+    resultLayer.set("is_raster", layerJson.is_raster);
     resultLayer.set("dataqtip", layerJson.dataqtip);
     resultLayer.set("description", layerJson.description);
     resultLayer.set("feature_info_activated", layerJson.feature_info_activated);
