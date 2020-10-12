@@ -112,7 +112,10 @@
       "GLOBAL_DATA": {
         "name": "Global Data",
         "extent": [
-          -3140539 ,-4918577, 6798749, 4907141
+          -3140539,
+          -4918577,
+          6798749,
+          4907141
         ]
       }
     },
@@ -678,6 +681,7 @@
                 "title": "Orthophoto",
                 "name": "nsanje_uav",
                 "description": "Extraction of settlements based on object-based image analysis (OBIA) approach and optical UAV-based imagery. Analysis conducted by Department of Geoinformatics - Z_GIS, University of Salzburg. In collaboration with COOPI and Concern Worldwide. Data provided by Agrisense.",
+                "is_raster": true,
                 "year": 2018
               }
             ]
@@ -1340,7 +1344,8 @@
                 "title": "Orthophoto",
                 "name": "mangochi_uav_imagery",
                 "description": "Extraction of settlements based on object-based image analysis (OBIA) approach and optical UAV-based imagery. Analysis conducted by Department of Geoinformatics - Z_GIS, University of Salzburg. In collaboration with COOPI and Concern Worldwide. Data provided by Agrisense.",
-                "year": 2018
+                "year": 2018, 
+                "is_raster": true
               }
             ]
           },
@@ -3022,7 +3027,13 @@
                 "layer_type": "KML",
                 "url": "https://api.codetabs.com/v1/proxy/?quest=https://gdacs.org/xml/gdacs.kml",
                 "title": "Disaster Alerts - GDACS"
-              }
+              },
+              {
+                "layer_type": "WMS",
+                "url": "http://www.masdap.mw/geoserver/ows?service=WMS",
+                "title": "DEM_Hillshade_Mzuzu_10m",
+                "name": "DEM_Hillshade_Mzuzu_10m"
+              },
             ]
           }
         ]
