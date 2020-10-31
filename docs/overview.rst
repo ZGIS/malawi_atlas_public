@@ -12,4 +12,8 @@ The program `GeoServer <https://geoserver.org/>`_ publishes the geodata accordin
 
 All layers of Malawi Atlas can also be displayed in a desktop GIS like `QGIS <https://qgis.org/en/site/>`_. But also websites like Malawi Atlas can display the layers.
 
+Since the 2020 update, the Malawi Atlas can also display layers from other servers. In future the main server for geospatial data should be `MASDAP <http://www.masdap.mw/>`_. The concept of integrating foreign data sources is displayed in the diagram below. 
+
+.. image:: img/diagram_overview_architecture.png
+
 The Malawi Atlas website uses the `Ext JS <https://www.sencha.com/products/extjs/>`_ framework. This makes it possible to create a feature rich website that feels like a desktop application. For displaying the geodata the JavaScript library `OpenLayers <https://openlayers.org/>`_ and the Ext component `GeoExt <https://geoext.github.io/geoext3/>`_ are used.

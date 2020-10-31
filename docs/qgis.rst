@@ -73,7 +73,7 @@ It might be necessary to restart QGIS, after the setup. When the WFS and the WMS
 
 .. image:: img/qgis_wms_overview.png
 
-Then, the layers can be draged inside the QGIS map.
+Then, the layers can be dragged inside the QGIS map.
 
 The WMS layers show the exact same styling as in the Malawi Atlas website. The WFS layers in contrast show no styling, but the contain the actual data. This means, it is possible to see the attribute table. A WFS layer can be exported in many other formats like GeoPackage, Shapefile or CSV. In order to do this, go to the ``Layers`` panel, right-click on a WFS layer and choose ``Export`` --> ``Save Features As ...`` . Then a window will open where the ``Format``, the ``File Name`` and the Coordinate Reference System (``CRS``) can be chosen.
 

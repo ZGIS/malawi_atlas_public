@@ -18,3 +18,4 @@ hazards, vulnerability, resilience, risk reduction and demographics.
    website
    qgis
    server
+   masdap_integration

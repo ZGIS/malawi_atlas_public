@@ -49,7 +49,7 @@ The database PostgreSQL stores all vector data of the Malawi Atlas. It can be do
 
 For storing spatial data it is necessary to also install `PostGIS <https://postgis.net>`_. The installation instructions can be found on the official `documentation <https://postgis.net/install/>`_.
 
-We used PostgrSQL version ``11`` and PostGIS version ``2.5``, however Malawi Atlas should actually work well with the lastest versions of both.
+We used PostgreSQL version ``11`` and PostGIS version ``2.5``, however Malawi Atlas should actually work well with the latest versions of both.
 
 In order to populate the database you need the database dump. Afterwards you can load the data into PostGIS using this command:
 
@@ -143,7 +143,7 @@ Data Organization
 It is important to name all layers in an expressive way. We agreed on a naming schema that looks like this example: ``salima_hazard_flood_dodma_2016`` . The name is structured with words in this order:
 
 1. Geographical extent
-2. Abstract description e.g. ``harzard``
+2. Abstract description e.g. ``hazard``
 3. precise description e.g. ``flood``
 4. source
 5. date
