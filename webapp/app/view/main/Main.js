@@ -21,7 +21,7 @@ Ext.define("MalawiAtlas.view.main.Main", {
 
     // read properties from config file
     Ext.Ajax.request({
-      url: "resources/config.json",
+      url: "resources/config/config.json",
       success: me.loadConfigJson
     });
     me.callParent();
