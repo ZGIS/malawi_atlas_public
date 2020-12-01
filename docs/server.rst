@@ -61,7 +61,7 @@ In order to populate the database you need the database dump. Afterwards you can
 Ext JS
 ------
 
-Ext JS provides the JavaScript framework that Malawi Atlas uses. It can be downloaded on this `website <https://www.sencha.com/legal/GPL/>`_. Additionally for building the website the command line tool `Sencha CMD <https://www.sencha.com/products/extjs/cmd-download/>`_ is required. The source code of the Malawi Atlas and further instructions how build the website can be found in the `repository <https://github.com/zgis/malawi_atlas_public>`_.
+Ext JS provides the JavaScript framework that Malawi Atlas uses. It can be downloaded on the `Sencha website <https://www.sencha.com/legal/GPL/>`_. Additionally for building the website the command line tool `Sencha CMD <https://www.sencha.com/products/extjs/cmd-download/>`_ is required. The source code of the Malawi Atlas and further instructions how build the website can be found in the `repository <https://github.com/zgis/malawi_atlas_public>`_.
 
 
 Update Software
@@ -133,14 +133,17 @@ Many vector layers can be bulk imported. Navigate to the folder of the files. On
 Large Raster Files to OpenAerialMap
 -----------------------------------
 
-Adding large raster files to server can cause performance issues. Therefore it is recommended to upload large raster files to `OpenAerialMap <https://openaerialmap.org/>`_ .
+Adding large raster files to server can cause performance issues. Therefore it is recommended to upload large raster
+files to `OpenAerialMap (OAM) <https://openaerialmap.org/>`_. A tutorial on integrating the WMTS service OAM refer to
+the :ref:`OAM tutorial <oam-tutorial-ref>`.
 
-
+.. _server-data-organization-ref:
 
 Data Organization
 -----------------
 
-It is important to name all layers in an expressive way. We agreed on a naming schema that looks like this example: ``salima_hazard_flood_dodma_2016`` . The name is structured with words in this order:
+It is important to name all layers in an expressive way. We agreed on a naming schema that looks like this example:
+``salima_hazard_flood_dodma_2016`` . The name is structured with words in this order:
 
 1. Geographical extent
 2. Abstract description e.g. ``hazard``
@@ -165,7 +168,7 @@ The styling in GeoServer needs to be provided in Styled Layer Descriptor (SLD) f
 GeoServer
 ---------
 
-Publish the data on GeoServer using the admin user interface. For each PostGIS schema a new store has to be created. And each rasterfile needs an own store as well. Please follow the official `documentation <https://docs.geoserver.org/>`_ of GeoServer for the details.
+Publish the data on GeoServer using the admin user interface. For each PostGIS schema a new store has to be created. And each rasterfile needs an own store as well. Please follow the official `Geoserver documentation <https://docs.geoserver.org/>`_ for the details.
 
 Vector data
 ~~~~~~~~~~~
@@ -227,7 +230,7 @@ Here an example for a raster layer:
    }
   }
 
-Afterwards the website has to be build with the command line program `Sencha CMD   <https://www.sencha.com/products/sencha-cmd/>`_ . Inside the folder ``build/production/MalawiAtlas`` is the source code of the new website. Move this folder to the server and check if everything works like expected.
+Afterwards the website has to be build with the command line program `Sencha CMD <https://www.sencha.com/products/sencha-cmd/>`_ . Inside the folder ``build/production/MalawiAtlas`` is the source code of the new website. Move this folder to the server and check if everything works like expected.
 
 Backup
 ------

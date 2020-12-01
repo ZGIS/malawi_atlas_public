@@ -19,3 +19,4 @@ hazards, vulnerability, resilience, risk reduction and demographics.
    qgis
    server
    masdap_integration
+   openaerialmap_integration
