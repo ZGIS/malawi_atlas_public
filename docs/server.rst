@@ -1,6 +1,6 @@
-******
-Server
-******
+**************************************************************
+Server-side Backend: Technology, Data Handling and Maintenance
+**************************************************************
 
 The `Malawi Atlas website <www.gis-malawi.com/malawi_atlas>`_ is the visible part of the project. In the background there is a server running that stores all geodata and publishes it to the internet.
 
