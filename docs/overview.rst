@@ -1,6 +1,6 @@
 
-Overview
-========
+Malawi Atlas Architectural Overview
+===================================
 
 .. image:: img/architecture.png
 
