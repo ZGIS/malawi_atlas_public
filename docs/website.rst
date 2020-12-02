@@ -1,5 +1,5 @@
-Website
-========
+Website: The Malawi Atlas Frontend
+==================================
 
 The Malawi Atlas is a website which is targeted to desktop computers. It does
 **not** work on mobile devices like tablets or smartphones.
