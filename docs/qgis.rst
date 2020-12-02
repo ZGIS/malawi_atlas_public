@@ -1,5 +1,5 @@
-QGIS
-====
+Malawi Atlas and QGIS: Using the Malawi Atlas in a Desktop GIS Environment
+==========================================================================
 
 Even though the data from "Malawi Atlas" can be downloaded via the website, it can also be useful to view the data directly in QGIS. Please note, that a stable internet connection is required.
 
