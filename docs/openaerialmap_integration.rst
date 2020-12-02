@@ -1,7 +1,7 @@
 .. _oam-tutorial-ref:
 
-OpenAerialMap Integration
-=========================
+Integrating Data from OpenAerialMap into the Malawi Atlas
+=========================================================
 
 `OpenAerialMap <https://openaerialmap.org/>`_ (OAM) is a set of tools for searching, sharing, and using openly licensed
 satellite and unmanned aerial vehicle (UAV) imagery. OAM solely provides its imagery as WMTS or TMS. Those cannot be
