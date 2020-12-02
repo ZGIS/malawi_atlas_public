@@ -1,5 +1,5 @@
-MASDAP Integration
-==================
+Integrating Data from MASDAP into the Malawi Atlas
+==================================================
 
 `MASDAP <http://www.masdap.mw/>`_ is an open data portal that hosts geodata and its metadata and makes it publicly available. The whole process of integrating MASDAP into the Malawi Atlas are also explained in a video tutorial that can received upon request. 
 
